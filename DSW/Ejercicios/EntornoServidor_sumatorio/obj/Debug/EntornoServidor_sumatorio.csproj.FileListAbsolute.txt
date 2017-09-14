@@ -1,0 +1,7 @@
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.exe.config
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.exe
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.pdb
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.csprojResolveAssemblyReference.cache
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.csproj.CoreCompileInputs.cache
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.exe
+a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.pdb
