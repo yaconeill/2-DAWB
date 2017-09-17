@@ -11,13 +11,15 @@ namespace EntornoServidor_sumatorio
         static void Main(string[] args)
         {
             List<int> Ist = new List<int>();
-            Ist.Add(1); Ist.Add(2); Ist.Add(3);
             int r = 0;
+            Ist.Add(1);
+            Ist.Add(2);
+            Ist.Add(3);
             foreach (var i in Ist)
             {
                 r = r + i;
             }
-            Console.WriteLine("Hola el resultado es: "+ r);
+            Console.WriteLine($"Hola el doble del resultado es: {r}");
             Console.ReadLine();
         }
     }

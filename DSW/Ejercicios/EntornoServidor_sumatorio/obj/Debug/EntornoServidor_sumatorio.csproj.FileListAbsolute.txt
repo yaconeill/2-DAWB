@@ -5,3 +5,10 @@ a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_su
 a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.csproj.CoreCompileInputs.cache
 a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.exe
 a:\usuarios\yaco_neill\documentos\visual studio 2017\Projects\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.pdb
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.exe.config
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.exe
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\bin\Debug\EntornoServidor_sumatorio.pdb
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.csprojResolveAssemblyReference.cache
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.csproj.CoreCompileInputs.cache
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.exe
+A:\Git\2ºDAWB\DSW\Ejercicios\EntornoServidor_sumatorio\obj\Debug\EntornoServidor_sumatorio.pdb
