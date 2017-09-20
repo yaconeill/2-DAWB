@@ -1,0 +1,56 @@
+table{
+	border: 1px solid;
+	border-collapse: collapse;	;
+	font-family: "ARIAL"
+}
+
+thead tr:nth-child(1){
+	background-color: gray;
+	color: white;
+	text-align: center;
+	border: 1px solid;
+	font-weight: bold;
+}
+tr{
+	border: 1px solid;
+}
+
+td:nth-child(2){
+	text-align: center;
+}
+
+tbody td:nth-child(3){
+	text-align: right;
+}
+#euro tbody td:nth-child(3)::after, 
+#euro tfoot td:nth-child(2)::after{
+	content: " €";
+}
+
+#dolar tbody td:nth-child(3)::before, 
+#dolar tfoot td:nth-child(2)::before{
+	content: "$ ";
+}
+
+tfoot tr:last-child>td:nth-child(1){
+	text-align: right;
+	font-weight: bold;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	border-right-color: solid;
+}
+
+tr:nth-child(4){
+	border-bottom: 4px solid black;
+}
+
+tfoot tr:last-child>td:last-child{
+	background-color: gray;
+	color: white;
+	text-align: right;
+}
+
+td{
+	border: 1px solid black;
+	padding: 10px;
+}

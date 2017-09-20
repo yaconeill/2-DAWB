@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Calcular exponencial</title>
+<SCRIPT>
+function exponencial(a, n) {
+  return a*exponencial(a, n-1);
+}
+</script>
+</head>
+
+<body>
+<p><font size="5">Calcular exponencial:</font><p>
+
+<form name="myform">
+  <table border=5 cellspacing="3" cellpadding="3">
+    <tr>
+      <td width=200 colspan=2>
+        <p align="center">
+          Número:
+          <input type=text name=a>
+        </p>
+        <p align="center">
+          Exponente:
+          <input type=text name=b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2 align=center>
+        <input type="button" value="Calcular" onClick="myform.valor.value = exponencial(myform.a.value, myform.b.value)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="Borrar">
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <p align="center">
+          Resultado:
+          <br>
+          <input type=text name=valor size="20">
+        </p>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+
+</html>
