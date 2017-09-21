@@ -1,6 +1,7 @@
-function calculateAge(bornYear){   
-    var year = new Date() ;
-    var currentYear = year.getFullYear();
-    alert ("Estás entre " + (currentYear - bornYear) + " o " + (currentYear - bornYear + 1) + " años.");
+function calculateAge(bornYear) {
+    // var year = new Date();
+    // var currentYear = year.getFullYear();
+    alert("Estás entre " + ((new Date().getFullYear()) - bornYear) + " o " +
+        ((new Date().getFullYear()) - bornYear + 1) + " años.");
 }
-calculateAge(anno = prompt("Introducir año de nacimiento:"));
+calculateAge(prompt("Introducir año de nacimiento:"));
