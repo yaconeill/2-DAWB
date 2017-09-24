@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script1.js"></script>
+    <script type="text/javascript" src="js/script2.js"></script>
+    <script type="text/javascript" src="js/script3.js"></script>
+    <script type="text/javascript" src="js/script4.js"></script>
+    <script type="text/javascript" src="js/script5.js"></script>
+    <script type="text/javascript" src="js/script6.js"></script>
+    <script type="text/javascript" src="js/script7.js"></script>
+    <script type="text/javascript" src="js/script8.js"></script>
+    <script type="text/javascript" src="js/script9.js"></script>
+    <script type="text/javascript" src="js/script10.js"></script>
+    <script type="text/javascript" src="js/validaNumber.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body id="home">
+<div class="menu">
+    <ul>
+        <li><a href="#acti1">Actividad 1</a></li>
+        <li><a href="#acti2">Actividad 2</a></li>
+        <li><a href="#acti3">Actividad 3</a></li>
+        <li><a href="#acti4">Actividad 4</a></li>
+        <li><a href="#acti5">Actividad 5</a></li>
+        <li><a href="#acti6">Actividad 6</a></li>
+        <li><a href="#acti7">Actividad 7</a></li>
+        <li><a href="#acti8">Actividad 8</a></li>
+        <li><a href="#acti9">Actividad 9</a></li>
+        <li><a href="#acti10">Actividad 10</a></li>
+    </ul>
+</div>
+<div class="main">
+    <form name="myform">
+        <table>
+            <tr id="acti1">
+                <th>Actividad 1</th>
+                <tr>
+                <td>Determinar el número mayor, el menor, la suma de los enteros introducidos y la diferencia entre el mayor y el menor.<br>
+                    <button type="button" onclick="mathOperations()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti2">
+                <th>Actividad 2</th>
+                <tr>
+                <td>Mostrar el número introducido multiplicado por 2.5 + 100.<br>
+                    <button type="button" onclick="multiplies()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti3">
+                <th>Actividad 3</th>
+                <tr>
+                    <td>Determinar si un alumno está aprobado. Se pedirán 4 valores enteros y 3 reales.<br>
+                        <button type="button" onclick="average()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti4">
+                <th>Actividad 4</th>
+            <tr>
+                <td>Informar al usuario sobre qué imagen está clicando.</td>
+            </tr>
+                <tr>
+                    <td><img id="img1" alt="Casa Targaryen" src="img/img1.png" onclick="clickImages(this)">
+                        <img id="img2" alt="Casa Stark" src="img/img2.png" onclick="clickImages(this)">
+                        <img id="img3" alt="Casa Lanister" src="img/img3.png" onclick="clickImages(this)">
+                        <img id="img4" alt="Casa Baratheon" src="img/img4.png" onclick="clickImages(this)">
+                        <img id="img5" alt="Casa Greyjoy" src="img/img5.png" onclick="clickImages(this)"></td>
+                </tr>
+            </tr>
+            <tr id="acti5">
+                <th>Actividad 5</th>
+                <tr>
+                    <td>Indicar el número de dígitos y la suma de cada uno de sus dígitos. <br>
+                        <button type="button" onclick="sumDigits()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti6">
+                <th>Actividad 6</th>
+                <tr>
+                    <td>Traducir palabras <br>
+                        <button type="button" onclick="translateWords()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti7">
+                <th>Actividad 7</th>
+                <tr>
+                    <td>Calcular edad<br>
+                        <button type="button" onclick="ageCalculator()">Iniciar</button></td>
+                </tr>
+            </tr>
+            <tr id="acti8">
+                <th>Actividad 8</th>
+            <tr>
+                <td>Mostrar el nivel obtenido por un alumno.</td>
+            </tr>
+                <tr>
+                    <td id="form">
+                        <div>
+                            <label for="name">Nombre de alumno:</label>
+                            <input type="text" id="name" size="25"><br>
+                        </div>
+                        <div>
+                            <label for="question">Preguntas que le realizaron</label>
+                            <input type="text" id="question" size="10">
+                        </div>
+                        <div>
+                            <label for="correct">Respondidas correctamente<br></label>
+                            <input type="text" id="correct" size="10">
+                        </div>
+                        <div>
+                            <input type="button" value="Iniciar" onclick="levelMeasurement()">
+                        </div>
+                    </td>
+                </tr>
+            </tr>
+            <tr id="acti9">
+                <th>Actividad 9</th>
+                <tr>
+                    <td>Mostrar un triangulo invertido dando la base y el caracter de relleno.<br>
+                        <button type="button" onclick="writeTriangle()">Iniciar</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="write"></div>
+                    </td>
+                </tr>
+            </tr>
+            <tr id="acti10">
+                <th>Actividad 10</th>
+            <tr>
+                <td>Mostrar un triangulo invertido dando la base y rellenando con 2 caracteres.<br>
+                    <button type="button" onclick="blue()">Iniciar</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="writeTwo"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#home"><span class="glyphicon">&#xe021;</span></a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

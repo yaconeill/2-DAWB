@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="cafe.js"></script>
+</head>
+
+<body>
+<form name="myform">
+    <table>
+        <tr>
+            <td>
+                <p>
+                    Introducir edad:<br>
+                    <input type=text name=a>
+                </p>
+                <p>
+                    Introducir tazas de café diarias:<br>
+                    <input type=text name=b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Calcular" onClick="calculateSupply(myform.a.value, myform.b.value)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="Borrar">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+
+</html>
