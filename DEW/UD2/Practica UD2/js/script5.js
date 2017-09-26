@@ -2,7 +2,7 @@
 //      indicando el número de dígitos que contiene y la suma de cada uno de sus dígitos.
 //      Por ejemplo: 125, tendría tres dígitos y la suma de estos sería 8.
 function sumDigits() {
-    var num = isPositiveInt("Introducir un número positivo:");
+    var num = isPositiveInt("Introducir un número positivo:").toString();
     var numDigits = num.toString().length;
     var sum = 0;
     for (var n in num){

@@ -12,7 +12,7 @@ function blue() {
     do{
         var row = [];
         for (var i = j; i >= 1; i--) {
-            if (c%2 == 0){
+            if (i%2 == 0){
                 row.push(caracter2);
             }else {
                 row.push(caracter1);

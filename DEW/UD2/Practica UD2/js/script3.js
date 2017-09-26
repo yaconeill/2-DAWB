@@ -4,14 +4,21 @@
 //     Si la media es menor a 5 saldrá el mensaje "Ponte las pilas".
 function average() {
 
-    var list = (isPositiveInt("Introducir nota 1"));
-    list.push(isPositiveInt("Introducir nota 2"));
-    list.push(isPositiveInt("Introducir nota 3"));
-    list.push(isPositiveInt("Introducir nota 4"));
-    list.push(isPositiveFloat("Introducir nota 5"));
-    list.push(isPositiveFloat("Introducir nota 6"));
-    list.push(isPositiveFloat("Introducir nota 7"));
-
+    var list = [];
+    //     (isPositiveInt("Introducir nota 1"));
+    // list.push(isPositiveInt("Introducir nota 2"));
+    // list.push(isPositiveInt("Introducir nota 3"));
+    // list.push(isPositiveInt("Introducir nota 4"));
+    // list.push(isPositiveFloat("Introducir nota 5"));
+    // list.push(isPositiveFloat("Introducir nota 6"));
+    // list.push(isPositiveFloat("Introducir nota 7"));
+for (var i = 1; i <= 7; i++){
+    if (i < 5){
+        list.push(isPositiveInt("Introducir nota " + i));
+    }else{
+        list.push(isPositiveFloat("Introducir nota " + i));
+    }
+}
     var avg = 0;
 
     for (var i = 0; i < list.length; i++) {

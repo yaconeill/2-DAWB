@@ -10,19 +10,55 @@
 //           El mensaje en la consola aparecerá como "log" si es nivel A, "info" si es nivel B,
 //           "warning" si es nivel C y "error" para nivel D
 //       	Igual que lo anterior pero añadiendo a la web los datos del alumno con formato H2 y el nivel en H1
-function levelMeasurement() {
-    var name = document.getElementById("name").value;
-    var question = document.getElementById("question").value;
-    var correct = document.getElementById("correct").value;
+var student = [{
+    "name": "",
+    "question": parseInt(0),
+    "correct": parseInt(0)
+}];
+
+function levelMeasurement(num) {
+
+    student[0].name = prompt("Introducir nombre:");
+    student[0].question = isPositiveInt("Introducir preguntas respondidas:");
+    student[0].correct = isPositiveInt("Introducir preguntas respondidas correctamente:");
+
+    var name = student[0].name;
+    var question = student[0].question;
+    var correct = student[0].correct;
     var percentage = (correct * 100) / question;
-    console.log("Nombre del alumno: " + name + "\npreguntas contestadas: " + question + "\npreguntas acertadas: " + correct);
-    if (percentage >= 85) {
-        console.log("Nivel A");
-    } else if (percentage >= 70 && percentage < 85) {
-        console.info("Nivel B");
-    } else if (percentage >= 50 && percentage < 70) {
-        console.warn("Nivel C");
-    } else if (percentage < 50) {
-        console.error("Nivel D");
+    if (parseInt(num) === 1) {
+        console.log("Nombre del alumno: " + name + "\npreguntas contestadas: "
+            + question + "\npreguntas acertadas: " + correct);
+        switch (true) {
+            case (percentage >= 85):
+                console.log("Nivel A");
+                break;
+            case (percentage >= 70 && percentage < 85):
+                console.info("Nivel B");
+                break;
+            case (percentage >= 50 && percentage < 70):
+                console.warn("Nivel C");
+                break;
+            case (percentage < 50):
+                console.error("Nivel D");
+                break;
+        }
+    } else {
+        document.getElementById('data').innerHTML = "Nombre del alumno: " + name + "<br>preguntas contestadas: "
+            + question + "<br>preguntas acertadas: " + correct;
+        switch (true) {
+            case (percentage >= 85):
+                document.getElementById('student').innerHTML = "Nivel A";
+                break;
+            case (percentage >= 70 && percentage < 85):
+                document.getElementById('student').innerHTML = "Nivel B";
+                break;
+            case (percentage >= 50 && percentage < 70):
+                document.getElementById('student').innerHTML = "Nivel C";
+                break;
+            case (percentage < 50):
+                document.getElementById('student').innerHTML = "Nivel D";
+                break;
+        }
     }
 }

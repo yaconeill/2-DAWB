@@ -1,0 +1,16 @@
+input:valid {
+	border: 1px solid green;
+}
+input:invalid {
+	border: 1px solid red;
+}
+@media (max-width: 300px) {
+  div{
+  	border: 2px blue;
+  }
+}
+@media (max-width: 600px) {
+  div{
+  	border: 2px red;
+  }
+}

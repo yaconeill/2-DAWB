@@ -3,7 +3,6 @@
 //     Es decir, si se ingresa 'mar' debemos mostrar el texto 'sea' en la página.
 //     Solo se admiten estas palabras como entradas permitidas.
 function translateWords() {
-    // var list = ("profesor", "manzana", "servidor", "mar");
     var word = prompt("Introducir una de las siguientes palabras para su traducción:\n" +
         "(profesor, manzana, servidor, mar).");
     switch (word.toLowerCase()) {
@@ -21,6 +20,13 @@ function translateWords() {
             break;
         default:
             alert("Solo se admiten las palabras antes descritas como permitidas.");
-            break;
     }
+    // NO
+    // var list = new Array("profesor", "manzana", "servidor", "mar");
+    // if (word in list) {
+    //     alert(word);
+    // }
+    // else {
+    //     alert("Solo se admiten las palabras antes descritas como permitidas.");
+    // }
 }

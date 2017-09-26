@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body id="home">
+<div><h1>U02-T01: Variables, condicionales y bucles en JS</h1></div>
 <div class="menu">
     <ul>
         <li><a href="#acti1">Actividad 1</a></li>
@@ -98,7 +99,11 @@
                 <td>Mostrar el nivel obtenido por un alumno.</td>
             </tr>
                 <tr>
-                    <td id="form">
+                    <td><button type="button" onclick="levelMeasurement(1)">Iniciar 1</button><br><br>
+                        <button type="button" onclick="levelMeasurement(2)">Iniciar 2</button></td>
+                    <td></td>
+
+                    <!--<td id="form">
                         <div>
                             <label for="name">Nombre de alumno:</label>
                             <input type="text" id="name" size="25"><br>
@@ -114,8 +119,14 @@
                         <div>
                             <input type="button" value="Iniciar" onclick="levelMeasurement()">
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
+            <tr>
+                <td><div id="data"></div></td>
+            </tr>
+            <tr>
+                <td><div id="student"></div></td>
+            </tr>
             </tr>
             <tr id="acti9">
                 <th>Actividad 9</th>
