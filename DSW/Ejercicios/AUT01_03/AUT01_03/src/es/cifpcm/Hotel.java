@@ -15,14 +15,14 @@ public class Hotel {
     private int estrellas;
     private int precioNoche;
 
-    public Hotel() {
-    }
-
     public Hotel(String nombre, String localidad, int estrellas, int precioNoche) {
         this.nombre = nombre;
         this.localidad = localidad;
         this.estrellas = estrellas;
         this.precioNoche = precioNoche;
+    }
+
+    public Hotel() {
     }
 
     public String getNombre() {
@@ -56,6 +56,7 @@ public class Hotel {
     public void setPrecioNoche(int precioNoche) {
         this.precioNoche = precioNoche;
     }
+
     @Override
     public String toString(){
         return ("\nHotel : " + nombre + "\nLocalidad: " + localidad

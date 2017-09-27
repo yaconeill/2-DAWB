@@ -17,18 +17,24 @@ var student = [{
 }];
 
 function levelMeasurement(num) {
+    var question, correct;
+    var name = prompt("Introducir nombre:");
+    do {
+        question = isPositiveInt("Introducir preguntas respondidas:");
+        correct = isPositiveInt("Introducir preguntas respondidas correctamente:");
+        if (question < correct)
+            alert("Las respuestas correctas deben ser menor o igual a las respondidas");
+        else
+            break;
+    } while (true);
 
-    student[0].name = prompt("Introducir nombre:");
-    student[0].question = isPositiveInt("Introducir preguntas respondidas:");
-    student[0].correct = isPositiveInt("Introducir preguntas respondidas correctamente:");
-
-    var name = student[0].name;
-    var question = student[0].question;
-    var correct = student[0].correct;
+    // if (question < correct) {
+    //     alert("Las respuestas correctas deben ser menor o igual a las respondidas");
+    // } else {
     var percentage = (correct * 100) / question;
     if (parseInt(num) === 1) {
-        console.log("Nombre del alumno: " + name + "\npreguntas contestadas: "
-            + question + "\npreguntas acertadas: " + correct);
+        console.log("Nombre del alumno: " + name + "\npreguntas contestadas: " +
+            question + "\npreguntas acertadas: " + correct);
         switch (true) {
             case (percentage >= 85):
                 console.log("Nivel A");
@@ -44,8 +50,8 @@ function levelMeasurement(num) {
                 break;
         }
     } else {
-        document.getElementById('data').innerHTML = "Nombre del alumno: " + name + "<br>preguntas contestadas: "
-            + question + "<br>preguntas acertadas: " + correct;
+        document.getElementById('data').innerHTML = "Nombre del alumno: " + name + "<br>preguntas contestadas: " +
+            question + "<br>preguntas acertadas: " + correct;
         switch (true) {
             case (percentage >= 85):
                 document.getElementById('student').innerHTML = "Nivel A";
@@ -61,4 +67,5 @@ function levelMeasurement(num) {
                 break;
         }
     }
+    // }
 }

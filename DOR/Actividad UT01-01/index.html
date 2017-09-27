@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://www.w3schools.com/action_page.php">
+        <div class="cuerpo">
+            <section>
+                <h2>Obligado al pago</h2>
+
+                <label for="nif">
+                            <span>N.I.F.</span>
+                            <abbr title="Obligatotio">(*)</abbr>
+                            <input type="text" id="nif" name="nif" class="check-ok" pattern="[0-8]{8}[a-zA-Z]" required/>
+                        </label><br>
+                <label for="nombre">
+                            <span>Apellidos y Nombre o Razón Social</span>
+                            <abbr title="Obligatotio">(*)</abbr>
+                            <input type="text" id="nombre" name="nombre" required/>
+                        </label><br>
+                <label for="sigla">
+                            <span>Sigla</span>
+                            <abbr title="Obligatotio">(*)</abbr>
+                            <select name="sigla" id="sigla" size="1" required>
+                                <option value="">Seleccione sigla</option>                                    
+                                <option value="C/">Calle</option>
+                                <option value="camino">Camino</option>
+                                <option value="Av">Avenida</option>
+                                <option value="Paseo">Paseo</option>
+                            </select>
+                        </label>
+                <label for="calle">
+                            <span>Nombre vía pública</span>
+                            <abbr title="Obligatotio">(*)</abbr>
+                            <input type="text" id="calle" name="calle" required/>
+                        </label><br>
+                <label for="num">
+                            <span>Número</span>
+                            <abbr title="Obligatotio">(*)</abbr>
+                            <input type="number" id="num" name="num" required/>
+                        </label>
+                <label for="escalera">
+                            <span>Escalera</span>
+                            <input type="number" id="escalera" name="escalera"/>
+                        </label>
+                <label for="piso">
+                            <span>Piso</span>
+                            <input type="number" id="piso" name="piso"/>
+                        </label>
+                <label for="puerta">
+                            <span>Puerta</span>
+                            <input type="text" id="puerta" name="puerta"/>
+                        </label><br>
+                <label for="telefono">
+                        <span>Teléfono</span>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}"/>
+                    </label>
+                <label for="fax">
+                        <span>Fax</span>
+                        <input type="tel" id="fax" name="fax" pattern="[0-9]{9}"/>
+                    </label>
+                <label for="provincia">
+                    <span>Provincia</span>
+                    <abbr title="Obligatotio">(*)</abbr>
+                    <select name="provincia" size="1" id="provincia" required>
+                        <option value="">Seleccione provincia</option>                                    
+                        <option value="S/C Tenerife">S/C Tenerife</option>
+                        <option value="Las Palmas">Las Palmas</option>
+                        <option value="Madrid">Madrid</option>
+                        <option value="Barcelona">Barcelona</option>
+                    </select>
+                </label>
+                <label for="municipio">
+                    <span>Provincia</span>
+                    <abbr title="Obligatotio">(*)</abbr>
+                    <select name="municipio" size="1" id="municipio" required>
+                        <option value="">Seleccione municipio</option>                                    
+                        <option value="S/C Tenerife">S/C Tenerife</option>
+                        <option value="Las Palmas de GC">Las Palmas de GC</option>
+                        <option value="El Rosario">El Rosario</option>
+                        <option value="Los Realejos">Los Realejos</option>
+                    </select>
+                </label>
+                <label for="codigopost">
+                    <span>Cód. Postal</span>
+                    <abbr title="Obligatotio">(*)</abbr>
+                    <input type="text" id="codigopost" name="codigopost" pattern="[0-9]{5}" required/>
+                </label>
+            </section>
+            <hr>
+            <section>
+                <h2>Tasas</h2>
+                <label for="tramite">
+                        <span>Trámite</span>
+                        <abbr title="Obligatotio">(*)</abbr><br>
+                        <select name="tramite" size="1" id="tramite" required>
+                                <option value="">Seleccione trámite</option>                                    
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                    </label><br>
+                <label for="numexpe">
+                    <span>Número de Expediente</span>
+                    <input type="text" id="numexpe" name="numexpe"/>
+                </label>
+                <label for="numliq">
+                    <span>Número de Liquidación</span>
+                    <input type="text" id="numliq" name="numliq"/>
+                </label><br>
+                <input type="radio" name="pago" id="efectivo"><span>En efectivo</span>
+                <input type="radio" name="pago" id="cuenta"><span>Adeudo en cta.</span>
+                <input type="radio" name="pago" id="telemat"><span>Pago telemático</span><br>
+                <label for="concepto">
+                    <span>Concepto:</span>
+                    <textarea name="concepto" id="concepto" cols="90" rows="10"></textarea>                        
+                </label>
+            </section>
+            <!-- <input type="submit" value="Continuar" /> -->
+            <button type="submit">Continuar</button>
+            <!-- <input type="button" value="Volver" />
+            <input type="reset" value="Limpiar formulario" /> -->
+        </div>
+    </form>
+</body>
+
+</html>

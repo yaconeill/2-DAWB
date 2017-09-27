@@ -5,8 +5,6 @@
  */
 package es.cifpcm;
 
-import sun.security.util.Cache;
-
 import java.awt.*;
 import java.util.Scanner;
 
@@ -78,7 +76,6 @@ public class ForVagosApp {
 
     private static void mostrar() {
 
-        acceso.toString();
     }
 
     private static void insertarHotal() {
@@ -87,24 +84,16 @@ public class ForVagosApp {
         Integer estrella, precio;
         System.out.print("\nInsertar el nombre del hotel: ");
         nombre = sc.nextLine();
-//        hotelList.add(sc.nextLine());
         System.out.print("Insertar la localidad: ");
         localidad = sc.nextLine();
-//        hotelList.add(sc.nextLine());
         System.out.print("Insertar el nº de estrellas: ");
         estrella = sc.nextInt();
-//        hotelList.add("" + sc.nextInt());
         System.out.print("Insertar precio por noche: ");
         precio = sc.nextInt();
-//        hotelList.add("" + sc.nextInt());
         acceso.setNombre(nombre);
         acceso.setLocalidad(localidad);
         acceso.setEstrellas(estrella);
         acceso.setPrecioNoche(precio);
-//        acceso.setNombre(hotelList.getItem(0));
-//        acceso.setLocalidad(hotelList.getItem(0));
-//        acceso.setEstrellas(Integer.parseInt(hotelList.getItem(0)));
-//        acceso.setPrecioNoche(Integer.parseInt(hotelList.getItem(0)));
     }
 
     private static void borrarHotel() {

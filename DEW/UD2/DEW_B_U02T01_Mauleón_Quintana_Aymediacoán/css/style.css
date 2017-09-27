@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-h1{
+h1 {
     text-align: center;
     color: #dad9f2;
     text-shadow: 0px -1px 0px #424242;
@@ -15,17 +15,18 @@ h1{
     float: left;
     padding: 15px;
 }
- li{
-     list-style: none;
-     border: 1px solid black;
-     border-radius: 23%;
-     padding: 5px;
-     text-align: center;
- }
 
- a{
-     text-decoration: none;
- }
+li {
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 23%;
+    padding: 5px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
 
 .main {
     width: 75%;
@@ -33,16 +34,16 @@ h1{
     padding: 15px;
 }
 
-input[type="text"]{
+input[type="text"] {
     border: none;
     background-color: beige;
 }
 
-tr[id="acti1"]>th{
+tr[id="acti1"]>th {
     padding-top: 0px;
 }
 
-th{
+th {
     text-align: left;
     padding-top: 30px;
 }
@@ -65,7 +66,7 @@ label {
     text-align: left;
 }
 
-#form div + div {
+#form div+div {
     margin-top: 1em;
 }
 
@@ -73,11 +74,13 @@ img {
     width: 15%;
 }
 
-#write, #writeTwo{
-    text-align: right;
+#write,
+#writeTwo {
+    text-align: center;
     width: 30%;
 }
- .glyphicon{
-     text-align: right;
-     top: 10px;
- }
+
+.glyphicon {
+    text-align: right;
+    top: 10px;
+}
