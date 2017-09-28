@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Document</title>
 </head>
 
 <body>
-    <form action="http://www.w3schools.com/action_page.php">
+    <form action="https://www.w3schools.com/action_page.php" method="GET">
         <div class="cuerpo">
             <section>
                 <h2>Obligado al pago</h2>
@@ -30,7 +30,7 @@
                             <abbr title="Obligatotio">(*)</abbr>
                             <select name="sigla" id="sigla" size="1" required>
                                 <option value="">Seleccione sigla</option>                                    
-                                <option value="C/">Calle</option>
+                                <option value="Calle">Calle</option>
                                 <option value="camino">Camino</option>
                                 <option value="Av">Avenida</option>
                                 <option value="Paseo">Paseo</option>
@@ -71,8 +71,8 @@
                     <abbr title="Obligatotio">(*)</abbr>
                     <select name="provincia" size="1" id="provincia" required>
                         <option value="">Seleccione provincia</option>                                    
-                        <option value="S/C Tenerife">S/C Tenerife</option>
-                        <option value="Las Palmas">Las Palmas</option>
+                        <option value="SC_Tenerife">S/C Tenerife</option>
+                        <option value="Las_Palmas">Las Palmas</option>
                         <option value="Madrid">Madrid</option>
                         <option value="Barcelona">Barcelona</option>
                     </select>
@@ -82,7 +82,7 @@
                     <abbr title="Obligatotio">(*)</abbr>
                     <select name="municipio" size="1" id="municipio" required>
                         <option value="">Seleccione municipio</option>                                    
-                        <option value="S/C Tenerife">S/C Tenerife</option>
+                        <option value="SC_Tenerife">S/C Tenerife</option>
                         <option value="Las Palmas de GC">Las Palmas de GC</option>
                         <option value="El Rosario">El Rosario</option>
                         <option value="Los Realejos">Los Realejos</option>
@@ -124,10 +124,11 @@
                     <textarea name="concepto" id="concepto" cols="90" rows="10"></textarea>                        
                 </label>
             </section>
-            <!-- <input type="submit" value="Continuar" /> -->
-            <button type="submit">Continuar</button>
-            <!-- <input type="button" value="Volver" />
-            <input type="reset" value="Limpiar formulario" /> -->
+            <div>
+                <input type="submit" value="Continuar" />
+                <input type="button" value="Volver" />
+                <input type="reset" value="Limpiar formulario" />
+            </div>
         </div>
     </form>
 </body>

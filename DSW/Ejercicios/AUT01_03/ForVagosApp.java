@@ -21,8 +21,7 @@ public class ForVagosApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        FilePersistence.open();
-        mostrarMenu();        
+        mostrarMenu();
     }
 
     private static void mostrarMenu() throws IOException {
@@ -79,10 +78,10 @@ public class ForVagosApp {
         Hotel newHotel = new Hotel();
         String nombre, localidad;
         Integer estrella, precio;
-        nombre = validaCadena("\nInsertar el nombre del hotel: ").toUpperCase();
-        //nombre = sc.nextLine().toUpperCase();
-        localidad = validaCadena("Insertar la localidad: ").toUpperCase();
-        //localidad = sc.nextLine().toUpperCase();
+        System.out.print("\nInsertar el nombre del hotel: ");
+        nombre = sc.nextLine().toUpperCase();
+        System.out.print("Insertar la localidad: ");
+        localidad = sc.nextLine().toUpperCase();
         estrella = validaEntero("Insertar el nº de estrellas: ");
         precio = validaEntero("Insertar precio por noche: ");
         newHotel.setNombre(nombre);
@@ -93,7 +92,8 @@ public class ForVagosApp {
     }
 
     private static void borrarHotel() throws IOException {
-        String busca = validaCadena("\nInsertar el nombre del hotel: ");
+        System.out.print("\nInsertar el nombre del hotel: ");
+        String busca = sc.nextLine();
         FilePersistence.delete(busca);
     }
 
@@ -108,7 +108,8 @@ public class ForVagosApp {
     }
 
     private static void buscarHoteles() throws IOException {
-        String busca = validaCadena("Introducir una localización: ");
+        System.out.print("Introducir una localización: ");
+        String busca = new Scanner(System.in).nextLine();
         boolean c = false;
         hotelList = FilePersistence.list();
         for (int i = 0; i < hotelList.size(); i++) {
@@ -126,32 +127,20 @@ public class ForVagosApp {
         int n;
         String mensaje = "Error: solo se aceptan numeros positivos.";
         System.out.print(texto);
-        while (true) {
-            // Comprobar que sea entero
+        while (true) { // This is often frowned upon?
+
+            // Check that input is integer
             while (!sc.hasNextInt()) {
                 System.out.print(mensaje + "\n" + texto); // Gets repeated
                 sc.next();
             }
             n = sc.nextInt();
             sc.nextLine();
-            // Número positivo
+            // Check that input is positive
             if (n >= 0) {
                 return n;
             } else {
                 System.out.print(mensaje + "\n" + texto);
-            }
-        }
-    }
-
-    public static String validaCadena(String texto) {
-        String cadena;
-        while (true) {
-            System.out.print(texto);
-            cadena = sc.nextLine();
-            if (cadena.length() == 0 || " ".equals(cadena)) {
-                System.out.println("No dejar el campo en blanco.\n");
-            } else {
-                return cadena;
             }
         }
     }
