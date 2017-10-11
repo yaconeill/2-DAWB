@@ -1,0 +1,43 @@
+h2 {
+    color: #0085CE;
+    font-family: sans-serif;
+}
+
+input:invalid {
+    background: #F8E8E8;
+}
+
+input[type="text"]:valid,
+input[type="number"]:valid {
+    background: #EFFCE8;
+}
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label:nth-child(n+8):nth-child(-n+13) input {
+    width: 80px;
+}
+
+.content {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+}
+
+section>div:first-of-type,
+textarea,
+.button {
+    margin: 10px 0px;
+}

@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="script.js"></script>
+    <style type="text/css">
+        .img {
+            width: 10%;
+        }
+        
+        .content {
+            width: 450px;
+        }
+    </style>
+</head>
+
+<body onload="mostrarCalculo()">
+    <div>
+        <button onclick="mathOperations();">Calcula</button>
+    </div>
+    <div>
+        <textarea id="myTextArea" cols="50" rows="15"></textarea>
+    </div>
+    <hr>
+    <div>
+        <button onclick="hipotenusa();">Calcula hipotenusa</button>
+    </div>
+    <hr>
+    <div id="elementos"></div>
+    <button onclick="AddToFavorites()">Add fabv</button>
+    <div id="container">
+        <form action="https://www.w3schools.com/action_page.php" method="GET">
+            <div class="content">
+                <section>
+                    <h2>Obligado al pago</h2>
+                    <label for="nif">
+							<span>N.I.F.</span>
+							<input type="text" id="nif" name="nif" class="check-ok" />
+						</label><br>
+                    <label for="nombre">
+							<span>Apellidos y Nombre o Razón Social</span>
+							<input type="text" id="nombre" name="nombre"/>
+						</label><br>
+                    <label for="sigla">
+							<span>Sigla</span>
+							<select name="sigla" id="sigla" size="1" >
+								<option value="">Seleccione sigla</option>
+								<option value="Calle">Calle</option>
+								<option value="camino">Camino</option>
+								<option value="Av">Avenida</option>
+								<option value="Paseo">Paseo</option>
+							</select>
+						</label>
+                    <label for="calle">
+							<span>Nombre vía pública</span>
+							<input type="text" id="calle" name="calle" maxlength="50" size="35" />
+						</label><br>
+                    <label for="num">
+							<span>Número</span>
+							<input type="number" id="num" name="num" maxlength="4" size="4" />
+						</label>
+                    <label for="escalera">
+							<span>Escalera</span>
+							<input type="number" id="escalera" name="escalera"  maxlength="5" size="5"/>
+						</label>
+                    <label for="piso">
+							<span>Piso</span>
+							<input type="number" id="piso" name="piso" maxlength="2" size="2"/>
+						</label>
+                    <label for="puerta">
+							<span>Puerta</span>
+							<input type="text" id="puerta" name="puerta" maxlength="4" size="4"/>
+						</label><br>
+                    <label for="telefono">
+							<span>Teléfono</span>
+							<input type="text" id="telefono" name="telefono" maxlength="9"/>
+						</label>
+                    <label for="fax">
+							<span>Fax</span>
+							<input type="text" id="fax" name="fax" maxlength="9"/>
+						</label>
+                    <label for="provincia">
+							<span>Provincia</span>
+							<select name="provincia" size="1" id="provincia" >
+								<option value="">Seleccione provincia</option>
+								<option value="SC_Tenerife">S/C Tenerife</option>
+								<option value="Las_Palmas">Las Palmas</option>
+								<option value="Madrid">Madrid</option>
+								<option value="Barcelona">Barcelona</option>
+							</select>
+						</label>
+                    <label for="municipio">
+							<span>Provincia</span>
+							<select name="municipio" size="1" id="municipio" >
+								<option value="">Seleccione municipio</option>
+								<option value="SC_Tenerife">S/C Tenerife</option>
+								<option value="Las Palmas de GC">Las Palmas de GC</option>
+								<option value="El Rosario">El Rosario</option>
+								<option value="Los Realejos">Los Realejos</option>
+							</select>
+						</label>
+                    <label for="codigopost">
+							<span>Cód. Postal</span>
+						<abbr title="Obligatotio">(*)</abbr>
+						<input type="text" id="codigopost" name="codigopost" />
+					</label>
+                </section>
+                <hr>
+                <section>
+                    <div>
+                        <img src="img/img1.png" class="img" />
+                        <img src="img/img2.png" class="img" />
+                        <img src="img/img3.png" class="img" />
+                        <img src="img/img4.png" class="img" />
+                        <img src="img/img5.png" class="img" />
+                    </div>
+                    <div>
+                        <a href="http://www.google.es">Google</a>
+                        <a href="http://www.marca.com">Marca</a>
+                        <a href="http://www.eldiario.es">Eldiario.es</a>
+                        <a href="http://www.diariodeavisos.es">Diario de avisos</a>
+                        <a href="http://www.amazon.es">Amazon</a>
+                        <a href="http://www.ebay.es">Ebay</a>
+                    </div>
+                    <div>
+                        a <input type="checkbox" name="qwert" id="a"><br> b
+                        <input type="checkbox" name="qwert" id="b"> <br> c
+                        <input type="checkbox" name="qwert" id="c">
+                    </div>
+                </section>
+                <div class="button">
+                    <button type="submit">Enviar</button>
+                    <button type="reset">limpiar</button>
+                    <input type="button" value="Volver" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

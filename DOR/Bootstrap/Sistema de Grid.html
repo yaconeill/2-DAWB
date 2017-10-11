@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ejemplo de bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function miFuncion(){
+            document.getElementById("p1").innerHTML = "Tamaño del viewport: " + window.innerWidth + "px (ancho) " + window.innerHeight + "px (alto)";  
+            if (window.innerWidth < 768){
+                document.getElementById("p2").innerHTML = "Tipo de dispositivo: <code>xs</code> (Extra small) - (<768px)";
+            }
+                else if (window.innerWidth < 992){
+                    document.getElementById("p2").innerHTML = "Tipo de dispositivo: <code>sm</code> (Small) - (entre 768px y 991px)";
+                }
+                    else if (window.innerWidth < 1200){
+                         document.getElementById("p2").innerHTML = "Tipo de dispositivo: <code>md</code> (Medium) - (entre 992px y 1199px)";   
+                    }
+                            else{
+                                document.getElementById("p2").innerHTML = "Tipo de dispositivo: <code>lg</code> (Large) - (>=1200px)";
+                            }
+        }
+        function cerrar(){
+            document.getElementById("pie1").style.display = "none"   }
+    </script>
+    <style>
+        body { padding-top: 100px; }
+    </style>
+</head>
+<body onresize="miFuncion()">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <h3 id="p1"></h3>  
+        <p id="p2"></p>
+    </div>
+    </nav>
+
+    <!---->
+    <!-- Contenedor de tamaño fijo según el tipo de dispositivo -->
+    <!---->
+    <div class="container" style="border: 3px solid #6F05AC">
+        <p><code style="background-color: #6F05AC; color: white">class="container"</code></p>
+        <p>El ancho de los contenedores <code>container</code> depende del tipo de dispositivo</p>
+        <p>Dispositivos <code>xs</code>: ocupan todo el ancho del viewport</p>
+        <p>Dispositivos <code>sm</code>: 750px</p>
+        <p>Dispositivos <code>md</code>: 970px</p>
+        <p>Dispositivos <code>lg</code>: 1170px</p>
+        <!---->
+        <div class="row" style="border:3px solid #FDC72F;">
+            <p><code style="background-color: #FDC72F; color: black">class="row"</code></p>
+            <div class="col-sm-6" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                <p><code style="background-color: #D6F668; color: black">class="col-sm-6"</code></p>
+                <p>Ocupará un 50% del viewport en dispositivos <code>sm</code>, <code>md</code> y <code>lg</code></p>
+                <p>En dispositivos <code>xs</code> ocupará el 100%</p>
+            </div>
+            <div class="col-sm-6" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                <p><code style="background-color: #D6F668; color: black">class="col-sm-6"</code></p>
+                <p>Ocupará un 50% del viewport en dispositivos <code>sm</code>, <code>md</code> y <code>lg</code></p>
+                <p>En dispositivos <code>xs</code> ocupará el 100%</p>
+            </div>
+            </div>
+        <!---->
+        <div class="row" style="border:3px solid #FDC72F;">
+            <p><code style="background-color: #FDC72F; color: black">class="row"</code></p>
+            <div class="col-sm-3 col-md-6 col-lg-4" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                <p><code style="background-color: #D6F668; color: black">class="col-sm-3 col-md-6 col-lg-4"</code></p>
+                <p>100% para dispositivos <code>xs</code></p>
+                <p>25% para dispositivos <code>sm</code></p>
+                <p>50% para dispositivos <code>md</code></p>
+                <p>33% para dispositivos <code>lg</code></p>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-8" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                <p><code style="background-color: #D6F668; color: black">class="col-sm-9 col-md-6 col-lg-8"</code></p>
+                <p>100% para dispositivos <code>xs</code></p>
+                <p>75% para dispositivos <code>sm</code></p>
+                <p>50% para dispositivos <code>md</code></p>
+                <p>66% para dispositivos <code>lg</code></p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!-- Contenedor "fluid" ocupa todo el viewport-->
+    <!---->
+    <br>
+    <div class="container-fluid" style="border: 3px solid #6F05AC">
+        <p><code style="background-color: #6F05AC; color: white;">class="container-fluid"</code></p>
+        <p>Los contenedores <code>container-fluid</code> ocupan todo el viewport</p>
+        <!---->
+        <div class="row" style="border:3px solid #FDC72F;">
+            <p><code style="background-color: #FDC72F; color: black">class="row"</code></p>
+            <div class="col-md-6" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                <p><code style="background-color: #D6F668; color: black">class="col-md-6"</code></p>
+                <p>Ocupará un 50% del viewport en dispositivos <code>md</code> y <code>lg</code></p>
+                <p>En dispositivos <code>xs</code> y <code>sm</code> ocupará el 100%</p>
+            </div>
+            <div class="col-md-6" style="border:3px solid #D6F668;background-color:#F1F1F1">
+                 <p><code style="background-color: #D6F668; color: black">class="col-md-6"</code></p>
+                <p>Ocupará un 50% del viewport en dispositivos <code>md</code> y <code>lg</code></p>
+                <p>En dispositivos <code>xs</code> y<code>sm</code> ocupará el 100%</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

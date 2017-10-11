@@ -11,7 +11,7 @@ function writeTriangle() {
     var piramid = [];
     var c = 0;
     var j = base;
-    do{
+    do {
         var row = [];
         for (var i = j; i >= 1; i--) {
             row.push(caracter);
@@ -19,8 +19,8 @@ function writeTriangle() {
         piramid.push(row.join(''));
         c++;
         j--;
-    }while (c < base){
-        document.getElementById('write').innerHTML = piramid.join("<br/>");
+    } while (c < base) {
+        document.getElementById('write').value = piramid.join("<br/>");
     }
 }
 

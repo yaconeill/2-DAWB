@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Tu horóscopo</title>
+<script language="JavaScript">
+<!--
+
+function destino(){
+if (Math.random()>0.5){
+return("suerte")
+}	
+else
+{
+return("desgracia")
+}
+}
+
+function horoscopo(){
+var nr=document.forms[0].mes.selectedIndex
+if (document.forms[0].dia.value>20){
+nr++
+}
+if (nr==12){
+nr=0
+}
+var horoscopoWindow=window.open("", "horoscopo", "width=400,height=200")
+horoscopoWindow.document.writeln('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">')
+horoscopoWindow.document.writeln("<html><head><title>")
+horoscopoWindow.document.writeln("Horóscopo de "+document.forms[0].nombre.value+"")
+horoscopoWindow.document.writeln("</title></head>")
+horoscopoWindow.document.writeln("<body>")
+horoscopoWindow.document.writeln("¡Hola, "+document.forms[0].nombre.value+"!<p>")
+horoscopoWindow.document.writeln("¡Tu signo zodiacal es "+document.forms[0].mes.options[nr].value+"!<p>")
+horoscopoWindow.document.writeln("El próximo mes, tendrás "+destino()+" en el amor")
+horoscopoWindow.document.writeln("y "+destino()+" en el trabajo.")
+horoscopoWindow.document.close()
+}
+
+//-->
+</script>
+</head>
+<body>
+<form>
+Tu nombre: <input name="nombre"><br>
+Tu fecha de nacimiento (día, mes): 
+<input name="dia" size=2 maxlength=2>
+<select name="mes">
+<option value="Capricornio">Enero
+<option value="Acuario">Febrero
+<option value="Piscis">Marzo
+<option value="Aries">Abril
+<option value="Tauro">Mayo
+<option value="Géminis">Junio
+<option value="Cáncer">Julio
+<option value="Leo">Agosto
+<option value="Virgo">Septiembre
+<option value="Libra">Octubre
+<option value="Escorpión">Noviembre
+<option value="Sagitario">Diciembre
+</select><p>
+<input type="Button" value="Crear horóscopo" onClick="javascript:horoscopo()">
+</form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ejemplo de bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!--<style>
+        body { padding-top: 100px; }
+    </style>-->
+</head>
+<body >
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- En la versión móvil se mostrará el nombre/icono del sitio y el botón de menú -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-desplegable" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mi-WEB</a>
+            </div>
+
+            <!-- Este es el contenido del menú que se despliega con el botón de menú-->
+            <div class="collapse navbar-collapse" id="menu-desplegable">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Archivo</a></li>
+                    <li><a href="#">Ver</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Editar<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Deshacer</a></li>
+                            <li><a href="#">Rehacer</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Cortar</a></li>
+                            <li><a href="#">Copiar</a></li>
+                            <li><a href="#">Pegar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Seleccionar todo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Salir</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div><!-- navbar-collapse -->
+        </div><!-- container-fluid -->
+    </nav>
+    
+</body>
+</html>
