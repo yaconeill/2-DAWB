@@ -1,0 +1,53 @@
+$grosor: 1px;
+.prueba {
+    @if $grosor==1px {
+        border: $grosor solid red;
+    }
+}
+
+@mixin radio($radio) {
+    border: 2px solid darkcyan;
+    height: 50px;
+    border-radius: $radio;
+    -webkit-border-radius: $radio;
+    -moz-border-radius: $radio;
+    -ms-border-radius: $radio;
+}
+
+.clase1 {
+    @include radio(50px);
+}
+
+.clase2 {
+    @include radio(20px);
+}
+
+.clase3 {
+    @include radio(10px);
+}
+
+@mixin etiquetas-h ($tam-fuente, $color-fuente) {
+    color: $color-fuente;
+    font-size: $tam-fuente;
+}
+
+//Ejercicio 5
+// $size:10;
+// @for $i from 1 through 4 {
+//     h#{$i} {
+//         font-size: #{$size} px;
+//         color: #000;
+//         $size: $size*2;
+//     }
+// }
+//Ejercicio 5
+$i: 4;
+$size: 10;
+@while $i>0 {
+    h#{$i} {
+        font-size: #{$size} px;
+        color: #000;
+    }
+    $size: $size * 2;
+    $i: $i - 1;
+}

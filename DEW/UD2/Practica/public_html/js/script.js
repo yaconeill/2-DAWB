@@ -1,15 +1,22 @@
+/**
+ * Declaration of global variables
+ */
+// Save the position of each animal
 var moveH = 0;
 var moveT = 0;
-var move = [];
-var charH = "L";
-var charT = "T";
-var charRoad = "_";
-var charCross = "X";
+// Contain the character that will be printed
+var charH;
+var charT;
+var charRoad;
+var charCross;
+// This variable is used to run the race with an interval between movements.
+var live;
+
 /**
- * Creación del array asociativo con las ropiedades que puedan tener los animales.
+ * Function that creates an object with the allowed movements.
  */
-var moves = (slp, bJ, bS, j, sld, f, slw) => {
-    return ({
+function animal(slp, bJ, bS, j, sld, f, slw) {
+    this.moves = {
         sleep: slp,
         bigJump: bJ,
         bigSlide: bS,
@@ -17,89 +24,92 @@ var moves = (slp, bJ, bS, j, sld, f, slw) => {
         slide: sld,
         fast: f,
         slow: slw
-    });
+    };
 }
 
-// animal.prototype.getMovesT = function() {
-//     return this.move.fast, this.move.slide, this.move.slow;
-// };
-// animal.prototype.getMovesH = function() {
-//     return this.move.sleep,
-//         this.move.bigJump,
-//         this.move.bigSlide,
-//         this.move.smallJump,
-//         this.move.smallJump;
-// };
-
 /**
- * Función de paso a paso, que pasa 1 como parámetro para hacer una sola 
+ * Function that calls race() everytime the button is pressed. The parameter
+ * is 1 to show line by line.
  */
 function stepByStep() {
     race(1);
 }
 
 /**
- * Muestra el texto precarrera para luego llamar a la funcióm que la inicia,
- * se le añade retardo de tiempo para que se visualice mejor.
+ * Print on screen the countdown before the race, call the function race with a delay.
  */
 function preRace(next) {
-    // el contador limita a una ejecución la ecritura del texto de cabecera.
-    //if (cont == 0) {
     document.getElementById('circuit').innerHTML += '<h2>Preparados</h2>';
     setTimeout("document.getElementById('circuit').innerHTML += '<h2>listos</h2>'", 500);
     setTimeout("document.getElementById('circuit').innerHTML += '<h2>...</h2>'", 1000);
     setTimeout("document.getElementById('circuit').innerHTML += '<h1>Ya!</h1></br>'", 1700);
-    setTimeout(race.bind(null, next), 2000);
-    // } else
-    //     race(next);
+    setTimeout(race.bind(null, next), 1750);
 }
 
+/**
+ * Creates a random number between 1 and 10.
+ */
 function random() {
     return Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 }
 
 /**
- * Inicia la carrera
- * @param {*} next 
+ * It calls the function race repeatedly until a win or a tie.
+ */
+function onLive() {
+    document.getElementById("oneLine").checked = true;
+    disableButton();
+    live = setInterval(race.bind(null, 1), 400);
+}
+
+/**
+ * It runs the race, the parameter given is used to determine if it runs in loop
+ * or just one time.
  */
 function race(next) {
-    // creación de los objetos animal, pasando los valores de sus propiedades,
-    // var tor = animal();
-    var tortoise = moves(0, 0, 0, 0, -6, 3, 1);
-    var hare = moves(0, 9, -12, 1, -2);
-    // Genera un número aleatorio
+    // Disables the checkbox so it does not interfere with the execution.
+    document.getElementById("oneLine").disabled = true;
+    document.getElementById("withShape").disabled = true;
+
+    // Creates objects type animal and gives values to the movements
+    var tortoise = new animal(0, 0, 0, 0, -6, 3, 1);
+    var hare = new animal(0, 9, -12, 1, -2);
+
+    // Call the funtion random and asign a value to the variable step.
     var step = random();
-    // Asigna a las variable globales posT y posH los valores correspondientes
-    // segun el número aletario generado.
+
+    // Asign to the global variables moveT & moveH the movement to make according to
+    // the number randomly generated.
     switch (true) {
         case step <= 5:
-            moveT += tortoise["fast"];
+            moveT += tortoise.moves["fast"];
             break;
         case step <= 7:
-            moveT += tortoise["slide"];
+            moveT += tortoise.moves["slide"];
             break;
         case step <= 10:
-            moveT += tortoise["slow"];
+            moveT += tortoise.moves["slow"];
             break;
     }
     switch (true) {
         case step <= 2:
-            moveH += hare["sleep"];
+            moveH += hare.moves["sleep"];
             break;
         case step <= 5:
-            moveH += hare["bigJump"];
+            moveH += hare.moves["bigJump"];
             break;
         case step <= 6:
-            moveH += hare["bigSlide"];
+            moveH += hare.moves["bigSlide"];
             break;
         case step <= 8:
-            moveH += hare["jump"];
+            moveH += hare.moves["jump"];
             break;
         case step <= 10:
-            moveH += hare["slide"];
+            moveH += hare.moves["slide"];
             break;
     }
-    // En caso de que la asignación sea menor al inicio o superior al final se corrigen.
+
+    // Adjustment in case the movement exceed the limits of the road.
     if (moveT < 0)
         moveT = 0;
     if (moveH < 0)
@@ -109,27 +119,20 @@ function race(next) {
     if (moveH > 70)
         moveH = 70;
 
-    // llamada a la funcion que escribe en el documento
-    writeScreen(tortoise, hare);
-    //cont++;
-    // Condicionales que muestran el ganador en caso de haberlo, si no, se llama
-    // a la misma función, en caso de carrera completa, o sale de la funcion
-    // en caso de la ejecucion paso a paso. Se deshabilitan los botones para que no
-    // se siga ejecutanto una vez finalice
+    // Call the function that write on screen.
+    writeScreen(next);
+
+    // Check if someone reach the finish line or the race continues. If the parameter is 0
+    // it means, that the race will call itself until there is a winner and if it's 1 it means,
+    // that a click will be needed to continue.
     if (moveT >= 70 && moveH >= 70) {
-        console.log("Ha sido empate");
-        document.getElementById("circuit").innerHTML += "<br> <h1> Es un empate </h1>";
-        disableButton();
+        result("Ha sido empate");
         return;
     } else if (moveH >= 70) {
-        console.log("Ha ganado la liebre");
-        document.getElementById("circuit").innerHTML += "<br> <h1> ganó la liebre,...,qué bien!!, yuhu</h1>";
-        disableButton();
+        result("ganó la liebre,...,qué bien!!, yuhu");
         return;
     } else if (moveT >= 70) {
-        console.log("Ha ganado la tortuga");
-        document.getElementById("circuit").innerHTML += "<br> <h1> GANÓ TORTUGA! YEAH!</h1>";
-        disableButton();
+        result("GANÓ TORTUGA! YEAH!");
         return;
     } else if (next != 1) {
         race(0);
@@ -138,40 +141,62 @@ function race(next) {
 }
 
 /**
- * Escribe en el documento html mediante un bucle que escribe 'X' para empate, 'T' 
- * para la tortuga, 'L' para la liebre o '_' para el camino en la posicion correspondiente.
+ * It writes the characters inside a div('X' for crosspath, 'L' for hare and 'T' for tortoise)
  */
-function writeScreen() {
+function writeScreen(next) {
     var road = "";
-    // Booleano que cambia a True cuando es empate para no repetir caracteres.
+
+    // Saves the status of the checkbox.
+    var oneLine = document.getElementById("oneLine").checked;
+    var withShape = document.getElementById("withShape").checked;
+
+    // Function that adds graphics to the race.
+    setStyle(withShape);
+
+    // Boolean that becames true when the animals are in the same position.
     var even = false;
     for (var i = 0; i <= 70; i++) {
-        // if (moveH == i && moveT == i && !even) {
-        //     road += charCross;
-        //     console.warn("OUCH!");
-        //     even = true;
-        // } else if (moveT == i && !even)
-        //     road += charT;
-        // else if (moveH == i && !even)
-        //     road += charH;
-        // if (i < 70)
-        road += charRoad;
+        if (moveH == i && moveT == i && !even) {
+            road += charCross;
+            console.warn("OUCH!");
+            even = true;
+        } else if (moveT == i && !even)
+            road += charT;
+        else if (moveH == i && !even)
+            road += charH;
+        if (i < 70)
+            road += charRoad;
     }
-    if (moveH == moveT) {
-        road = setCharAt(road, moveH, charCross);
-        console.warn("OUCH!");
-        even = true;
-    } else {
-        road = setCharAt(road, moveT, charT);
-        road = setCharAt(road, moveH, charH);
-    }
-    // Escribe en la consola y en el div con id 'circuit'.
-    console.log(road);
-
-    document.getElementById("circuit").innerHTML += road;
+    // Writes in both, console and div. Depending on the status of oneLine
+    // and next, will overwrite the lines or will be appended.
+    if (!withShape)
+        console.log(road);
+    if (next == 1 && oneLine)
+        document.getElementById("circuit").innerHTML = road + "<br>";
+    else
+        document.getElementById("circuit").innerHTML += road + "<br>";
 }
+
 /**
- * Reinicia los valores de las variables, botones y limpia el div, para una nueva ejecuión.
+ * Set the value of the characters or replace it with images.
+ */
+function setStyle(withShape) {
+    charRoad = "_";
+    charCross = "X";
+    charH = "L";
+    charT = "T";
+
+    // If it's checked character will be replaced with images.
+    if (withShape) {
+        charRoad = '<img src="img/grass.png" id="road" />';
+        charH = '<img src="img/hare.gif" id="hare" />';
+        charT = '<img src="img/tortoise.gif" id="tortoise" />';
+        charCross = '<img src="img/ouch.png" id="cross" />';
+    }
+}
+
+/**
+ * Reset the variable values and content of the div, for another execution.
  */
 function resetBoard() {
     moveH = 0;
@@ -179,16 +204,30 @@ function resetBoard() {
     document.getElementById("circuit").innerHTML = "";
     document.getElementById("btn_sbs").disabled = false;
     document.getElementById("btn_cont").disabled = false;
-}
-/**
- * Deshabilita los botones de inicio.
- */
-function disableButton() {
-    document.getElementById("btn_sbs").disabled = true;
-    document.getElementById("btn_cont").disabled = true;
+    document.getElementById("btn_live").disabled = false;
+    document.getElementById("withShape").disabled = false;
+    document.getElementById("oneLine").disabled = false;
+    document.getElementById("oneLine").checked = false;
+    document.getElementById("withShape").checked = false;
+    clearInterval(live);
 }
 
-function setCharAt(str, index, chr) {
-    if (index > str.length - 1) return str;
-    return str.substr(0, index) + chr + str.substr(index + 1);
+/**
+ * Disable the buttons and clear the setInterval.
+ */
+function disableButton() {
+    // It clears setInterval to stop the loop when there is a winner.
+    clearInterval(live);
+
+    document.getElementById("btn_sbs").disabled = true;
+    document.getElementById("btn_cont").disabled = true;
+    document.getElementById("btn_live").disabled = true;
+}
+/**
+ * Prints the result on screen
+ */
+function result(text) {
+    console.log(text);
+    document.getElementById("circuit").innerHTML += "<br> <h1> " + text + "</h1>";
+    disableButton();
 }

@@ -15,11 +15,21 @@ and open the template in the editor.
 </head>
 
 <body>
-    <div>
-        <button onclick="stepByStep()" id="btn_sbs">Paso a paso</button>
-        <button onclick="preRace()" id="btn_cont">Iniciar</button>
-        <button onclick="resetBoard()" id="btn_reset">Reiniciar</button>
+    <div id="wrapper">
+        <h1>La tortuga y la liebre</h1>
+        <p>Aymediacoán Mauleón Quintana</p>
     </div>
+    <div>
+        <input type="checkbox" name="oneLine" id="oneLine"> En una línea <br>
+        <input type="checkbox" name="withShape" id="withShape"> Con imágenes
+    </div>
+    <hr>
+    <div>
+        <button onclick="stepByStep()" id="btn_sbs" class="boton azul">Paso a paso</button>
+        <button onclick="preRace()" id="btn_cont" class="boton azul">Resultado</button>
+        <button onclick="onLive()" id="btn_live" class="boton verde">Animado</button>
+        <button onclick="resetBoard()" id="btn_reset" class="boton rojo">Reiniciar</button>
+    </div><br>
     <div id="circuit"></div>
 </body>
 

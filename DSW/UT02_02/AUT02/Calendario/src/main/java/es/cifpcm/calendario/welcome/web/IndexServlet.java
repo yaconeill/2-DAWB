@@ -7,6 +7,7 @@ package es.cifpcm.calendario.welcome.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,6 +49,13 @@ public class IndexServlet extends HttpServlet {
                 name = name == null ? "<Anónimo/a>" : name;
 
                 out.println("<p>Bienvenido/a " + StringEscapeUtils.escapeHtml4(name) + "</p>");
+//                Enumeration<String> headerNames = request.getHeaderNames();
+//                while (headerNames.hasMoreElements()) {
+//                    String headerName = (String) headerNames.nextElement();
+//                    out.println("<dt><dd>" + headerName);
+//                    out.println("    <dd>" + request.getHeader(headerName));
+//                }
+                out.println("</TABLE>\n</BODY></HTML>");
                 out.println("</body>");
                 out.println("</html>");
             } finally {
