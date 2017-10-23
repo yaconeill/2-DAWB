@@ -32,7 +32,7 @@ $grosor: 1px;
 }
 
 //Ejercicio 5
-// $size:10;
+$size:10;
 // @for $i from 1 through 4 {
 //     h#{$i} {
 //         font-size: #{$size} px;
@@ -40,14 +40,21 @@ $grosor: 1px;
 //         $size: $size*2;
 //     }
 // }
-//Ejercicio 5
-$i: 4;
-$size: 10;
-@while $i>0 {
-    h#{$i} {
-        font-size: #{$size} px;
-        color: #000;
+//Ejercicio 6
+// $i: 4;
+// @while $i>0 {
+//     h#{$i} {
+//         font-size: #{$size} px;
+//         color: #000;
+//     }
+//     $size: $size * 2;
+//     $i: $i - 1;
+// }
+//Ejercicio 7
+@each $num in 1,
+2,
+3 {
+    .clase#{$num} {
+        @include radio(50px);
     }
-    $size: $size * 2;
-    $i: $i - 1;
 }

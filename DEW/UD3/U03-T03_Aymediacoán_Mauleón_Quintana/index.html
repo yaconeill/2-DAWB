@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="getColor()">
+    <fieldset>
+        <legend>
+            <h3>Cookies</h3>
+        </legend>
+        <div>
+            <h1>Ejercicio 1</h1>
+            <p id="ejer1">1.- En los apuntes se plantea un ejercicio sobre cookies que será el punto de partida del ejercicio. Modifica el fichero de manera que consigas que escriba en la Web el contador de visitas a la web y la hora en la que se visitó la web por
+                última vez.</p>
+            <input type="button" value="Comprobar cookie" onclick="checkCookies()">
+            <div><input type="button" value="Borrar" onclick="deleteCookies()"></div>
+        </div>
+        <div>
+            <h1>Ejercicio 2</h1>
+            <p id="ejer2">2.- Crea una cookie que guarde el color favorito de un usuario. Solo se le solicitará al usuario el color la primera vez que acceda a la Web. Se cambiará el color de fondo de la página con el color favorito. Las siguientes visitas a la página
+                establecerán el color de fondo en base al función del valor de la cookie.</p>
+            <input type="button" value="Iniciar" onclick="SetColor()">
+        </div>
+        <div>
+            <h1>Ejercicio 3</h1>
+            <p id="ejer3">3.- Las variables "max-age", "path" y "domain" son nombres especiales de variables que son reconocidas por un navegador para controlar diferentes aspectos. Investiga que significa cada una de esas variables y explica su significado y uso en
+                el propio fichero.</p>
+            <ul>
+                <li>
+                    <p>
+                        Max-age: Es el número de segundos hasta que la cookies expire. Se establece con uno o más digitos de 1 a 9. Si max-age y expire estan definidos, max-age prevalece.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Path: Indica una ruta URL que debe existir en el recurso de petición antes de enviar la cabecera de la cookie.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Domain: Especifica los host a los que la cookie será enviada, si no se especifica, se establece de forma predeterminada en la parte del host de la ubicación del documento actual, pero no incluye el subdominio.
+                    </p>
+                </li>
+            </ul>
+            <input type="button" value="Iniciar" onclick="ejercicio3()">
+        </div>
+        <div>
+            <h1>Ejercicio 4</h1>
+            <p id="ejer4">4.- Debes conseguir que la cookie caduque en 1 minuto. Comprueba que caduca.</p>
+            <input type="button" value="Iniciar" onclick="cookieOneMinute()">
+        </div>
+        <div>
+            <h1>Ejercicio 5</h1>
+            <p id="ejer5">5.- Añade un botón que lo que haga es eliminar la cookie del apartado 2. ¿Cómo comprobarías que se ha eliminado? (La respuesta ponla en el código como un comentario)</p>
+            <input type="button" value="Iniciar" onclick="deleteCookieEjer2()">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <h3>WebStorage</h3>
+        </legend>
+        <!-- <div>
+            <h1>Ejercicio 1</h1>
+            <p id="ejerWS1"></p>
+            <input type="button" value="Iniciar" onclick="">
+        </div> -->
+        <div>
+            <h1>Ejercicio 2</h1>
+            <p>Añadir un botón "Me gusta" y un div con un mensaje de texto que muestre el contador de las veces que los usuarios han hecho click en el botón. Prueba a cerrar y a abrir el navegador de manera que se siga conservando el valor del contador de
+                "Me gusta". Además prueba a abrir en una nueva pestaña la Web y ver el valor obtenido del contador, prueba a modificarlo. Sugerencia de presentación : sustituir el botón por un &lt;div&gt; con un &lt;a&gt; dentro y darle color al &lt;div&gt;</p>
+            <div id="likebutton"><a onclick="countLikes()">Me gusta <i class="fa fa-thumbs-o-up"></i></a></div>
+            <!-- <button id="like-button" style="font-size:18px" onclick="">Me gusta <i class="fa fa-thumbs-o-up"></i></button> -->
+            <div id="countLikes"></div>
+        </div>
+        <div>
+            <h1>Ejercicio 3</h1>
+            <p id="ejerWS3">Realizar una versión simplificada del juego "Ahora Caigo" de TV consistente en: que al usuario le aparecerá una pregunta por pantalla. También le aparecerá la respuesta y algunas letras estarán substituidas por asteriscos (por ejemplo, a la
+                pregunta: "Archipiélago conocido como 'Las afortunadas'" se le presentaría una respuesta (que no es única, depende de tu criterio, a más *, mayor dificultad): I**AS **N*R*AS El contenido de los asteriscos será editable, o sea, seleccionando
+                el área con el ratón se podrá escribir y eliminar el texto de ese área. Una vez esté completada la respuesta, se pinchará en el botón de “Comprobar”. El script comprobará si está la respuesta es correcta o no, avisando del resultado. Este
+                script irá guardando un histórico de todos los intentos, de forma que se mostrarán, en la misma pantalla, los textos que fueron enviados a comprobación. Para almacenar estos textos utilizaremos localStorage. Una vez terminado el script,
+                deberemos hacer varias pruebas, unas poniendo bien la respuesta y otras fallando. Cuando tengamos el historial bastante lleno, cerraremos el navegador. Una vez cerrado lo volveremos a abrir y comprobaremos que se mantiene el historial.
+                También se incorporará un botón de “Reiniciar” para eliminar nuestro historial.</p>
+            <input type="button" value="Iniciar" id="startGame" onclick="startGame()">
+        </div>
+    </fieldset>
+    <script type="text/javascript" src="js/cookies.js"></script>
+    <script type="text/javascript" src="js/webStorage.js"></script>
+</body>
+
+</html>

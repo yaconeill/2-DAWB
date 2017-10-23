@@ -7,18 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
 </head>
 
 <body>
     <div>
         <p>Ejercicio 1</p>
-        <div id="texto">
+        <p>1. Cree mediante JS las siguientes frases con los formatos, tal y como puedes ver en la imagen:</p>
+        <div id="ejer1">
         </div>
     </div>
-    <script type="text/javascript" src="js/script.js"></script>
+    <div>
+        <p>Ejercicio 2</p>
+        <p>2. Debemos incluir un botón que abra una ventana inicial o padre que genere otra ventana hija. En la ventana inicial se ha de escribir la palabra "Original" y en la ventana nueva o hija (que se abrirá a partir de la inicial) debemos escribir la
+            palabra "Nueva". Esta ventana debe medir 250px de ancho por 150px de alto. El título de la nueva ventana original ha de ser vuestro nombre y apellidos y debe contener los siguientes elementos HTML: h1 con tu Nombre h2 con tu primer apellido
+            h3 con la fecha actual en formato: dd-mm-aaaa y un selected para elegir tu isla canaria favorita Al cerrar la ventana hija se debe cargar en la ventana padre la web de www.elpais.com</p>
 
+        <div id="ejer2">
+            <input type="button" value="Iniciar" onclick="ejer2();">
+        </div>
+    </div>
+    <div>
+        <p>Ejercicio 3</p>
+        <p>3. A continuación se incluirá un nuevo botón que le solicitará al usuario un color y se mostrará el texto "Este es el color elegido" con el color de fondo seleccionado por el usuario. En caso de que el color que ha elegido el usuario no sea correcto
+            o no pueda establecerse, mostraremos "El color elegido no está controlado" en formato h1 y estableceremos el fondo de la página a blanco. Los colores se deben de introducir en formato hexadecimal.</p>
+        <input type="button" value="Elegir color" onclick="ejer3();">
+        <div id="ejer3">
+        </div>
+    </div>
+    <div>
+        <p>Ejercicio 4</p>
+        <p>4. Se ha de añadir una nueva opción (botón) que abra una ventana nueva en la que cada 5 segundos se escribe tu nombre con un color diferente (se deben definir 10 colores diferentes).</p>
+        <div id="ejer4">
+            <input type="button" value="Mostrar" onclick="ejer4();">
+        </div>
+    </div>
+    <div>
+        <p>Ejercicio 5</p>
+        <p>5. Se incluirá una nueva opción con el texto: Abrir página que se autodestruirá a los 2 segundos. Al pulsar sobre esta opción, se abrirá una ventana que tenga el mismo texto que el enlace y transcurridos los 2 segundos, se abrirá una nueva ventana
+            con el texto "Realmente se destruirá en 5 segundos" y al transcurrir los 5 segundos se cerrará la primera ventana.</p>
+        <input type="button" value="página que se autodestruirá a los 2 segundos" onclick="ejer5()">
+        <div id="ejer5">
+
+        </div>
+    </div>
+    <div>
+        <p>Ejercicio 6</p>
+        <p>6. En la parte final de la página utilizaremos el objeto Date para crear un reloj en formato HH:MM:SS. El reloj debe actualizarse constantemente y para ello debemos utilizar el método setInterval del objeto window (llamará a una función cada cierto
+            número de milisegundos). Deberán salir los siguientes mensajes e imágenes si estamos entre: • las 5 am y las 12 am: mensaje: "buenos días" imagen: poner una imagen de una salida de sol • las 12 am y las 15 pm: mensaje: "Mediodía" imagen: poner
+            una imagen de un bocadillo • las 18 pm y las 22 pm: mensaje: "Hora de Cenar" imagen: poner una imagen de una mesa puesta para cenar Para el resto de horas no contempladas en los márgenes anteriores: saldrá el mensaje "A currar" sin imagen.</p>
+        <div id="ejer6">
+            <h1 id="time"></h1>
+            <p id="msg"></p>
+            <img src="" alt="" id="img">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

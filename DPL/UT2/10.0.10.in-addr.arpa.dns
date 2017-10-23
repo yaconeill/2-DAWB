@@ -1,0 +1,29 @@
+;
+;  Database file 10.0.10.in-addr.arpa.dns for Default zone scope in zone 10.0.10.in-addr.arpa.
+;      Zone version:  8
+;
+
+@                       IN  SOA serveryaco. hostmaster. (
+                        		8            ; serial number
+                        		900          ; refresh
+                        		600          ; retry
+                        		86400        ; expire
+                        		3600       ) ; default TTL
+
+;
+;  Zone NS records
+;
+
+@                       NS	serveryaco.
+
+;
+;  Zone records
+;
+
+2                       PTR	homer.simpson10.edu.
+                        PTR	www.simpson10.edu.
+                        PTR	casa.simpson10.edu.
+3                       PTR	marge.simpson10.edu.
+4                       PTR	bart.simpson10.edu.
+5                       PTR	lisa.simpson10.edu.
+6                       PTR	maggie.simpson10.edu.

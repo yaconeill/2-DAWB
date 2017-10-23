@@ -14,11 +14,15 @@ p{
     color:white; 
     padding: 10px;
 }
+span{
+    
+}
 .calendar{
     margin:auto; 
     border: 2px solid #AFAFAF; 
     background-color: rgba(43, 43, 43, 0.86);
-    font-family: Segoe UI; width: 320px;
+    font-family: Segoe UI; 
+    width: 320px;
 }
 table{
     color :white; 
@@ -28,7 +32,7 @@ table{
 td{
     padding: 10px
 }
-td:hover {
+tr:not(:first-child) td:hover {
   background-size:  100% 100%;
   border: 1px double cornflowerblue;
     background-color: #525275;

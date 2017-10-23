@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Original</title>
+</head>
+
+<body onload="show()">
+    <h1>Original</h1>
+    <script type="text/javascript">
+        function show() {
+            var son = window.open('hijo.html', 'Nueva', 'width=250,height=150');
+            var timer = setInterval(function() {
+                if (son.closed) {
+                    clearInterval(timer);
+                    window.location = "https://www.elpais.com";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

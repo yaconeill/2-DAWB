@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nueva</title>
+
+</head>
+
+<body>
+    <h1>Nueva</h1>
+    <h1>Aymediacoán</h1>
+    <h2>Mauleón</h2>
+    <h3 id='date'></h3>
+    <select name="" id="">
+<option value="">Seleccionar isla</option>
+<option value="Tenerife">Tenerife</option>
+<option value="Gran_Canaria">Gran Canaria</option>
+<option value="La_Palma">La Palma</option>
+<option value="La_Gomera">La Gomera</option>
+<option value="El_Hierro">El Hierro</option>
+<option value="Fuerteventura">Fuerteventura</option>
+<option value="Lanzarote">Lanzarote</option>
+</select>
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        today = dd + '/' + mm + '/' + yyyy;
+        document.getElementById('date').innerHTML = today;
+    </script>
+</body>
+
+</html>

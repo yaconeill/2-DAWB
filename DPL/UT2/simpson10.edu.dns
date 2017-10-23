@@ -1,0 +1,30 @@
+;
+;  Database file simpson10.edu.dns for Default zone scope in zone simpson10.edu.
+;      Zone version:  9
+;
+
+@                       IN  SOA serveryaco. hostmaster. (
+                        		9            ; serial number
+                        		900          ; refresh
+                        		600          ; retry
+                        		86400        ; expire
+                        		3600       ) ; default TTL
+
+;
+;  Zone NS records
+;
+
+@                       NS	serveryaco.
+
+;
+;  Zone records
+;
+
+Bart                    A	10.0.10.4
+buzon                   MX	10	homer.simpson10.edu.
+casa                    A	10.0.10.2
+Homer                   A	10.0.10.2
+Lisa                    A	10.0.10.5
+Maggie                  A	10.0.10.6
+Marge                   A	10.0.10.3
+www                     A	10.0.10.2

@@ -1,0 +1,22 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Esta página que se autodestruirá a los 2 segundos</h1>
+</body>
+<script>
+    var a = setTimeout(function() {
+        var w;
+        w = window.open('', 'Autodestrucción', 'width=550,height=650');
+        w.document.writeln('<p>Realmente se destruirá en 5 segundos</p>');
+    }, 2000);
+    var b = setTimeout('this.close()', 7000);
+</script>
+
+</html>

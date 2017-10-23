@@ -1,0 +1,91 @@
+#likebutton {
+    border: 3px solid steelblue;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+    width: 80px;
+    color: white;
+    padding: 7px;
+    border-style: outset;
+}
+
+#likebutton:active {
+    border-style: inset;
+}
+
+#likebutton:hover {
+    cursor: pointer;
+}
+
+input {
+    border: none;
+}
+
+#gameBody {
+    background-image: url(../img/plato.jpg);
+    background-repeat: no-repeat;
+    background-size: 620px 360px;
+    margin: 0px;
+}
+
+#preg {
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 89px;
+    position: relative;
+    top: 260px;
+}
+
+#inputs {
+    margin: 0px auto;
+    width: 280px;
+}
+
+#gameBody input[type=button] {
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+#gameBody p {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#gameBody input[type=text] {
+    margin-left: 30px;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#gameBody {
+    max-height: 360px;
+    min-height: 360px;
+    max-width: 620px;
+    min-width: 620px;
+}
+
+#history {
+    /* background-color: #031d81; */
+    background-image: url(../img/history.jpg);
+    background-size: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 89px;
+    font-weight: bold;
+    color: white;
+    margin-left: 170px;
+    width: 280px;
+    max-height: 260px;
+    overflow-y: scroll;
+}
+
+#history::-webkit-scrollbar {
+    display: block;
+}

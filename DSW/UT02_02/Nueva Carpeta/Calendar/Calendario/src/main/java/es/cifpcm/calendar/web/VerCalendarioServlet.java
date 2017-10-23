@@ -87,10 +87,10 @@ public class VerCalendarioServlet extends HttpServlet {
             out.println("<head>");
             out.println("<title>Ver Calendario</title>");
             out.println("<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">");
-            out.println("<link rel=\"stylesheet\" href=\""+request.getContextPath() + "/css/style.css\">" );
+            out.println("<link rel=\"stylesheet\" href=\"" + request.getContextPath() + "/css/style.css\">");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 style='text-align:center;'>" + request.getContextPath() + "</h1>");
+            out.println("<h1 style='text-align:center;'>Calendario</h1>");
             out.println("<div class='calendar'><table>");
             out.println("<tr>");
             out.println("<td colspan='5'>" + nameMonth + " de " + showYear + "</td>");
@@ -98,6 +98,8 @@ public class VerCalendarioServlet extends HttpServlet {
             out.println("<td><a href='?mes=" + (m + 1) + "'><i class=\"fa fa-angle-right\" style=\"font-size:30px\"></i></a></td>");
             out.println("</tr>");
             out.println("<tr>");
+            //String[][] daysmonth = new String[6][6];
+
             String[] daysOfWeek = {"L", "M", "X", "J", "V", "S", "D"};
             for (String d : daysOfWeek) {
                 out.println("<td>");
@@ -117,6 +119,7 @@ public class VerCalendarioServlet extends HttpServlet {
                 out.println("<tr>");
                 for (j = 0; j < 7; j++, k++) {
                     if (k <= maxDaysPrevMonth && i == 0) {
+                        //daysmonth[i][] 
                         out.println("<td class='otherMonth'>" + k + "</td>");
                     } else {
                         if (d <= maxDays) {
