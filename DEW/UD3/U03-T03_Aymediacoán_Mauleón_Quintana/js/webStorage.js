@@ -17,5 +17,5 @@ function countLikes() {
  */
 function startGame() {
     var w;
-    w = window.open('pages/game.html', 'startGame', 'scrollbars=no, resizable=no,width=620,height=360');
+    w = window.open('pages/game.html', 'startGame', 'width=620,height=360');
 }

@@ -103,6 +103,8 @@ public class ResultadosServlet extends HttpServlet {
             } else {
                 out.println("<h1>Se ha producido un error, por favor revisa lo datos introducidos.</h1>");
                 out.println("<h2>" + textoError + "</h2>");
+                out.println("Se redireccionará automáticamente en 5 segundos.");
+                response.setHeader("Refresh", "5; URL=" + request.getContextPath() + "/index.html");
             }
             out.println("</body>");
             out.println("</html>");
@@ -115,18 +117,6 @@ public class ResultadosServlet extends HttpServlet {
             if (isInteger(num)) {
                 if (Integer.parseInt(num) > 0 && Integer.parseInt(num) <= 45) {
                     COMBINACION_ELEGIDA.add(Integer.parseInt(num));
-                    if (COMBINACION_ELEGIDA.size() == 6 && !ERROR) {
-                        for (Object elmt : COMBINACION_ELEGIDA) {
-                            boolean a = COMBINACION_GANADORA.contains(elmt);
-                            if (a) {
-                                ACIERTOS++;
-                            }
-                        }
-                    } else {
-                        ERROR = true;
-                        textoError = "No se permiten valores repetidos.";
-                        break;
-                    }
                 } else {
                     ERROR = true;
                     textoError = "Algún valor está fuera de rango, sólo se permiten números enteros entre 1 y 45";
@@ -137,6 +127,17 @@ public class ResultadosServlet extends HttpServlet {
                 textoError = "Alguno de los campos contiene un valor no numérico.";
                 break;
             }
+        }
+        if (COMBINACION_ELEGIDA.size() == 6 && !ERROR) {
+            for (Object elmt : COMBINACION_ELEGIDA) {
+                boolean a = COMBINACION_GANADORA.contains(elmt);
+                if (a) {
+                    ACIERTOS++;
+                }
+            }
+        } else if(!ERROR){
+            ERROR = true;
+            textoError = "No se permiten valores repetidos.";
         }
     }
 
