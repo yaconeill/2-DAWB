@@ -1,0 +1,1 @@
+    div.container>(label>span+br+input:number)*2+div.calendar>div#month{mmm}+br+div.dayweek*7+div.days{dd}*44

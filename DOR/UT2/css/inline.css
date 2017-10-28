@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+.seleccion {
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+}
+
+div {
+    text-align: center;
+}
+
+.calendar {
+    margin: auto;
+    border: 1px solid royalblue;
+    background-color: #adcbe8;
+    width: 50%;
+    padding: 1vw;
+    min-width: 300px;
+    min-height: 370px;
+}
+
+.month {
+    width: 100% !important;
+    font-weight: bold;
+    background-color: white;
+    padding: 15px 0px;
+}
+
+.calendar div {
+    display: inline-block;
+    width: 6vw;
+    font-size: 3vw;
+    margin-bottom: 20px;
+}
+
+o {
+    color: slategrey;
+}

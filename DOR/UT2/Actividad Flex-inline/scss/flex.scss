@@ -1,0 +1,36 @@
+@import "common.scss";
+.calendar {
+    display: flex;
+    width: 54vw;
+    height: 70vh;
+    border: 1px solid $bordeRoyal;
+    background-color: $fondoAzul;
+    font-size: 4vw;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 1vw;
+}
+
+.month {
+    @extend .month;
+    align-self: baseline;
+}
+
+.month,
+.dayweek,
+.days {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dayweek,
+.days {
+    width: 7vw;
+    height: 6vh;
+}
+
+
+/*# sourceMappingURL= flex.css.map */

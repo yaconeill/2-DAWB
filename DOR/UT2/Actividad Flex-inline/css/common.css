@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.seleccion {
+  margin-bottom: 10px;
+}
+
+div {
+  text-align: center;
+}
+
+.month {
+  width: 100% !important;
+  font-weight: bold;
+  background-color: white;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+o {
+  color: slategrey;
+}
+ 
+
+ /*# sourceMappingURL= common.css.map */

@@ -1,0 +1,22 @@
+@import "common.scss";
+.calendar {
+    margin: auto;
+    border: 1px solid $bordeRoyal;
+    background-color: $fondoAzul;
+    width: 50%;
+    padding: 1vw;
+    min-width: 300px;
+    min-height: 370px;
+}
+
+.month {
+    @extend .month;
+    padding: 5px 0px;
+}
+
+.calendar div {
+    display: inline-block;
+    width: 6vw;
+    font-size: 4vw;
+    margin-bottom: $margin-bottom20;
+}

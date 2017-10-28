@@ -1,0 +1,39 @@
+.month, .dayweek, .days {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayweek, .days {
+  width: 7vw;
+  height: 6vh;
+  background-color: white;
+  font-weight: bold;
+}
+
+.calendar {
+  display: flex;
+  width: 54vw;
+  height: 54vh;
+  border: 1px solid royalblue;
+  background-color: dodgerblue;
+  font-size: 4vw;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 1vw;
+}
+
+.month {
+  width: 100%;
+  align-self: baseline;
+  background-color: white;
+}
+
+o {
+  color: slategrey;
+}
+ 
+
+ /*# sourceMappingURL= flex.css.map */

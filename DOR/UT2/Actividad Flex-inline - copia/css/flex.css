@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+    max-width: 960px;
+}
+
+.calendar {
+    width: 52vw;
+    height: 52vw;
+    border: 1px solid royalblue;
+    background-color: dodgerblue;
+    font-size: 2em;
+    margin: auto;
+    padding: 1vw;
+    /* ------Flex conf------------ */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.month {
+    width: 100%;
+    align-self: baseline;
+    background-color: white;
+}
+
+.daysRow,
+.dwRow,
+.month,
+.dayweek,
+.days {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.dayweek,
+.days {
+    width: 7vw;
+    height: 6vh;
+    background-color: white;
+    font-weight: bold;
+}
+
+o {
+    color: slategrey;
+}
