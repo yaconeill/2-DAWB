@@ -1,0 +1,12 @@
+@import "common.scss";
+.calendar {
+    display: inline-block;
+    @extend .calendar;
+}
+
+.dayweek,
+.days {
+    display: inline-block;
+    width: 5.6vw;
+    height: 5.6vw;
+}

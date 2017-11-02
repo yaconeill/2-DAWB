@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Modificando todos los enlaces de un documento </title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="uno.html">El primer enlace</a>
+        </li>
+        <li><a href="dos.html" target="new">El segundo enlace</a>
+        </li>
+        <li><a href="tres.html">El tercer enlace</a>
+        </li>
+    </ul>
+    <script>
+        var nodos = document.getElementsByTagName("a") 
+        for (var i = 0; i < nodos.length; ++i) {
+            nodos[i].onmouseover = function() {
+                this.style.backgroundColor = 'green'
+            }
+            nodos[i].onmouseout = function() {
+                this.style.backgroundColor = ''
+            }
+        }
+    </script>
+</body>
+
+</html>

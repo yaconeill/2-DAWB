@@ -1,0 +1,54 @@
+<html>
+<!-- Crear elementos que pueden estar ocultos o visibles. Para hacerlos "aparecer" y "desaparecer" utilizamos css -->
+<head>
+    <title>Cambiando la clase de un nodo</title>
+</head>
+
+<body>
+    <style>
+        .menu_item {
+            font-size: 12px;
+            color: red;
+            text-align: left;
+            border: 2px solid red;
+        }
+        .submenu_item {
+            color: blue;
+            border: 1px solid blue;
+        }
+        .submenu_off {
+            visibility: hidden;
+            width: 10px;
+        }
+        .submenu_on {
+            visibility: show;
+        }
+    </style> 
+    <span id="m1" class="menu_item">Uno</span> 
+    <span id="m2" class="menu_item">Dos</span>
+    <br/>
+    <br/> 
+      	<span id="subm1" class="submenu_off"> 
+        	<span id="m1_1" class="submenu_item">Uno -> Uno</span> 
+        	<span id="m1_2" class="submenu_item">Uno -> Dos</span> 
+        </span> 
+        <span id="subm2" class="submenu_off"> 
+            <span id="m2_1" class="submenu_item">Dos -> Uno</span> 
+            <span id="m2_2" class="submenu_item">Dos -> Dos</span> 
+        </span>
+    <script>
+        for (i = 1; i <= 2; ++i) { // Añadimos eventos al menú de primer nivel 	
+          	var el=document.getElementById( "m"+i ); //Cada menú se llama m1, m2 ... 	
+          	el.onmouseover=function setOn() { 		
+          		var auxEl=document.getElementById( "sub"+this.id ); // Cada sumenú: sub1, sub2... 		
+              	auxEl.className="submenu_on"; 	
+            } 	
+            el.onmouseout=function setOn() { 		
+              	var auxEl=document.getElementById( "sub"+this.id ); 		
+              	auxEl.className="submenu_off"; 	
+            } 
+        }
+    </script>
+</body>
+
+</html>

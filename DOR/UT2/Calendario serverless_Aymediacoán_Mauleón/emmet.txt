@@ -1,0 +1,3 @@
+Para la creación del esqueleto se he usado la siguiente línea:
+h1{calendario}+div.container>(label>span+input:number)*2+div.calendar>div#month{mmm}+(div.dw>div.dayweek{dw}*7)+(div.week>div.days{dd}*7)*6
+

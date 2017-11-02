@@ -1,0 +1,30 @@
+divs[2].setAttribute('id','contenido');
+undefined
+history
+History {length: 1, scrollRestoration: "auto", state: null}length: 1scrollRestoration: "auto"state: null__proto__: Historyback: ƒ back()arguments: nullcaller: nulllength: 0name: "back"__proto__: ƒ ()forward: ƒ forward()go: ƒ go()length: (...)pushState: ƒ pushState()arguments: nullcaller: nulllength: 2name: "pushState"__proto__: ƒ ()replaceState: ƒ replaceState()arguments: nullcaller: nulllength: 2name: "replaceState"__proto__: ƒ ()scrollRestoration: (...)state: (...)constructor: ƒ History()Symbol(Symbol.toStringTag): "History"get length: ƒ ()get scrollRestoration: ƒ ()set scrollRestoration: ƒ ()get state: ƒ ()__proto__: Object
+History
+ƒ History() { [native code] }
+var elemento = doc
+VM3499:1 Uncaught ReferenceError: doc is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3499:1
+var elemento = document.createElement('h1')
+undefined
+var texto = document.createTextNode('Prueba appendChild');
+undefined
+elemento.appendChild
+ƒ appendChild() { [native code] }
+elemento.appendChild(texto)
+"Prueba appendChild"
+var cont = document.getElementById('contenido')
+undefined
+cont.firstElementChild
+<h2>​Pepe​</h2>​
+cont.firstChild
+#text
+cont.firstChild.appendChild(elemento)
+VM3671:1 Uncaught DOMException: Failed to execute 'appendChild' on 'Node': This node type does not support this method.
+    at <anonymous>:1:17
+(anonymous) @ VM3671:1
+cont.appendChild(elemento)
+<h1>​Prueba appendChild​</h1>​

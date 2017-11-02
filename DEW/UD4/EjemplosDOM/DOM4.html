@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Modificando nodos con el árbol DOM</title>
+</head>
+
+<body>
+    <div id="parrafillo">Este es un párrafo que contiene muchas cosas:
+        <ul>
+            <li>Una</li>
+            <li>lista</li>
+        </ul>
+        <table border=1>
+            <tr>
+                <td>Y una</td>
+                <td>tabla!</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function cambia() {
+                var el = document.getElementById("parrafillo");
+                while (el.firstChild != null) // Primero quitamos el contenido 
+                    el.removeChild( el.firstChild ); 
+            // A continuación, creamos y añadimos nodos 	
+            var texto=document.createTextNode( "Y lo cambio completamente" ) 	
+            el.appendChild( texto ); 	
+            var ol=document.createElement( "ol" ); 	
+            el.appendChild( ol ); 	
+            var li=document.createElement( "li" ); 	
+            ol.appendChild( li ); 	
+            texto=document.createTextNode( "aunque" ); 	
+            li.appendChild( texto ); 	
+            li=document.createElement( "li" ); 	
+            ol.appendChild( li ); 	
+            texto=document.createTextNode( "también incluyo" ); 	   
+            li.appendChild( texto ); 	
+            li=document.createElement( "li" ); 	
+            ol.appendChild( li ); 	
+            texto=document.createTextNode( "una lista" ); 	
+            li.appendChild( texto ); } 
+            
+            setTimeout( "cambia()", 1000 );
+    </script>
+</body>
+
+</html>

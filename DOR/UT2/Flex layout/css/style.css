@@ -1,0 +1,56 @@
+body {
+    font-size: 80%;
+}
+
+.contenedor>* {
+    flex: 1 100%;
+}
+
+.contenedor {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.header {
+    background-color: royalblue;
+}
+
+.article {
+    background-color: wheat;
+    text-align: justify;
+}
+
+.izq {
+    background-color: teal;
+}
+
+.dcha {
+    background-color: aquamarine;
+}
+
+.footer {
+    background-color: salmon;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 100%;
+    }
+    .aside {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        font-size: 120%;
+    }
+    .article {
+        flex: 3;
+    }
+    .izq,
+    .header {
+        order: -1;
+    }
+}
