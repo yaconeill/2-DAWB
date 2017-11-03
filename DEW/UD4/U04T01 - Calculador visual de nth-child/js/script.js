@@ -1,18 +1,18 @@
-//Default size for the table width and height
+// Default size for the table width and height
 var defaultSize = 20;
 
-//Create initial div element
+// Create initial div element
 var body = document.getElementsByTagName('body')[0];
 createElement('div', body, null, 'id', 'container');
 
-//Form creation
+// Form creation
 createElement('form', body, null, 'id', 'form');
 
-//Call to function that creates inputs
+// Call to function that creates inputs
 basicInputs();
 boardCreation();
 
-//Buttons Event listeners
+// Buttons Event listeners
 var submit = document.getElementById('submit');
 submit.addEventListener('click', boardCreation);
 var reset = document.getElementById('reset');
@@ -23,11 +23,11 @@ reset.addEventListener('click', resetValues);
  *  Creation of the primary elements
  */
 function basicInputs() {
-
+    // Create an element div to contain the inputs
     createElement('div', body, null, 'id', 'inputs');
     var divInputs = document.getElementById('inputs');
 
-    //Input creation
+    // Input creation
     createElement('label', divInputs, 'Fórmula (nth-child):', 'for', 'formula');
     createElement('br', divInputs);
     createElement('input', divInputs, null, 'type', 'text', 'id', 'formula');
@@ -41,43 +41,51 @@ function basicInputs() {
     createElement('input', divInputs, null, 'type', 'number', 'id', 'width');
     createElement('br', divInputs);
     createElement('label', divInputs, 'Color principal:', 'for', 'mainColor');
-    // createElement('br', divInputs);
     createElement('input', divInputs, null, 'type', 'color', 'id', 'mainColor', 'value', '#ffffff');
     createElement('br', divInputs);
-    createElement('label', divInputs, 'Color secundario:', 'for', 'SecundaryColor');
-    // createElement('br', divInputs);
-    createElement('input', divInputs, null, 'type', 'color', 'id', 'SecundaryColor', 'value', '#ffffff');
+    createElement('label', divInputs, 'Color secundario:', 'for', 'SecondaryColor');
+    createElement('input', divInputs, null, 'type', 'color', 'id', 'SecondaryColor', 'value', '#a899fd');
     createElement('br', divInputs);
 
-    // Input
+    // Create elements Input
     createElement('button', divInputs, 'Enviar', 'type', 'submit', 'id', 'submit');
     createElement('button', divInputs, 'Restablecer', 'type', 'reset', 'id', 'reset', 'onclick', 'resetValues()');
 
-    //
+    // Create a container for table
     createElement('div', body, null, 'id', 'board');
     var board = document.getElementById('board');
     createElement('table', board, null, 'id', 'table');
 }
 
+/**
+ * Function that sets the color of the cells throw a nth-child formula
+ */
 function styleNthChild() {
-    var formula = document.getElementById('formula').value;
+    // Get the values of the inputs
+    var formula = document.getElementById('formula').value || 'odd';
     var mainColor = document.getElementById('mainColor').value;
-    var SecundaryColor = document.getElementById('SecundaryColor').value;
-    var head = document.getElementsByTagName('head')[0];
-    if (head.lastChild.localName == 'style')
-        head.removeChild(head.lastChild);
-    var css = `tr:nth-child(${formula}) td:nth-child(${formula}){background-color:${SecundaryColor};}
-            tr:nth-child(odd) td:nth-child(odd){background-color:${SecundaryColor};}
-            td{background-color:${mainColor}; width: 20px;height: 20px;border: 1px solid black;}`;
-    createElement('style', head, css);
-    var style = head.lastElementChild;
+    var SecondaryColor = document.getElementById('SecondaryColor').value;
+
+    // Set background color base
+    var cell = document.querySelectorAll('td');
+    cell.forEach(x => x.style.backgroundColor = mainColor);
+
+    // Set background color to use with nth-child
+    var allCells = document.querySelectorAll('td:nth-child(' + formula + ')');
+    if (isNaN(formula))
+        for (var i = 0; i < allCells.length; i++) {
+            allCells[i].style.backgroundColor = SecondaryColor;
+        }
+    else
+        cell[formula].style.backgroundColor = SecondaryColor;
 }
 
+/**
+ * Function that write the table according to the values of width and height
+ */
 function boardCreation() {
-    styleNthChild();
     var width = parseInt(document.getElementById('width').value) || defaultSize;
     var height = parseInt(document.getElementById('height').value) || defaultSize;
-    var sizeW, sizeH, tr;
 
     var table = document.getElementsByTagName('table')[0];
     if (table.hasChildNodes())
@@ -85,8 +93,14 @@ function boardCreation() {
             table.removeChild(table.lastChild);
         }
     write(width, height, table);
+
+    // Call the function that set the bg color
+    styleNthChild();
 }
 
+/**
+ * Write elements to create the rows and columns
+ */
 function write(width, height, table) {
     w = width;
     h = height;
@@ -97,6 +111,9 @@ function write(width, height, table) {
     }
 }
 
+/**
+ * Reset the values of the inputs
+ */
 function resetValues() {
     var inputs = document.getElementById('inputs').children;
     for (var i = 0; i < inputs.length; i++)

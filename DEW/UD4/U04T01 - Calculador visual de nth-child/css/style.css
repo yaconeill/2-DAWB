@@ -11,6 +11,12 @@ input {
     margin-bottom: 10px;
 }
 
-label{
-    margin:10px 10px 0px 0px;
+label {
+    margin: 10px 10px 0px 0px;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
 }
