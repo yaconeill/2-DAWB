@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Formulario empleado onfocus y onblur</title>
+      <style type="text/css">
+         .tip { font-family: sans-serif;
+                color: blue;
+                font-size: 12px }
+      </style>
+ 
+   </head>
+   <body>
+      <form id="myForm" action="">
+         <div>
+         Nombre: <input type="text" name="name" onfocus="helpText(0)" onblur="helpText(6)" /><br/>
+         E-mail: <input type="text" name="e-mail" onfocus="helpText(1)" onblur="helpText(6)" /><br/>
+         Haz cliz aquí si te gusta el sitio <input type="checkbox" name="like" onfocus="helpText(2)" onblur="helpText(6)" /><br/><hr />
+
+         ¿Algún comentario?<br/> <textarea name="comments" rows= "5" cols="45" onfocus="helpText(3)" onblur="helpText(6)"></textarea>
+         <br/>
+         <input type="submit" value="Enviar" onfocus="helpText(4)" onblur="helpText(6)" />
+         <input type="reset" value="Reset" onfocus= "helpText(5)" onblur="helpText(6)" />
+         </div>
+      </form>
+      <div id="tip" class = "tip"></div>
+      
+           <script>
+             var helpArray = 
+                [ "Introduce tu nombre.", // elemento 0
+                  "dirección e-mail con formato usuario@dominio" , // elemento 1
+                  "Marcar si te ha gustado nuestro sitio.", // elemento 2
+                  "Introduce cualquier comentario " , // elemento 3
+                  "Este botón envía el formulario para su procesamiento", // elemento 4
+                  "Botón para limpiar el formulario.", // elemento 5
+                  "" ]; // elemento 6
+             function helpText(messageNum) {
+                document.getElementById("tip").innerHTML = helpArray[ messageNum ];                
+             } 
+      </script>
+   </body>
+</html>	

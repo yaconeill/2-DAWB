@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fases de captura y burbujeo</title>
+</head>
+<body>
+
+<div id="capt1">
+    <span id="capt2">Instrucciones para la fase de captura. </span>
+</div>
+<div id="burb1">
+    <span id="burb2">Instrucciones para la fase de burbuja. </span>
+</div>
+<script>
+    var capt1 = document.getElementById('capt1');
+    var capt2 = document.getElementById('capt2');
+    var burb1 = document.getElementById('burb1');
+    var burb2 = document.getElementById('burb2');
+    capt1.addEventListener('click', function() {alert ("El evento de div acaba de desencadenarse."); },true);
+    capt2.addEventListener('click', function() {alert ("El evento de span acaba de desencadenarse."); },true);
+    burb1.addEventListener('click', function() {alert ("El evento de div acaba de desencadenarse."); },false);
+    burb2.addEventListener('click', function() {alert ("El evento de span acaba de desencadenarse."); },false);
+</script>
+</body>
+</html>

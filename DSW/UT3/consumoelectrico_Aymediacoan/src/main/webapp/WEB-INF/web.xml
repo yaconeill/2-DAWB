@@ -8,9 +8,17 @@
             <param-value>consumoelectrico</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>MedicionesConsumo</servlet-name>
+        <servlet-class>es.cifpcm.consumoelectrico_Aymediacoan.buscador.web.MedicionesConsumo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BuscadorConsumoElectricoServlet</servlet-name>
         <url-pattern>/buscadorclientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MedicionesConsumo</servlet-name>
+        <url-pattern>/MedicionesConsumo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

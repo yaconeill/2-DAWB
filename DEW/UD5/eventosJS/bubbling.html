@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>Burbujeo de Eventos</title>
+	    <script>
+		    function documentClick() {
+	            alert( "Haz hecho click en el documento." );  
+	        } 
+	
+	        function bubble(e) {
+	            alert('Habrá burbujeo.');
+	            e.cancelBubble = false;
+	        } 
+	
+	        function noBubble(e){
+	            alert('NO Habrá burbujeo.');
+	            e.cancelBubble = true;
+	        } 
+			 
+	        function registerEvents() {
+	            document.onclick = documentClick;                        
+	            document.getElementById('bubble').onclick = bubble;    
+	            document.getElementById('noBubble').onclick = noBubble;
+	        } 
+	    </script>
+	</head>
+	<body onload='registerEvents()'>
+	    <p id='bubble'>Bubbling habilitado.</p>
+	    <p id='noBubble'>Bubbling NO habilitado.</p>
+	</body>
+</html>

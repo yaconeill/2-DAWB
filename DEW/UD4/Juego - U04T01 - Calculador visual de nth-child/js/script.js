@@ -17,6 +17,9 @@ var submit = document.getElementById('submit');
 submit.addEventListener('click', boardCreation);
 var reset = document.getElementById('reset');
 reset.addEventListener('click', resetValues);
+var game = document.getElementById('game');
+game.addEventListener('click', initGame);
+
 // Functionality additional, on cell click discover the hidden image
 var table = document.getElementsByTagName('table')[0];
 table.addEventListener("click", function(e) {
@@ -57,6 +60,7 @@ function basicInputs() {
     // Create elements Input
     createElement('button', divInputs, 'Enviar', 'type', 'submit', 'id', 'submit');
     createElement('button', divInputs, 'Restablecer', 'type', 'reset', 'id', 'reset', 'onclick', 'resetValues()');
+    createElement('button', divInputs, 'Juego', 'id', 'game');
 
     // Create a container for table
     createElement('div', body, null, 'id', 'board');
@@ -132,6 +136,46 @@ function resetValues() {
     boardCreation();
     // Second option choose the one that scores the most
     // location.reload();
+}
+
+function initGame() {
+    var random = () => { return Math.floor(Math.random() * (6 - 1 + 1)) + 1; }
+    var rnd = random().toString();
+    // var rnd = Math.floor(Math.random() * 6) + 1;
+    var img = new images();
+    var src = 'url(' + img['2'].src + ')';
+    body.style.background = src;
+    // `url('${img[rnd].src}')`;
+    // table.style.backgroundSize = '100%';
+}
+
+function images() {
+    return {
+        1: {
+            name: 'angelina jolie',
+            src: '../img/angelina-jolie.jpg'
+        },
+        2: {
+            name: 'bruce willis',
+            src: '../img/brucewillis.jpg'
+        },
+        3: {
+            name: 'charlize theron',
+            src: '../img/charlize-theron.jpg'
+        },
+        4: {
+            name: 'leonado dicaprio',
+            src: '../img/leonado-dicaprio.jpg'
+        },
+        5: {
+            name: 'scarlett johansson',
+            src: '../img/scarlett-johansson.jpg'
+        },
+        6: {
+            name: 'will smith',
+            src: '../img/will-smith.jpg'
+        }
+    };
 }
 
 /**
