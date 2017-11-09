@@ -1,0 +1,14 @@
+{
+  "name": "trilero",
+  "version": "1.0.0",
+  "description": "cards game",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yaco",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
+}
