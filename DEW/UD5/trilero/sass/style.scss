@@ -1,0 +1,28 @@
+body {
+    background: url('../img/fondo.jpg');
+    background-size: 100%;
+}
+
+#container {
+    display: flex;
+    // justify-content: center;
+    margin-top: 50px;
+}
+
+.board {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-around;
+}
+
+.cards>div {
+    display: flex;
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.back {
+    background: url('../img/back.png');
+    background-size: 100%;
+}

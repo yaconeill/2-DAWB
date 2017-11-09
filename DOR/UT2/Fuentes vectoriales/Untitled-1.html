@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="facebook"></button>
+    <button id="twitter"></button>
+    <button id="otro"></button>
+    <style>
+        @font-face {
+            font-family: "Iconos pais";
+            src: url(iconos-pais.woff);
+        }
+
+        body {
+            font-family: "Iconos pais";
+        }
+
+        button {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            color: inherit;
+            font: inherit;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: visible;
+            -webkit-appearance: button;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 2.125rem;
+            height: 2.125rem;
+            line-height: 2.125rem;
+            font-size: 2.125rem;
+            border-radius: 1.063rem;
+            display: inline-block;
+            text-indent: 0;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            position: relative;
+            
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        #facebook {
+            background-color: #4862A3;
+            color: #fff;
+        }
+
+        #facebook:before {
+            content: "\e902";
+        }
+
+        #twitter {
+            background-color: #55ACEE;
+            color: #fff;
+        }
+
+        #twitter:before {
+            content: "\e90a";
+        }
+
+        #otro {
+            background-color: #006CA0;
+            color: #fff;
+        }
+
+        #otro:before {
+            content: "\e90e";
+        }
+    </style>
+</body>
+</html>

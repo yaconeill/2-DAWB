@@ -11,7 +11,10 @@ var stop = document.getElementById('stop-button');
 stop.addEventListener('click', function() {
     clearInterval(catTimer);
     movePixels = 10;
-    delayMs = 50;
+});
+var range = document.getElementById('range');
+range.addEventListener('change', function(e) {
+    movePixels = range.value / 2;
 });
 
 function catWalk() {
@@ -28,6 +31,5 @@ function startCatWalk() {
 }
 
 function increaseSpeed() {
-    movePixels += 1;
-    delayMs -= 1;
+    movePixels += 5;
 }

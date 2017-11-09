@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1><strong>Cara o cruz </strong><a href="index.html"> Inicio</a></h1>        
+        <div class="container">
+            <form action="juego.jsp" method="post">
+                <fieldset>
+                    <legend>Hagan sus apuestas</legend>
+                    Cara <input type="radio" name="apuesta" value="0" id="cara" required="required">
+                    Cruz <input type="radio" name="apuesta" value="1" id="cruz" required="required"><br>
+                    <label for="cantidad">
+                        <span>Dinero apostado</span>
+                        <input type="number" name="cantidad" id="cantidad" required="required"></label> €<br>
+                    <input type="submit" value="apostar">
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

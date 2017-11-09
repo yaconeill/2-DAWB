@@ -1,55 +1,70 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Mini mini paint</title>
-      <style type = "text/css">
-         #canvas { width: 400px;
-                   border: 1px solid #999999;
-                   border-collapse: collapse }
-         td      { width: 4px;
-                   height: 4px }
-         th.key  { font-family: arial, helvetica, sans-serif;
-                   font-size: 12px; 
-                   border-bottom: 1px solid #999999 }
-      </style>
-      <script>
-         //initialization function to insert cells into the table
-         function createCanvas() {
+
+<head>
+    <title>Mini mini paint</title>
+    <style type="text/css">
+        #canvas {
+            width: 400px;
+            border: 1px solid #999999;
+            border-collapse: collapse
+        }
+        
+        td {
+            width: 4px;
+            height: 4px
+        }
+        
+        th.key {
+            font-family: arial, helvetica, sans-serif;
+            font-size: 12px;
+            border-bottom: 1px solid #999999
+        }
+    </style>
+    <script>
+        //initialization function to insert cells into the table
+        function createCanvas() {
             var side = 100;
             var tbody = document.getElementById("tablebody");
 
-            for (var i=0; i<side; i++) {
-               var row = document.createElement("tr");
+            for (var i = 0; i < side; i++) {
+                var row = document.createElement("tr");
 
-               for (var j=0; j<side; j++) {
-                  var cell = document.createElement("td");
-                  cell.onmousemove = processMouseMove;
-                  row.appendChild(cell);
-               } 
-               tbody.appendChild( row );
-            } 
-         } 
+                for (var j = 0; j < side; j++) {
+                    var cell = document.createElement("td");
+                    cell.addEventListener('mouseover', processMouseMove, false);
+                    // cell.onmousemove = processMouseMove;                  
+                    row.appendChild(cell);
+                }
+                tbody.appendChild(row);
+            }
+        }
 
-         //  evento onmousemove 
-         function processMouseMove(e) {
+        //  evento onmousemove 
+        function processMouseMove(e) {
             // obtener el objeto event para IE
             if (!e)
-               var e = window.event;
+                var e = window.event;
 
             // si se pulsa la tecla Ctrl, convertir la celda a azul
-            if ( e.ctrlKey )
-               this.style.backgroundColor = "blue";
+            if (e.ctrlKey)
+                this.style.backgroundColor = "blue";
 
             // si se pulsa la tecla Shift, convertir la celda a rojo
-            if ( e.shiftKey )
-               this.style.backgroundColor = "red";
-         } 
-      </script>
-   </head>
-   <body onload = "createCanvas()">
-      <table id = "canvas" class = "canvas"><tbody id = "tablebody">
-      <tr><th class = "key" colspan = "100">Manten pulsado <tt>ctrl</tt>
-         para pintar azul. Pulsa <tt>shift</tt> para pintar en rojo.</th></tr>
-      </tbody></table>
-   </body>
+            if (e.shiftKey)
+                this.style.backgroundColor = "red";
+        }
+    </script>
+</head>
+
+<body onload="createCanvas()">
+    <table id="canvas" class="canvas">
+        <tbody id="tablebody">
+            <tr>
+                <th class="key" colspan="100">Manten pulsado <tt>ctrl</tt> para pintar azul. Pulsa <tt>shift</tt> para pintar en rojo.</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
 </html>

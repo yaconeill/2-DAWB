@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07-nov-2017, 15:23:36
+    Author     : Yaco
+*/
+
+img{
+    width: 400px;
+}
+h1 a{
+    font-size: 50%;
+}
+
+.container {
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.container form{
+    text-align: left;
+    width: 400px;
+}
+
+form{
+    margin: auto;
+}
+
+fieldset{
+    width: 100%;
+}
+
+input{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="number"]{
+    width: 50px;
+}
