@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-nov-2017, 17:12:35
+    Author     : Yaco
+*/
+html, body {
+    height: 100%;
+}
+body{
+    background: #eeeeee;
+}
+h1{
+    font-family: 'Raleway',sans-serif; 
+    font-size: 25px; 
+    font-weight: 800; 
+    line-height: 72px; 
+    margin: 0 0 0 0; 
+    text-align: center; 
+    text-transform: uppercase; 
+}
+a{
+    text-decoration: none;
+    font-size: 15px;
+}
+input[type="submit"],
+button {
+    background-color: slategrey;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+/*    margin: 4px 2px;*/
+    cursor: pointer;
+}
+a:hover{
+    text-shadow: 2px 2px 5px royalblue;
+    color: navy;
+}
+
+fieldset {
+    margin: auto;
+    width: 120px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: lightsteelblue;
+}
+td{
+    padding: 5px;
+}
+tbody tr:nth-child(even) {
+    background-color: window;
+}
+
+table:nth-child(3),
+table:nth-child(4){
+    text-align: center;
+}
+
+table {
+    background-color: slategrey;
+    margin: 15px auto;
+    border-top-right-radius: 10px 10px;    
+    border-top-left-radius: 10px 10px;
+}
+
+th{
+    padding: 5px;
+    text-align: center !important;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

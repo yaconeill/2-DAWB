@@ -35,6 +35,7 @@ h1 select {
     height: 40%;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .cards>div {
@@ -42,6 +43,10 @@ h1 select {
     width: 200px;
     height: 300px;
     border-radius: 15px;
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 5px 5px black;
+    }
 }
 
 .back {
@@ -50,7 +55,7 @@ h1 select {
 }
 
 .footer {
-    display: none;
+    display: flex;
     justify-content: space-around;
     align-items: baseline;
     margin: 15px;

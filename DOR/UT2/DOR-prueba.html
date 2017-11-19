@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    html{font-size: 20px;}
+    body{font-size: 125%;}
+    .contenedor{
+        font-size: 120%;
+        border: 2px solid red;
+        display: flex;
+        height: 100px;
+        width: 700px;
+    }
+    span{border: 2px solid green;}
+    .contenedor>span{border: 2px solid black;}
+    div>span{border: 2px solid yellow;}
+    #span1{
+        font-size:1.5em;
+        border: 2px solid orange;
+        flex-grow: 1;
+    }
+    #span2{
+        font-size:1.5rem;
+        flex-basis: 200px;
+    }
+    #span3{
+        font-size:calc(20vw / 4);
+        flex-grow: 3;
+    }
+    /*
+    #####################################################################
+	###################### 	    CALCULOS		#########################
+	###################### 	     FUENTE 		#########################
+
+	body            font -> 20px (html)     x 1.25  (125%)  = 25px.
+	.contenedor     font -> 25px (body)     x 1.2   (120%)  = 30px.
+    .span1          font -> 30px (.cont)    x 1.5   (1.5em) = 45px.
+    .span2          font -> 20px (html)     x 1.5   (1.5em) = 30px.
+    .span2          font -> 700	 (width) / 100   = 7px 
+                            7(1vw) x 20 (20vw) = 140px (20vw) /4 = 35px.
+
+	###################### 	  ESPECIFICIDAD 	#########################
+                            
+    .span1 -> color orange
+    .span2 -> color black
+    .span3 -> color black
+
+	###################### 	     FLEXBOX     	#########################
+    
+    Grow:
+    700 - 300 (50px + 200px + 50px) = 400px / 4 (grow) -> 100px.
+    span1 -> (50px x 1) + 50 = 100px.
+    span2 -> 200px.
+    span3 -> (50px x 3) + 50 = 200px
+
+    ¿Qué ocurre si todos los span tienen un flex-basis de 300px?
+    Todos tendrán el mismo tamaño, al ser más grande que el contenedor.
+    700 - 900 (300px x 3) = - 200 px / 3 = 66.66px
+    span1/2/3 -> 300 - 66.66 = 233.34px.
+
+    ¿Qué ocurre si al span2 le pongo un flex-shrink de 2? 
+    Shrink:
+    700 - 900 (300px x 3) = - 200 px / 4 = 50px
+    span1/3 -> 300 - 50 = 250px.
+    span2 -> 300 - (50 x 2) = 200px.
+
+    ¿Qué ocurre si ahora a todos los span les pongo un flex-shrink de 0?
+    700 - 900 (300px x 3) = - 200 px / 0 = no se puede
+    span1/2/3 -> 300px -> no se reducen, se saldrán del contenedor
+
+    #####################################################################
+    */
+</style>
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd.js"></script></head>
+<body>
+    <div class="contenedor">
+            <span id="span1" class="item">Aaaaaa</span>
+            <span id="span2" class="item">Bbbbbb</span>
+            <span id="span3" class="item">Cccccc</span>
+    </div>
+</body>
+</html>

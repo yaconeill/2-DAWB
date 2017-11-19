@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buscador</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <h1>Buscador de clientes</h1>
+        <form action="misclientesList.jsp" method="GET">
+            <fieldset>
+                <legend>Datos cliente</legend>
+                <label for="txtNombre">Nombre</label>
+                <input id="txtNombre" type="text" name="nameToSearch"/> <br>
+                
+                <label for="Registros">Cantidad de registros</label>
+                <input id="Registros" type="text" name="registerToShow"/>
+                <input type="submit" value="Enviar"/>
+            </fieldset>
+        </form>
+    </body>
+</html>

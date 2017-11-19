@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+.calendario {
+    width: 50em;
+    margin: 0 auto;
+    height: 70em;
+    // -------------
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    // -----------------
+    border: 1px solid #dd6d10;
+    background-color: #dd6d10;
+}
+
+.mes {
+    width: 14em;
+    // ---------------
+    display: flex;
+    flex-wrap: wrap;
+    // ---------------
+    border: 1px solid #78797c;
+    background-color: #e8e5e0;
+}
+
+.mes>div:nth-child(1) {
+    border: 1px solid #78797c;
+    height: 2em;
+    // ------------------    
+    flex-basis: 100%;
+    // ------------------
+    background-color: #01678f;
+    color: #f5f3f1;
+}
+
+.mes>div:nth-child(n+2) {
+    border: 1px solid #78797c;
+    height: 2em;
+    // ---------------
+    flex-basis: calc(100%/7);
+}
+// ---------Añadido-----
+.mes>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & o{
+        color: #b0aeae;
+    }
+}
+
+.agno {
+    display: flex;
+    justify-content: center;
+}
+
+#year {
+    width: 60px;
+}
