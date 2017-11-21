@@ -29,7 +29,8 @@ body {
   -webkit-align-content: flex-start;
   -ms-flex-line-pack: start;
   align-content: flex-start;
-  border-radius: 15px; }
+  border-radius: 15px;
+  border: 0.5px solid black; }
 
 h2 {
   width: 100%;
@@ -91,8 +92,14 @@ input {
   background-color: white;
   overflow: scroll; }
   #list p {
+    opacity: 0.7;
+    border-bottom: 0.2px solid black;
     margin: 0;
     padding: 10px 0px; }
+  #list::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    /* make scrollbar transparent */ }
 
 #colors {
   display: -webkit-box;
@@ -109,3 +116,6 @@ input {
   height: 20px;
   margin: 0px 2px;
   border-radius: 5px; }
+
+button:focus {
+  outline: 0; }

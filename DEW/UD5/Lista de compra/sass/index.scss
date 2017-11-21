@@ -1,7 +1,8 @@
-body{
-    background: radial-gradient(#ccc8c8,#AA99c8);
+body {
+    background: radial-gradient(#ccc8c8, #AA99c8);
     background-size: 100%;
 }
+
 #container {
     width: 100%;
     display: flex;
@@ -12,11 +13,12 @@ body{
 #cesta {
     display: flex;
     background-color: #ccc8c8;
-    width: 550px;
-    //height: 550px;
+    width: 550px; //height: 550px;
     flex-wrap: wrap;
     align-content: flex-start;
     border-radius: 15px;
+    border: 0.5px solid black;
+    
 }
 
 h2 {
@@ -41,7 +43,8 @@ button {
 input {
     margin-left: 10px;
 }
-#listAdmin{
+
+#listAdmin {
     align-items: flex-end;
 }
 
@@ -53,7 +56,7 @@ input {
     margin-bottom: 10px;
     background-color: slategray;
     border-radius: 15px;
-    & span{
+    & span {
         margin-left: 5px;
     }
 }
@@ -65,18 +68,29 @@ input {
     background-color: white;
     overflow: scroll;
     & p {
+        opacity: 0.7;
+        border-bottom: 0.2px solid black;
         margin: 0;
         padding: 10px 0px;
     }
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
 }
 
-#colors{
+#colors {
     display: flex;
     align-items: center;
 }
-.colorSelect{
+
+.colorSelect {
     width: 20px;
     height: 20px;
     margin: 0px 2px;
     border-radius: 5px;
+}
+
+button:focus {
+    outline: 0;
 }

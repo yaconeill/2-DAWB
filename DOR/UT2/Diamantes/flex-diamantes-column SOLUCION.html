@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .carta{
+        /** Puedes añadir nuevos atributos o propiedades PERO NO MODIFICAR los existentes **/
+        border: 1px solid black;
+        height: 150px;
+        width: 100px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .diamante{
+        font-size: 30px;
+    }
+    #fila1, #fila2, #fila3{
+        /** Puedes añadir nuevos atributos o propiedades PERO NO MODIFICAR los existentes **/
+        display: flex;
+        flex-direction: row;  
+        
+    }
+    #fila1{
+         justify-content: space-around;
+    }
+    #fila2{
+         justify-content: center;
+    }
+    #fila3{
+        justify-content: space-around;
+    }
+    .carta>div{
+        border: 1px solid red;
+    }
+
+</style>
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd.js"></script></head>
+<body>
+<div class="carta">
+    <div id="fila1">
+        <div class="diamante">&#x2666</div>
+        <div class="diamante">&#x2666</div>
+    </div>
+    <div id="fila2">
+        <div class="diamante">&#x2666</div>
+    </div>
+    <div id="fila3">
+        <div class="diamante">&#x2666</div>
+        <div class="diamante">&#x2666</div>
+    </div>
+</div>
+</body>
+</html>
+
