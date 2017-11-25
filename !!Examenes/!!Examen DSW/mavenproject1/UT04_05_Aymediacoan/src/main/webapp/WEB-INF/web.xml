@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>MovieControllerServlet</servlet-name>
+        <servlet-class>es.cifpcm.ut04_05_aymediacoan.controller.MovieControllerServlet</servlet-class>
+        <init-param>
+            <param-name>app.config</param-name>
+            <param-value>newMovie</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieControllerServlet</servlet-name>
+        <url-pattern>/MovieController</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>newMovie.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form action="cafeOrder" method="GET">
+                <fieldset>
+                    <legend>Cafe</legend>
+                    <div>
+                        <span>Extras:</span>
+                        <label for="1">
+                            <span>leche normal</span>
+                            <input type="checkbox" name="lecheNormal" id="1">
+                        </label>
+                        <label for="2">
+                            <span>leche semidesnatada</span>
+                            <input type="checkbox" name="lecheSemidesnatada" id="2">
+                        </label>
+                        <label for="3">
+                            <span>leche desnatada</span>
+                            <input type="checkbox" name="lecheDesnatada" id="3">
+                        </label>
+                        <label for="4">
+                            <span>leche condensada</span>
+                            <input type="checkbox" name="lecheCondensada" id="4">
+                        </label>
+                        <label for="5">
+                            <span>leche soja</span>
+                            <input type="checkbox" name="lecheSoja" id="5">
+                        </label>
+                        <label for="6">
+                            <span>canela</span>
+                            <input type="checkbox" name="licor" id="6">
+                        </label>
+                        <label for="7">
+                            <span>licor</span>
+                            <input type="checkbox" name="canela" id="7">
+                        </label>
+                        <label for="8">
+                            <span>nata</span>
+                            <input type="checkbox" name="nata" id="8">
+                        </label>
+                    </div><br>
+                    <div>
+                        <label for="tipo">
+                            <span>Tipo de café</span><br>
+                            <select name="tipo" id="tipo">
+                                <option value="1">sólo</option>
+                                <option value="2">descafeinado</option>
+                            </select>
+                        </label>
+                    </div><br>
+                    <div>
+                        <input type="submit" value="Aceptar">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+.sudoku {
+    border: 1px solid red;
+    width: 18rem;
+    height: 18rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.casilla {
+    border: 1px solid black;
+    flex-basis: 33%;
+}
+
+.tres_x_tres {
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+    height: 33%;    
+}

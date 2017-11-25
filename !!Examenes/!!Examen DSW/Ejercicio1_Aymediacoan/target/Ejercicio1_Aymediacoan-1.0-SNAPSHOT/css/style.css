@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-nov-2017, 11:05:24
+    Author     : Yaco
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-nov-2017, 17:12:35
+    Author     : Yaco
+*/
+html, body {
+    height: 100%;
+}
+body{
+    background: -moz-linear-gradient(left, #1e5799 0%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1e5799 0%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1e5799 0%,#7db9e8 100%);
+}
+h1{
+    font-family: 'Raleway',sans-serif; 
+    font-size: 25px; 
+    font-weight: 800; 
+    line-height: 72px; 
+    margin: 0 0 0 0; 
+    text-align: center; 
+    text-transform: uppercase; 
+}
+a{
+    text-decoration: none;
+    font-size: 15px;
+}
+input[type="submit"],
+button {
+    background-color: slategrey;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+a:hover{
+    text-shadow: 2px 2px 5px royalblue;
+    color: navy;
+}
+
+fieldset {
+    margin: auto;
+    width: 320px;
+}
+p{
+    display: flex;
+    justify-content: center;
+}
+img{
+    
+}
+
