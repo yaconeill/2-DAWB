@@ -92,7 +92,7 @@ function createBasicElements() {
 	createElement('input', addition, null, 'id', 'product', 'PlaceHolder', 'Producto');
 	createElement('button', addition, null, 'id', 'add');
 	createElement('button', addition, null, 'id', 'edit');
-	createElement('button', addition, null, 'id', 'info', 'title', 'Para cambiar de color, seleccione un color antes de hace click.');
+	createElement('button', addition, null, 'id', 'info', 'title', 'Para cambiar de categoría, seleccione un color antes de clicar en editar.');
 
 	// Icon addition in button elements
 	let buttons = document.querySelectorAll('button');
