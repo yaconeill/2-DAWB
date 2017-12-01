@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="css/index.css")
+    body
+        .container
+            h1 Validaciones
+            .form
+                form(action="#" id="form1")
+                    fieldset
+                        legend Formulario 1
+                        p
+                            label(for="onlyNum") Solo números
+                            input(type="text",name="onlyNum", id="onlyNum")
+                            span#num.error
+                        p
+                            label(for="onlyLetter") Solo letras
+                            input(type="text",name="onlyLetter", id="onlyLetter")
+                            span#letter.error
+                        p
+                            label(for="num&Letter") Letras y números
+                            input(type="text",name="num&Letter", id="num&Letter")
+                            span#both.error
+                        .error                        
+                        .buttons
+                            button(type="reset", class="change", class="reset") Limpiar
+                            button(class="change", id="submit1") Enviar
+                            //- input(type="reset", class="change", value="Limpiar", class="reset")
+                            //- input(type="submit", )
+            .form
+                form(action="#" id="form2")
+                    fieldset
+                        legend Formulario 2
+                        .fields
+                            label(for="user") Usuario*
+                            input(type="text",name="user", id="user", maxlength="20")
+                            span#msgUser.error                            
+                        .fields
+                            label(for="name") Nombre*
+                            input(type="text",name="name", id="name")
+                            span#msgName.error
+                        .fields
+                            label(for="lastName") Apellidos*
+                            input(type="text",name="lastName", id="lastName")
+                            span#msgLName.error
+                        .fields
+                            label(for="address") Dirección
+                            textarea(name="address", id="address", cols="40", rows="1")
+                            span#msgAddress.error                            
+                        .fields
+                            label(for="phone") Teléfono
+                            input(type="text",name="phone", id="phone")
+                            span#msgPhone.error
+                        .fields
+                            label(for="email") Correo electrónico*
+                            input(type="text",name="email", id="email")
+                            span#msgEmail.error
+                        .fields
+                            label(for="suggestions") Sugerencias*
+                            br
+                            textarea(name="suggestions",id="suggestions", cols="40", rows="5", maxlength="500")
+                            span#msgSug.error
+                        .fields
+                            label(for="img") Foto
+                            input(type="file", name="img", id="img")
+                        .buttons
+                            button(type="reset", class="change", class="reset") Limpiar
+                            button(class="change", id="submit2") Enviar
+                            //- input(type="reset", class="change", value="Limpiar", class="reset")
+                            //- input(type="submit", class="change", value="Enviar", id="submit2")
+            .form
+                form(action="#" id="form3")
+                    fieldset
+                        legend Formulario 3
+                        - for (var i = 0; i <= 8; i++){
+                            //- .fields
+                            label(for="CheckBox"+ i) CheckBox
+                            input(type="checkbox", name="CheckBox"+ i id="CheckBox"+ i class="checkBox")
+                        - }
+                        span#msgCheckBox.error
+                        .buttons
+                            button(type="reset", class="change", class="reset") Limpiar
+                            button(class="change", id="submit3") Enviar
+                                //- input(type="reset", class="change", value="Limpiar", class="reset")
+                                //- input(type="submit", class="change", value="Enviar", id="submit2")
+        script(src="js/index.js")

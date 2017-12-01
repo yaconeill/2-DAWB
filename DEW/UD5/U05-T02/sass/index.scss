@@ -3,14 +3,18 @@
     src: url('../font/the amazing grace.ttf');
 }
 
+// body {
+//     background: #c4c4c4; // background: url('../img/fondo.png') -220px;
+//     background-size: 300%;
+//     font-family: Segoe UI;
+//     color: white;
+// }
+
 body {
     background: #c4c4c4; // background: url('../img/fondo.png') -220px;
     background-size: 300%;
     font-family: Segoe UI;
     color: white;
-}
-
-#container {
     width: 100%;
     display: flex;
     margin-top: 120px;

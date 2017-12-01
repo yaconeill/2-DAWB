@@ -6,9 +6,7 @@ body {
   background: #c4c4c4;
   background-size: 300%;
   font-family: Segoe UI;
-  color: white; }
-
-#container {
+  color: white;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;

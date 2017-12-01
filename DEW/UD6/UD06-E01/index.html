@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validaciones</h1>
+      <div class="form">
+        <form action="#" id="form1">
+          <fieldset>
+            <legend>Formulario 1</legend>
+            <p>
+              <label for="onlyNum">Solo números</label>
+              <input type="text" name="onlyNum" id="onlyNum"/><span class="error" id="num"></span>
+            </p>
+            <p>
+              <label for="onlyLetter">Solo letras</label>
+              <input type="text" name="onlyLetter" id="onlyLetter"/><span class="error" id="letter"></span>
+            </p>
+            <p>
+              <label for="num&amp;Letter">Letras y números</label>
+              <input type="text" name="num&amp;Letter" id="num&amp;Letter"/><span class="error" id="both"></span>
+            </p>
+            <div class="error">                       </div>
+            <div class="buttons">
+              <button class="change reset" type="reset">Limpiar</button>
+              <button class="change" id="submit1">Enviar</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="form">
+        <form action="#" id="form2">
+          <fieldset>
+            <legend>Formulario 2</legend>
+            <div class="fields">
+              <label for="user">Usuario*</label>
+              <input type="text" name="user" id="user" maxlength="20"/><span class="error" id="msgUser">                           </span>
+            </div>
+            <div class="fields">
+              <label for="name">Nombre*</label>
+              <input type="text" name="name" id="name"/><span class="error" id="msgName"></span>
+            </div>
+            <div class="fields">
+              <label for="lastName">Apellidos*</label>
+              <input type="text" name="lastName" id="lastName"/><span class="error" id="msgLName"></span>
+            </div>
+            <div class="fields">
+              <label for="address">Dirección</label>
+              <textarea name="address" id="address" cols="40" rows="1"></textarea><span class="error" id="msgAddress">                           </span>
+            </div>
+            <div class="fields">
+              <label for="phone">Teléfono</label>
+              <input type="text" name="phone" id="phone"/><span class="error" id="msgPhone"></span>
+            </div>
+            <div class="fields">
+              <label for="email">Correo electrónico*</label>
+              <input type="text" name="email" id="email"/><span class="error" id="msgEmail"></span>
+            </div>
+            <div class="fields">
+              <label for="suggestions">Sugerencias*</label><br/>
+              <textarea name="suggestions" id="suggestions" cols="40" rows="5" maxlength="500"></textarea><span class="error" id="msgSug"></span>
+            </div>
+            <div class="fields">
+              <label for="img">Foto</label>
+              <input type="file" name="img" id="img"/>
+            </div>
+            <div class="buttons">
+              <button class="change reset" type="reset">Limpiar</button>
+              <button class="change" id="submit2">Enviar</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="form">
+        <form action="#" id="form3">
+          <fieldset>
+            <legend>Formulario 3</legend>
+            <label for="CheckBox0">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox0" id="CheckBox0"/>
+            <label for="CheckBox1">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox1" id="CheckBox1"/>
+            <label for="CheckBox2">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox2" id="CheckBox2"/>
+            <label for="CheckBox3">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox3" id="CheckBox3"/>
+            <label for="CheckBox4">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox4" id="CheckBox4"/>
+            <label for="CheckBox5">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox5" id="CheckBox5"/>
+            <label for="CheckBox6">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox6" id="CheckBox6"/>
+            <label for="CheckBox7">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox7" id="CheckBox7"/>
+            <label for="CheckBox8">CheckBox</label>
+            <input class="checkBox" type="checkbox" name="CheckBox8" id="CheckBox8"/><span class="error" id="msgCheckBox"></span>
+            <div class="buttons">
+              <button class="change reset" type="reset">Limpiar</button>
+              <button class="change" id="submit3">Enviar</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

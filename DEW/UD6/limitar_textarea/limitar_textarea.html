@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+ function limita(maximoCaracteres) {
+    var elemento = document.getElementById("texto");
+    if(elemento.value.length >= maximoCaracteres ) {
+      elemento.value = elemento.value.substring(0,maximoCaracteres);
+      return false;
+    } else {
+      return true;
+    }
+  }
+</script>
+<textarea id="texto" onKeyUp="return limita(100);" onChange="return limita(100);"></textarea>
+</body>
+</html>
