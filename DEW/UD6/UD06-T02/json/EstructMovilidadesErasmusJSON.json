@@ -1,0 +1,215 @@
+{
+  "movilidadGM00": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadGM01": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "Italia",
+    "ciudad": "Vicenza"
+  },
+  "movilidadGM02": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "Italia",
+    "ciudad": "Brescia"
+  },
+  "movilidadGM03": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "Polonia",
+    "ciudad": "Cracovia"
+  },
+  "movilidadGM04": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "Reino Unido",
+    "ciudad": "Bournemonth"
+  },
+  "movilidadGM05": {
+    "tipo": "Grado Medio",
+    "ciclo": "Sistemas Microinformáticos y Redes",
+    "pais": "República Checa",
+    "ciudad": "Praga"
+  },
+  "movilidadGM06": {
+    "tipo": "Grado Medio",
+    "ciclo": "Instalaciones de Telecomunicaciones",
+    "pais": "Italia",
+    "ciudad": "Vicenza"
+  },
+  "movilidadGM07": {
+    "tipo": "Grado Medio",
+    "ciclo": "Instalaciones de Telecomunicaciones",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadGM08": {
+    "tipo": "Grado Medio",
+    "ciclo": "Instalaciones Eléctricas y Automatismos",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadGM09": {
+    "tipo": "Grado Medio",
+    "ciclo": "Instalaciones Eléctricas y Automatismos",
+    "pais": "Italia",
+    "ciudad": "Catania"
+  },
+  "movilidadGM10": {
+    "tipo": "Grado Medio",
+    "ciclo": "Instalaciones Eléctricas y Automatismos",
+    "pais": "República Checa",
+    "ciudad": "Praga"
+  },
+  "movilidadGM11": {
+    "tipo": "Grado Medio",
+    "ciclo": "Gestión Administrativa",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadGM12": {
+    "tipo": "Grado Medio",
+    "ciclo": "Gestión Comercial",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadGM13": {
+    "tipo": "Grado Medio",
+    "ciclo": "Gestión Comercial",
+    "pais": "República Checa",
+    "ciudad": "Praga"
+  },
+  "movilidadPr00": {
+    "ciclo": "Informática y Comunicaciones",
+    "pais": "Italia",
+    "ciudad": "Brescia"
+  },
+  "movilidadPr01": {
+    "ciclo": "Informática y Comunicaciones",
+    "pais": "Italia",
+    "ciudad": "Barcellona Pozzo di Gotto"
+  },
+  "movilidadPr02": {
+    "ciclo": "Informática y Comunicaciones",
+    "pais": "Italia",
+    "ciudad": "Bologna"
+  },
+  "movilidadGS01": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Reino Unido",
+    "ciudad": "Oxford"
+  },
+  "movilidadGS02": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "República Checa",
+    "ciudad": "Praga"
+  },
+  "movilidadGS03": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Irlanda",
+    "ciudad": "Cork"
+  },
+  "movilidadGS04": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Italia",
+    "ciudad": "Tolentino"
+  },
+  "movilidadGS05": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Alemania",
+    "ciudad": "Berlin"
+  },
+  "movilidadGS06": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Amsterdam",
+    "ciudad": "Holanda"
+  },
+  "movilidadGS07": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Polonia",
+    "ciudad": "Cracovia"
+  },
+  "movilidadGS08": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Malta",
+    "ciudad": "Qormi"
+  },
+  "movilidadGS09": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Reino Unido",
+    "ciudad": "Plymouth"
+  },
+  "movilidadGS10": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Malta",
+    "ciudad": "Attard"
+  },
+  "movilidadGS11": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Reino Unido",
+    "ciudad": "Londres"
+  },
+  "movilidadGS12": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Irlanda",
+    "ciudad": "Dublin"
+  },
+  "movilidadGS13": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Malta",
+    "ciudad": "La Valletta"
+  },
+  "movilidadGS14": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Irlanda",
+    "ciudad": "Ballinasloe"
+  },
+  "movilidadGS15": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Irlanda",
+    "ciudad": "Carlow"
+  },
+  "movilidadGS16": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Hungría",
+    "ciudad": "Budapest"
+  },
+  "movilidadGS17": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Reino Unido",
+    "ciudad": "Brighton"
+  },
+  "movilidadGS18": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Malta",
+    "ciudad": "Iklin"
+  },
+  "movilidadGS19": {
+    "tipo": "Grado Superior",
+    "ciclo": "",
+    "pais": "Noruega",
+    "ciudad": "Sortland"
+  }
+}
