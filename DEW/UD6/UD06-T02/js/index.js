@@ -91,9 +91,10 @@ function showCountry(array) {
 	tmp = uniq(tmp);
 	deleteTreeElements(chckCountry, false);
 	for (let i = 0; i < tmp.length; i++) {
-		var label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-primary');
-		createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'autocomplete', 'off');
+		var label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-primary', 'for', 'option' + i);
+		createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'name', 'option' + i);
 	}
+	return tmp;
 }
 
 function countryByCourse(array) {
@@ -134,21 +135,48 @@ function toggleDegree() {
 
 }
 
+var infoCourse = [];
 /**
  *
  */
 var selectCourse = document.getElementById('course');
 selectCourse.addEventListener('change', function () {
-	let infoCourse = [];
 	for (var e in data) {
 		if (selectCourse.value == data[e].ciclo) {
 			infoCourse.push(data[e]);
 		}
 	}
-	showCountry(infoCourse);	
-	zoom = 1;
-	myMap(true, infoCourse);
+	showCountry(infoCourse);
+	let checkBox = document.querySelectorAll('input');	
+	// let checkBoxLabel = document.querySelectorAll('label.btn');
+	for (let i = 0; i < checkBox.length; i++) {
+		checkBox[i].addEventListener('click', generateMarquers, false);
+	}	
 }, false);
+
+
+function generateMarquers() {	
+	infoCourse = selectedCountry(infoCourse);
+	myMap(true, infoCourse);
+}
+
+function selectedCountry(infoCourse) {
+	let checkBox = document.querySelectorAll('input');
+	let tmp = [];
+	let checked = [];
+	for (let i = 1; i < checkBox.length; i++) {
+		if (checkBox[i].checked)
+			checked.push(checkBox[i].previousSibling.data);
+	}
+
+	for (let i = 0; i < infoCourse.length; i++) {
+		for (let j = 0; j < checked.length; j++) {
+			if(infoCourse[i].pais == checked[j])
+				tmp.push(infoCourse[i]);
+		}
+	}
+	return tmp;
+}
 
 /**
  *
