@@ -266,7 +266,7 @@ var data = {
 		'pais': 'Holanda',
 		'localizacion': {
 			'ciudad': 'Amsterdam',
-			'latitud': 52.35000,
+			'latitud': 52.3167,
 			'longitud': 4.91667
 		}
 	},
@@ -297,7 +297,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Plymouth',
 			'latitud': 50.39639,
-			'longitud': 4.13861
+			'longitud': -4.1422
 		}
 	},
 	'movilidadGS10': {

@@ -10,6 +10,9 @@ var advanceDegree = [];
  *
  */
 var professor = [];
+
+var elementsSendToMap = [];
+
 var type = ['Todos'];
 /**
  *
@@ -25,8 +28,15 @@ function TypeMobility(type, course, country, location) {
 	this.location = location;
 }
 
+function Location(course, city, latitud, longitud) {
+	this.course = course;
+	this.city = city;
+	this.latitud = latitud;
+	this.longitud = longitud;
+}
+
 var typeMobility = document.getElementById('typeMobility');
-typeMobility.addEventListener('change', toggleDegree, false);
+typeMobility.addEventListener('change', loadDataComboBox, false);
 
 var toggle = document.getElementById('toggle');
 toggle.addEventListener('change', toggleSelected, false);
@@ -55,7 +65,7 @@ function init() {
 	type.push(mediumDegree[0].type, advanceDegree[0].type, professor[0].type);
 	writeDropDown(type, 'typeMobility');
 	toggleSelected();
-	toggleDegree();
+	loadDataComboBox();
 }
 
 let countryGrp = document.getElementById('countryGrp');
@@ -76,23 +86,49 @@ function toggleSelected() {
 	}
 }
 
+var country = document.getElementById('country');
+country.addEventListener('change', function () {
+	elementsSendToMap = showCountry();
+	myMap(elementsSendToMap, 1);
+},false);
+
 /**
  * 
  */
-function showCountry(array) {
+function showCountry() {
+	let tmp = [];
+	for (let e in data) {
+		if(data[e].pais == country.value){
+			let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+				data[e].localizacion.latitud, data[e].localizacion.longitud);
+			tmp.push(obj);	
+		}
+	}	
+	return tmp;
+}
+
+/**
+ * 
+ */
+function showCountryByCourse(array) {
 	var chckCountry = document.getElementById('checkCountry');
 	let tmp=[];
 	for (let i = 0; i < array.length; i++) {
 		tmp.push(array[i].pais);		
 	}
-	// tmp = countryByCourse(mediumDegree);
-	// tmp = countryByCourse(advanceDegree);
-	// tmp = countryByCourse(professor);
 	tmp = uniq(tmp);
 	deleteTreeElements(chckCountry, false);
-	for (let i = 0; i < tmp.length; i++) {
-		var label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-danger', 'for', 'option' + i);
-		createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i);
+	
+	if(tmp.length > 0){
+		let btnSelectAll = createElement('label', chckCountry, 'Marcar/Desmarcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
+		createElement('input', btnSelectAll, null, 'type', 'checkbox', 'id', 'selectAll');
+		for (let i = 0; i < tmp.length; i++) {
+			let label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-default', 'for', 'option' + i);
+			createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'class', 'check');
+		}
+	
+		btnSelectAll.addEventListener('click', selectAllCountryCheckBox,false);
+		selectAllCountryCheckBox();	
 	}
 	return tmp;
 }
@@ -108,16 +144,19 @@ function countryByCourse(array) {
 /**
  *
  */
-function toggleDegree() {
+function loadDataComboBox() {
 	var selected = document.getElementById('typeMobility');
+	let tmp = [];
 	switch (selected.value) {
 	case type[0]:
 		groupBy(mediumDegree, 'course', false);
-		groupBy(mediumDegree, 'country', false);
 		groupBy(advanceDegree, 'course', false);
-		groupBy(advanceDegree, 'country', false);
 		groupBy(professor, 'course', false);
-		groupBy(professor, 'country', false);
+		for (let e in data){
+			let obj = new TypeMobility(data[e].tipo, data[e].ciclo, data[e].pais, data[e].localizacion);
+			tmp.push(obj);
+		}
+		groupBy(tmp, 'country', false);
 		break;
 	case type[1]:
 		groupBy(mediumDegree, 'course', true);
@@ -135,34 +174,66 @@ function toggleDegree() {
 
 }
 
-var infoCourse = [];
 /**
  *
  */
 var selectCourse = document.getElementById('course');
 selectCourse.addEventListener('change', function () {
-	var infoCourse = [];
-	for (var e in data) {
+	let elementsSendToMap = [];
+	for (let e in data) {
 		if (selectCourse.value == data[e].ciclo) {
-			infoCourse.push(data[e]);
+			elementsSendToMap.push(data[e]);
 		}
 	}
-	showCountry(infoCourse);
+	btnSubmit.style.display = 'inline-block';
+	showCountryByCourse(elementsSendToMap);
 }, false);
 
-let submit = document.getElementById('submit');	
-submit.addEventListener('click', generateMarker, false);
+let btnSubmit = document.getElementById('submit');	
+btnSubmit.addEventListener('click', generateMarker, false);
 
-
-
-function generateMarker() {	
-	infoCourse = selectedCountry(infoCourse);
-	myMap(true, infoCourse);
+/**
+ * 
+ * @param {*} params 
+ */
+function selectAllCountryCheckBox() {
+	let selectAll = document.getElementById('selectAll');
+	let allCountryCheck = document.querySelectorAll('.check');
+	if(selectAll.checked)
+		allCountryCheck.forEach(function (e) {
+			e.checked = false;
+			e.parentNode.className = 'btn btn-default';
+		});
+	else
+		allCountryCheck.forEach(function (e) {
+			e.checked = true;
+			e.parentNode.className += ' active';
+		});
+}
+/**
+ * 
+ */
+function generateMarker() {
+	let allCountryCheck = document.querySelectorAll('.check');
+	let checked = 0;
+	allCountryCheck.forEach(function (e) {
+		if(e.checked)
+			checked++;
+	});
+	if(checked > 0){
+		elementsSendToMap = selectedCountry(elementsSendToMap);
+		myMap(elementsSendToMap, 1);
+	} else
+		alert('Debe seleccionar al menos un país');
 }
 
-function selectedCountry(infoCourse) {
+/**
+ * 
+ * @param {*} elementsSendToMap 
+ */
+function selectedCountry(elementsSendToMap) {
 	let checkBox = document.querySelectorAll('input');
-	var selectCourse = document.getElementById('course');
+	let selectCourse = document.getElementById('course');
 	let tmp = [];
 	let checked = [];
 	for (let i = 1; i < checkBox.length; i++) {
@@ -170,18 +241,15 @@ function selectedCountry(infoCourse) {
 			checked.push(checkBox[i].previousSibling.data);
 	}
 
-	for (var e in data){
+	for (let e in data){
 		for (let j = 0; j < checked.length; j++) {
-			if(data[e].pais == checked[j] && data[e].ciclo == selectCourse.value)
-				tmp.push(data[e]);
+			if(data[e].pais == checked[j] && data[e].ciclo == selectCourse.value){
+				let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+					data[e].localizacion.latitud, data[e].localizacion.longitud);
+				tmp.push(obj);
+			}
 		}
 	}
-	// for (let i = 0; i < infoCourse.length; i++) {
-	// 	for (let j = 0; j < checked.length; j++) {
-	// 		if(infoCourse[i].pais == checked[j])
-	// 			tmp.push(infoCourse[i]);
-	// 	}
-	// }
 	return tmp;
 }
 
@@ -192,7 +260,7 @@ function selectedCountry(infoCourse) {
  * @param {*} all
  */
 function groupBy(array, idToSearch, all) {
-	var tag = document.getElementById(idToSearch);
+	let tag = document.getElementById(idToSearch);
 	let tmp = ['---- Seleccionar mobilidad de ' + array[0].type + ' ----'];
 	for (let i = 0; i < array.length; i++) {
 		if (idToSearch == 'course') 
@@ -219,7 +287,7 @@ function uniq(a) {
  * @param {*} id
  */
 function writeDropDown(array, id) {
-	var tag = document.getElementById(id);
+	let tag = document.getElementById(id);
 	for (let i = 0; i < array.length; i++) {
 		createElement('option', tag, array[i]);
 	}
