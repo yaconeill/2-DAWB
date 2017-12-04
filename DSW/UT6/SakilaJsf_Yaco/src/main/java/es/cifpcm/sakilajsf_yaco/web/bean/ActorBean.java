@@ -8,7 +8,6 @@ package es.cifpcm.sakilajsf_yaco.web.bean;
 import es.cifpcm.sakilajsf_yaco.web.model.Actor;
 import es.cifpcm.sakilajsf_yaco.web.data.ActorDao;
 import es.cifpcm.sakilajsf_yaco.web.data.ActorDaoImpl;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -31,7 +30,7 @@ public class ActorBean extends Actor{
 
     public List<Actor> getActorList() {  
         ActorDao actorDao = new ActorDaoImpl();
-        return actorDao.getAllActors();
+        return actorDao.selectAll();
     }
     
 }

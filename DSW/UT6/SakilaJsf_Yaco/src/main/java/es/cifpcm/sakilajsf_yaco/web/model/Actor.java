@@ -5,13 +5,14 @@
  */
 package es.cifpcm.sakilajsf_yaco.web.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Yaco
  */
-public class Actor {
+public class Actor implements Serializable{
     private Integer id;
     private String name;
     private String lastName;

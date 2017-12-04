@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface ActorDao {
 
-    public List<Actor> getAllActors();
+    public List<Actor> selectAll();
 
     public Actor getActor(int id);
 

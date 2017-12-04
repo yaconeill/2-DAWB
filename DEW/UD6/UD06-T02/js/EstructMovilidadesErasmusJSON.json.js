@@ -46,7 +46,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Bournemonth',
 			'latitud': 50.71916,
-			'longitud': 1.88077
+			'longitud': -1.88077
 		}
 	},
 	'movilidadGM05': {
@@ -186,7 +186,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Bournemonth',
 			'latitud': 50.71916,
-			'longitud': 1.88077
+			'longitud': -1.88077
 		}
 	},
 	'movilidadPr05': {
@@ -447,7 +447,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Bournemonth',
 			'latitud': 50.71916,
-			'longitud': 1.88077
+			'longitud': -1.88077
 		}
 	},
 	'movilidadGS25': {

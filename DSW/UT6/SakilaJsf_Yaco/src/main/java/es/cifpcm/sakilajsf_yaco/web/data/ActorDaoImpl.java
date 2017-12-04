@@ -72,7 +72,7 @@ public class ActorDaoImpl implements ActorDao {
     }
 
     @Override
-    public List<Actor> getAllActors() {
+    public List<Actor> selectAll() {
         return selectAll;
     }
 
@@ -85,4 +85,9 @@ public class ActorDaoImpl implements ActorDao {
     public void updateActor(Actor actor) {
         selectAll.get(actor.getId()).setName(actor.getName());
     }
+
+//    @Override
+//    public List<Actor> selectAll() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
