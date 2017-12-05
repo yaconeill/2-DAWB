@@ -27,7 +27,7 @@ function myMap(infoCourse, newMarker) {
 	if (infoCourse != undefined)
 		if (infoCourse.length == 1){
 			zoom = 7;
-			myCenter = {lat: infoCourse[0].latitud, lng: infoCourse[0].longitud};
+			myCenter = {lat: infoCourse[0][2][0], lng: infoCourse[0][2][1]};
 		}
 	var mapCanvas = document.getElementById('googleMap');
 	var map = new google.maps.Map(mapCanvas, {
@@ -35,7 +35,7 @@ function myMap(infoCourse, newMarker) {
 		zoom: zoom
 	});
 	if(newMarker == 1){
-		var listCousesByCity = coursesByCity(infoCourse);
+		// var listCousesByCity = coursesByCity(infoCourse);
 	
 		var icon = {url: '../svg/pin.svg', // url
 			scaledSize: new google.maps.Size(60, 60),
@@ -47,18 +47,18 @@ function myMap(infoCourse, newMarker) {
 		for (i = 0; i < infoCourse.length; i++) {
 			
 			marker = new google.maps.Marker({
-				position: new google.maps.LatLng(infoCourse[i].latitud, infoCourse[i].longitud),				 
+				position: new google.maps.LatLng(infoCourse[i][2][0], infoCourse[i][2][1]),				 
 				animation: google.maps.Animation.BOUNCE,
 				icon: icon,
 				map: map
 			});
-			
+			marker.setMap(map);
 			if (infoCourse.length != 1)
 				limites.extend(marker.position);
 			
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-					infowindow.setContent('<strong>' + infoCourse[i].city + '</strong></br>' + listCousesByCity[''+i].course);
+					infowindow.setContent('<strong>' + infoCourse[i][0] + '</strong></br>' + infoCourse[i][1].join('<br>'));
 					infowindow.open(map, marker);
 				};
 			})(marker, i));
@@ -70,24 +70,24 @@ function myMap(infoCourse, newMarker) {
 	}
 }
 
-function coursesByCity(list) {
-	let cities = [];
-	for (let i = 0; i < list.length; i++) {	
-		cities.push(list[i].city);
-	}
-	cities = uniq(cities);
+// function coursesByCity(list) {
+// 	let cities = [];
+// 	for (let i = 0; i < list.length; i++)
+// 		cities.push(list[i].city);
+// 	cities = uniq(cities);
 
-	let tmp = [];
-	for (let i = 0; i < cities.length; i++) {
-		let city = cities[i];
-		let course = [];
-		for (let j = 0; j < list.length; j++) {
-			if (city == cities[i]) {			
-				course.push(list[j].course);
-			}
-		}		
-		tmp.push([city,course]);
-		// tmp.push({city:city,course:course});
-	}
-	return tmp;
-}
+// 	let tmp = [];
+// 	for (let i = 0; i < cities.length; i++) {
+// 		let city = cities[i];
+// 		let course = [];
+// 		let location = [];	
+// 		for (let j = 0; j < list.length; j++)
+// 			if (city == cities[i])			
+// 				course.push(list[j].course);
+		
+// 		location.push(list[i].latitud, list[i].longitud);
+// 		course = uniq(course);
+// 		tmp.push([city,course, location]);
+// 	}
+// 	return tmp;
+// }

@@ -35,12 +35,6 @@ function Location(course, city, latitud, longitud) {
 	this.longitud = longitud;
 }
 
-var typeMobility = document.getElementById('typeMobility');
-typeMobility.addEventListener('change', loadDataComboBox, false);
-
-var toggle = document.getElementById('toggle');
-toggle.addEventListener('change', toggleSelected, false);
-
 /**
  *
  */
@@ -66,79 +60,6 @@ function init() {
 	writeDropDown(type, 'typeMobility');
 	toggleSelected();
 	loadDataComboBox();
-}
-
-let countryGrp = document.getElementById('countryGrp');
-let courseGrp = document.getElementById('courseGrp');
-countryGrp.style.display = 'none';
-courseGrp.style.display = 'none';
-
-/**
- *
- */
-function toggleSelected() {
-	if (!toggle.checked) {
-		countryGrp.style.display = 'none';
-		courseGrp.style.display = '';
-	} else {
-		courseGrp.style.display = 'none';
-		countryGrp.style.display = '';
-	}
-}
-
-var country = document.getElementById('country');
-country.addEventListener('change', function () {
-	elementsSendToMap = showCountry();
-	myMap(elementsSendToMap, 1);
-},false);
-
-/**
- * 
- */
-function showCountry() {
-	let tmp = [];
-	for (let e in data) {
-		if(data[e].pais == country.value){
-			let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
-				data[e].localizacion.latitud, data[e].localizacion.longitud);
-			tmp.push(obj);	
-		}
-	}	
-	return tmp;
-}
-
-/**
- * 
- */
-function showCountryByCourse(array) {
-	var chckCountry = document.getElementById('checkCountry');
-	let tmp=[];
-	for (let i = 0; i < array.length; i++) {
-		tmp.push(array[i].pais);		
-	}
-	tmp = uniq(tmp);
-	deleteTreeElements(chckCountry, false);
-	
-	if(tmp.length > 0){
-		let btnSelectAll = createElement('label', chckCountry, 'Marcar/Desmarcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
-		createElement('input', btnSelectAll, null, 'type', 'checkbox', 'id', 'selectAll');
-		for (let i = 0; i < tmp.length; i++) {
-			let label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-default', 'for', 'option' + i);
-			createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'class', 'check');
-		}
-	
-		btnSelectAll.addEventListener('click', selectAllCountryCheckBox,false);
-		selectAllCountryCheckBox();	
-	}
-	return tmp;
-}
-
-function countryByCourse(array) {
-	let tmp = [];	
-	for (let i = 0; i < array.length; i++) {
-		tmp.push(array[i].country);
-	}
-	return tmp;
 }
 
 /**
@@ -171,14 +92,95 @@ function loadDataComboBox() {
 		groupBy(professor, 'country', true);
 		break;
 	}
+}
 
+
+// #region - DOM reference
+let typeMobility = document.getElementById('typeMobility');
+let toggle = document.getElementById('toggle');
+let country = document.getElementById('country');
+let selectCourse = document.getElementById('course');
+let btnSubmit = document.getElementById('submit');	
+
+let countryGrp = document.getElementById('countryGrp');
+let courseGrp = document.getElementById('courseGrp');
+countryGrp.style.display = 'none';
+courseGrp.style.display = 'none';
+// #endregion
+
+// #region - Event creation
+
+typeMobility.addEventListener('change', loadDataComboBox, false);
+
+toggle.addEventListener('change', toggleSelected, false);
+
+selectCourse.addEventListener('change', showButton, false);
+
+country.addEventListener('change', showButton, false);
+
+btnSubmit.addEventListener('click', generateMarker, false);
+
+// #endregion
+
+/**
+ *
+ */
+function toggleSelected() {
+	myMap();
+	if (!toggle.checked) {
+		countryGrp.style.display = 'none';
+		courseGrp.style.display = '';
+	} else {
+		courseGrp.style.display = 'none';
+		countryGrp.style.display = '';
+	}
+}
+
+/**
+ * 
+ */
+function showCountryByCourse(array) {
+	var chckCountry = document.getElementById('checkCountry');
+	let tmp=[];
+	for (let i = 0; i < array.length; i++) {
+		tmp.push(array[i].pais);		
+	}
+	tmp = uniq(tmp);
+	deleteTreeElements(chckCountry, false);
+	
+	if(tmp.length > 0){
+		let btnSelectAll = createElement('label', chckCountry, 'Marcar/Desmarcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
+		createElement('input', btnSelectAll, null, 'type', 'checkbox', 'id', 'selectAll');
+		for (let i = 0; i < tmp.length; i++) {
+			let label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-default', 'for', 'option' + i);
+			createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'class', 'check');
+		}
+	
+		btnSelectAll.addEventListener('click', selectAllCountryCheckBox,false);
+		selectAllCountryCheckBox();	
+	}
+	return tmp;
+}
+
+/**
+ * 
+ */
+function showCountry() {
+	let tmp = [];
+	for (let e in data) {
+		if(data[e].pais == country.value){
+			let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+				data[e].localizacion.latitud, data[e].localizacion.longitud);
+			tmp.push(obj);	
+		}
+	}	
+	return tmp;
 }
 
 /**
  *
  */
-var selectCourse = document.getElementById('course');
-selectCourse.addEventListener('change', function () {
+function showButton() {
 	let elementsSendToMap = [];
 	for (let e in data) {
 		if (selectCourse.value == data[e].ciclo) {
@@ -186,11 +188,32 @@ selectCourse.addEventListener('change', function () {
 		}
 	}
 	btnSubmit.style.display = 'inline-block';
-	showCountryByCourse(elementsSendToMap);
-}, false);
+	if (!toggle.checked)
+		showCountryByCourse(elementsSendToMap);		
+}
 
-let btnSubmit = document.getElementById('submit');	
-btnSubmit.addEventListener('click', generateMarker, false);
+/**
+ * 
+ * @param {*} elementsSendToMap 
+ */
+function selectedCountry() {
+	let checkBox = document.querySelectorAll('input');
+	let selectCourse = document.getElementById('course');
+	let tmp = [];
+	let checked = [];
+	for (let i = 1; i < checkBox.length; i++)
+		if (checkBox[i].checked)
+			checked.push(checkBox[i].previousSibling.data);
+
+	for (let e in data)
+		for (let j = 0; j < checked.length; j++)
+			if(data[e].pais == checked[j] && data[e].ciclo == selectCourse.value){
+				let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+					data[e].localizacion.latitud, data[e].localizacion.longitud);
+				tmp.push(obj);
+			}
+	return tmp;
+}
 
 /**
  * 
@@ -210,45 +233,52 @@ function selectAllCountryCheckBox() {
 			e.parentNode.className += ' active';
 		});
 }
+
 /**
  * 
  */
 function generateMarker() {
-	let allCountryCheck = document.querySelectorAll('.check');
-	let checked = 0;
-	allCountryCheck.forEach(function (e) {
-		if(e.checked)
-			checked++;
-	});
-	if(checked > 0){
-		elementsSendToMap = selectedCountry(elementsSendToMap);
+	if (!toggle.checked){
+		let allCountryCheck = document.querySelectorAll('.check');
+		let checked = 0;
+		allCountryCheck.forEach(function (e) {
+			if(e.checked)
+				checked++;
+		});
+		if(checked > 0){
+			elementsSendToMap = coursesByCity(selectedCountry(elementsSendToMap));
+			// elementsSendToMap = selectedCountry(elementsSendToMap);
+			myMap(elementsSendToMap, 1);
+		} else
+			alert('Debe seleccionar al menos un país');
+	}else{
+		elementsSendToMap = coursesByCity(showCountry());
 		myMap(elementsSendToMap, 1);
-	} else
-		alert('Debe seleccionar al menos un país');
+	}
 }
 
 /**
  * 
- * @param {*} elementsSendToMap 
+ * @param {*} list 
  */
-function selectedCountry(elementsSendToMap) {
-	let checkBox = document.querySelectorAll('input');
-	let selectCourse = document.getElementById('course');
-	let tmp = [];
-	let checked = [];
-	for (let i = 1; i < checkBox.length; i++) {
-		if (checkBox[i].checked)
-			checked.push(checkBox[i].previousSibling.data);
-	}
+function coursesByCity(list) {
+	let cities = [];
+	for (let i = 0; i < list.length; i++)
+		cities.push(list[i].city);
+	cities = uniq(cities);
 
-	for (let e in data){
-		for (let j = 0; j < checked.length; j++) {
-			if(data[e].pais == checked[j] && data[e].ciclo == selectCourse.value){
-				let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
-					data[e].localizacion.latitud, data[e].localizacion.longitud);
-				tmp.push(obj);
-			}
-		}
+	let tmp = [];
+	for (let i = 0; i < cities.length; i++) {
+		let city = cities[i];
+		let course = [];
+		let location = [];	
+		for (let j = 0; j < list.length; j++)
+			if (city == list[j].city){			
+				course.push(list[j].course);
+				location.push(list[j].latitud, list[j].longitud);
+			}		
+		course = uniq(course);
+		tmp.push([city,course, location]);
 	}
 	return tmp;
 }

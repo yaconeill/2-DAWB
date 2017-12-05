@@ -5,8 +5,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadGM01': {
@@ -75,8 +75,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadGM08': {
@@ -85,8 +85,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadGM09': {
@@ -115,8 +115,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadGM12': {
@@ -125,8 +125,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadGM13': {
@@ -155,8 +155,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Barcellona Pozzo di Gotto',
-			'latitud': 38.15000,
-			'longitud': 15.21667
+			'latitud': 38.1574384,
+			'longitud': 15.1775997
 		}
 	},
 	'movilidadPr02': {
@@ -175,13 +175,13 @@ var data = {
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadPr04': {
 		'tipo': 'Profesorado',
-		'ciclo': 'Comercio y Márketing',
+		'ciclo': 'Comercio y Marketing',
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Bournemonth',
@@ -191,12 +191,12 @@ var data = {
 	},
 	'movilidadPr05': {
 		'tipo': 'Profesorado',
-		'ciclo': 'Comercio y Márketing',
+		'ciclo': 'Comercio y Marketing',
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadPr06': {
@@ -237,7 +237,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Cork',
 			'latitud': 51.89861,
-			'longitud': 8.49583
+			'longitud': -8.49583
 		}
 	},
 	'movilidadGS04': {
@@ -246,8 +246,8 @@ var data = {
 		'pais': 'Italia',
 		'localizacion': {
 			'ciudad': 'Tolentino',
-			'latitud': 43.20000,
-			'longitud': 13.28333
+			'latitud': 43.2065392,
+			'longitud': 13.2647481
 		}
 	},
 	'movilidadGS05': {
@@ -316,8 +316,8 @@ var data = {
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadGS12': {
@@ -326,8 +326,8 @@ var data = {
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadGS13': {
@@ -357,7 +357,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Ballinasloe',
 			'latitud': 53.32876,
-			'longitud': 8.22695
+			'longitud': -8.22695
 		}
 	},
 	'movilidadGS16': {
@@ -366,8 +366,8 @@ var data = {
 		'pais': 'Irlanda',
 		'localizacion': {
 			'ciudad': 'Carlow',
-			'latitud': 52.66667,
-			'longitud': 6.83333
+			'latitud': 52.8365748,
+			'longitud': -6.9344859
 		}
 	},
 	'movilidadGS17': {
@@ -407,7 +407,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Cork',
 			'latitud': 51.89861,
-			'longitud': 8.49583
+			'longitud': -8.49583
 		}
 	},
 	'movilidadGS21': {
@@ -417,7 +417,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Cork',
 			'latitud': 51.89861,
-			'longitud': 8.49583
+			'longitud': -8.49583
 		}
 	},
 	'movilidadGS22': {
@@ -427,7 +427,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Cork',
 			'latitud': 51.89861,
-			'longitud': 8.49583
+			'longitud': -8.49583
 		}
 	},
 	'movilidadGS23': {
@@ -437,7 +437,7 @@ var data = {
 		'localizacion': {
 			'ciudad': 'Cork',
 			'latitud': 51.89861,
-			'longitud': 8.49583
+			'longitud': -8.49583
 		}
 	},
 	'movilidadGS24': {
@@ -456,8 +456,8 @@ var data = {
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadGS26': {
@@ -466,8 +466,8 @@ var data = {
 		'pais': 'Reino Unido',
 		'localizacion': {
 			'ciudad': 'Londres',
-			'latitud': 51.50735,
-			'longitud': 0.12776
+			'latitud': 51.5285582,
+			'longitud': -0.2416799
 		}
 	},
 	'movilidadGS27': {
