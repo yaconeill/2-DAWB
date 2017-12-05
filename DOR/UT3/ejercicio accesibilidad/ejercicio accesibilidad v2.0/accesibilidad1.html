@@ -24,17 +24,19 @@
         <nivel1 role="heading" aria-level="1">
             Obras de arte
         </nivel1>
-        <div class="buscar">
+        <div class="buscar" tabindex="0">
             <input type="text" title="Buscar una obra de arte"/>
             <button type="button" id="accionBuscar">Buscar</button>
         </div>
-        <div>
-            <img src="Guernica.jpg" alt="Cuadro Guernica de Pablo Picasso">
+        <div data-message="Resultados de la búsqueda" tabindex="0">
+            <div>
+                <img src="Guernica.jpg" aria-describedby="p1">
+                <p id="p1" area-hidden=true>Guernica de Pablo Picasso</p>
+            </div>
+            <div>
+                <img src="Arte-en-la-arena-2.png" aria-describedby="p2">
+                <p id="p2" area-hidden=true>Obra de arte en arena de Star Wars</p>
+            </div>
         </div>
-        <div>
-            <img src="Arte-en-la-arena-2.png" alt="Obra de arte en arena de Star Wars">
-        </div>
-        
-        
     </body>
 </html>

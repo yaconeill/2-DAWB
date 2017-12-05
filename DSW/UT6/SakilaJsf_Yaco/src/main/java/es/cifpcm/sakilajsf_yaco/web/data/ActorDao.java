@@ -21,4 +21,6 @@ public interface ActorDao {
     public void updateActor(Actor actor);
 
     public void deleteActor(Actor actor);
+
+    public void insert();
 }

@@ -14,16 +14,16 @@ import java.util.Date;
  */
 public class Actor implements Serializable{
     private Integer id;
-    private String name;
+    private String firstName;
     private String lastName;
     private Date lastUpdate;
 
     public Actor() {
     }
 
-    public Actor(Integer id, String name, String lastName, Date lastUpdate) {
+    public Actor(Integer id, String firstName, String lastName, Date lastUpdate) {
         this.id = id;
-        this.name = name;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.lastUpdate = lastUpdate;
     }
@@ -36,12 +36,12 @@ public class Actor implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getfirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

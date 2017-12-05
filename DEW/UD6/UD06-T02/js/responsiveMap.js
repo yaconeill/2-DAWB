@@ -86,7 +86,8 @@ function coursesByCity(list) {
 				course.push(list[j].course);
 			}
 		}		
-		tmp.push({city:city,course:course});
+		tmp.push([city,course]);
+		// tmp.push({city:city,course:course});
 	}
 	return tmp;
 }
