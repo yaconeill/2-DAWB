@@ -73,7 +73,7 @@ function loadDataComboBox() {
 		groupBy(mediumDegree, 'course', false);
 		groupBy(advanceDegree, 'course', false);
 		groupBy(professor, 'course', false);
-		for (let e in data){
+		for (let e in data) {
 			let obj = new TypeMobility(data[e].tipo, data[e].ciclo, data[e].pais, data[e].localizacion);
 			tmp.push(obj);
 		}
@@ -98,9 +98,9 @@ function loadDataComboBox() {
 // #region - DOM reference
 let typeMobility = document.getElementById('typeMobility');
 let toggle = document.getElementById('toggle');
+let filter = document.getElementById('filter');
 let country = document.getElementById('country');
-let selectCourse = document.getElementById('course');
-let btnSubmit = document.getElementById('submit');	
+let btnSubmit = document.getElementById('submit');
 
 let countryGrp = document.getElementById('countryGrp');
 let courseGrp = document.getElementById('courseGrp');
@@ -114,12 +114,17 @@ typeMobility.addEventListener('change', loadDataComboBox, false);
 
 toggle.addEventListener('change', toggleSelected, false);
 
-selectCourse.addEventListener('change', showButton, false);
-
-country.addEventListener('change', showButton, false);
+// country.addEventListener('change', showButton, false);
 
 btnSubmit.addEventListener('click', generateMarker, false);
 
+// filter.addEventListener('change',function () {
+function filterCountry(){
+	let selectCourse = document.querySelectorAll('label.checkbox');
+	for (let i = 0; i < selectCourse.length; i++)
+		selectCourse[i].addEventListener('click', checkCourses, false);
+}
+// },false);
 // #endregion
 
 /**
@@ -134,6 +139,7 @@ function toggleSelected() {
 		courseGrp.style.display = 'none';
 		countryGrp.style.display = '';
 	}
+	btnSubmit.style.display = 'inline-block';
 }
 
 /**
@@ -141,23 +147,23 @@ function toggleSelected() {
  */
 function showCountryByCourse(array) {
 	var chckCountry = document.getElementById('checkCountry');
-	let tmp=[];
+	let tmp = [];
 	for (let i = 0; i < array.length; i++) {
-		tmp.push(array[i].pais);		
+		tmp.push(array[i].pais);
 	}
 	tmp = uniq(tmp);
 	deleteTreeElements(chckCountry, false);
-	
-	if(tmp.length > 0){
-		let btnSelectAll = createElement('label', chckCountry, 'Marcar/Desmarcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
+
+	if (tmp.length > 0) {
+		let btnSelectAll = createElement('label', chckCountry, 'Marcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
 		createElement('input', btnSelectAll, null, 'type', 'checkbox', 'id', 'selectAll');
 		for (let i = 0; i < tmp.length; i++) {
 			let label = createElement('label', chckCountry, tmp[i], 'class', 'btn btn-default', 'for', 'option' + i);
 			createElement('input', label, null, 'type', 'checkbox', 'id', 'option' + i, 'class', 'check');
 		}
-	
-		btnSelectAll.addEventListener('click', selectAllCountryCheckBox,false);
-		selectAllCountryCheckBox();	
+
+		btnSelectAll.addEventListener('click', selectAllCountryCheckBox, false);
+		selectAllCountryCheckBox();
 	}
 	return tmp;
 }
@@ -168,28 +174,28 @@ function showCountryByCourse(array) {
 function showCountry() {
 	let tmp = [];
 	for (let e in data) {
-		if(data[e].pais == country.value){
-			let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+		if (data[e].pais == country.value) {
+			let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad,
 				data[e].localizacion.latitud, data[e].localizacion.longitud);
-			tmp.push(obj);	
+			tmp.push(obj);
 		}
-	}	
+	}
 	return tmp;
 }
 
 /**
  *
  */
-function showButton() {
+function checkCourses() {
 	let elementsSendToMap = [];
-	for (let e in data) {
-		if (selectCourse.value == data[e].ciclo) {
-			elementsSendToMap.push(data[e]);
-		}
-	}
-	btnSubmit.style.display = 'inline-block';
+	let selectedCourses = document.querySelectorAll('.checkbox');
+	for (let e in data)
+		for (let i = 2; i < selectedCourses.length; i++)
+			if (selectedCourses[i].firstElementChild.value == data[e].ciclo)
+				if (selectedCourses[i].firstElementChild.checked)
+					elementsSendToMap.push(data[e]);
 	if (!toggle.checked)
-		showCountryByCourse(elementsSendToMap);		
+		showCountryByCourse(elementsSendToMap);
 }
 
 /**
@@ -203,12 +209,12 @@ function selectedCountry() {
 	let checked = [];
 	for (let i = 1; i < checkBox.length; i++)
 		if (checkBox[i].checked)
-			checked.push(checkBox[i].previousSibling.data);
+			checked.push(checkBox[i].value);
 
 	for (let e in data)
 		for (let j = 0; j < checked.length; j++)
-			if(data[e].pais == checked[j] && data[e].ciclo == selectCourse.value){
-				let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad, 
+			if (data[e].pais == checked[j] && data[e].ciclo == selectCourse.value) { //<<<<<<<------------------
+				let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad,
 					data[e].localizacion.latitud, data[e].localizacion.longitud);
 				tmp.push(obj);
 			}
@@ -222,7 +228,7 @@ function selectedCountry() {
 function selectAllCountryCheckBox() {
 	let selectAll = document.getElementById('selectAll');
 	let allCountryCheck = document.querySelectorAll('.check');
-	if(selectAll.checked)
+	if (selectAll.checked)
 		allCountryCheck.forEach(function (e) {
 			e.checked = false;
 			e.parentNode.className = 'btn btn-default';
@@ -238,22 +244,29 @@ function selectAllCountryCheckBox() {
  * 
  */
 function generateMarker() {
-	if (!toggle.checked){
-		let allCountryCheck = document.querySelectorAll('.check');
-		let checked = 0;
-		allCountryCheck.forEach(function (e) {
-			if(e.checked)
-				checked++;
-		});
-		if(checked > 0){
+	if (!toggle.checked) {
+		if (!filter.checked){
+
+		}else {
+			let allCountryCheck = document.querySelectorAll('label.checkbox');
+			let checked = 0;
+			allCountryCheck.forEach(function (e) {
+				if (e.firstElementChild.checked)
+					checked++;
+			});			
+		}
+		if (checked > 0) {
 			elementsSendToMap = coursesByCity(selectedCountry(elementsSendToMap));
 			// elementsSendToMap = selectedCountry(elementsSendToMap);
 			myMap(elementsSendToMap, 1);
 		} else
 			alert('Debe seleccionar al menos un país');
-	}else{
-		elementsSendToMap = coursesByCity(showCountry());
-		myMap(elementsSendToMap, 1);
+	} else {
+		if (country.value != 0) {
+			elementsSendToMap = coursesByCity(showCountry());
+			myMap(elementsSendToMap, 1);
+		} else
+			alert('Debe seleccionar un país');
 	}
 }
 
@@ -271,14 +284,14 @@ function coursesByCity(list) {
 	for (let i = 0; i < cities.length; i++) {
 		let city = cities[i];
 		let course = [];
-		let location = [];	
+		let location = [];
 		for (let j = 0; j < list.length; j++)
-			if (city == list[j].city){			
+			if (city == list[j].city) {
 				course.push(list[j].course);
 				location.push(list[j].latitud, list[j].longitud);
-			}		
+			}
 		course = uniq(course);
-		tmp.push([city,course, location]);
+		tmp.push([city, course, location]);
 	}
 	return tmp;
 }
@@ -291,14 +304,14 @@ function coursesByCity(list) {
  */
 function groupBy(array, idToSearch, all) {
 	let tag = document.getElementById(idToSearch);
-	let tmp = ['---- Seleccionar mobilidad de ' + array[0].type + ' ----'];
+	let tmp = [];
 	for (let i = 0; i < array.length; i++) {
-		if (idToSearch == 'course') 
+		if (idToSearch == 'course')
 			tmp.push(array[i].course);
-		if (idToSearch == 'country') 
+		if (idToSearch == 'country')
 			tmp.push(array[i].country);
 	}
-	if (all) 
+	if (all)
 		deleteTreeElements(tag, false);
 	writeDropDown(tmp = uniq(tmp), idToSearch);
 }

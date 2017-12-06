@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
+	<link href="css/bootstrap-select.min.css" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -77,126 +78,153 @@
 							<input type="checkbox" id="toggle">
 							<span class="slider round"></span>
 						</label>
-						<span>País</span>	
-						<button type="button" type="submit" class="btn btn-success" id="submit">Mostrar</button>					
+						<span>País</span>
+						<button type="button" type="submit" class="btn btn-success" id="submit">Mostrar</button>
 					</div>
 					<br>
 					<br>
 					<div class="form-group">
 						<div id="countryGrp">
-							<label for="country">País</label>
-							<select class="form-control form-control-inline" id="country">
-							</select>
+							<div class="col-md-4 col-md-offset-4">
+								<label for="country">País</label>
+								<select class="form-control" id="country">
+									<option value="0">-- Selecciona un país --</option>
+								</select>
+							</div>
 						</div>
 						<div id="courseGrp">
-							<label for="course">Ciclo</label>
-							<select class="form-control form-control-inline" id="course">
-							</select><br><br>
-							<div class="btn-group" data-toggle="buttons" id="checkCountry"></div>
+							<div class="col-md-12">
+								<div class="col-md-4 col-md-offset-4">
+									<label for="rolename">
+										<div class="btn-group" data-toggle="buttons">
+											<label for="filter" class="btn btn-default" title="Filtrar por país" alt="Filtrar por país" onclick="filterCountry()">
+												<span class="glyphicon glyphicon-filter"></span> País
+												<input type="checkbox" id="filter" class="check">
+											</label>
+										</div>
+										Ciclo
+									</label>
+									<select class="multiselect-ui form-control" multiple="multiple" id="course">
+									</select>
+								</div>
+								<br>
+								<br>
+								<div class="col-md-12">
+									<div class="btn-group" data-toggle="buttons" id="checkCountry"></div>
+								</div>
+							</div>
 						</div>
+						<!-- </div> -->
 					</div>
-				</div>
 			</form>
-		</div>
-	</div>
-	<section class="box">
-		<div class="container">
-			<div class="col-md-10 col-md-offset-1">
-				<div id="googleMap"></div>
 			</div>
 		</div>
-	</section>
-	<section class="box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-thumbs-o-up fa-3x"></i>
-							</div>
-							<h4>likes</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-laptop fa-3x"></i>
-							</div>
-							<h4>Free Support</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.2s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-camera fa-3x"></i>
-							</div>
-							<h4>Photography</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
+		<section class="box">
+			<div class="container">
+				<div class="col-md-10 col-md-offset-1">
+					<div id="googleMap"></div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<footer>
-		<!-- <div class="inner-footer">
-		</div>
- -->
-		<div class="last-div">
+		</section>
+		<section class="box">
 			<div class="container">
 				<div class="row">
-					<div class="copyright">© 2017 Aymedicoán Mauleón Quintana |
-							<a href="https://github.com/yaconeill">GitHub </a>  |
-						</div>						
-					<div class="copyright"> 
-						© 2014 Me & Family Multi-purpose theme |
-						<a href="http://bootstraptaste.com">Bootstraptaste</a>
+					<div class="col-md-4">
+						<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
+							<div class="services">
+								<div class="icons">
+									<i class="fa fa-thumbs-o-up fa-3x"></i>
+								</div>
+								<h4>likes</h4>
+								<p>
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+								</p>
+							</div>
+						</div>
+						<hr>
 					</div>
-					<!-- 
+					<div class="col-md-4">
+						<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1s">
+							<div class="services">
+								<div class="icons">
+									<i class="fa fa-laptop fa-3x"></i>
+								</div>
+								<h4>Free Support</h4>
+								<p>
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+								</p>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="col-md-4">
+						<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.2s">
+							<div class="services">
+								<div class="icons">
+									<i class="fa fa-camera fa-3x"></i>
+								</div>
+								<h4>Photography</h4>
+								<p>
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+								</p>
+							</div>
+						</div>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<!-- <div class="inner-footer">
+		</div>
+ -->
+			<div class="last-div">
+				<div class="container">
+					<div class="row">
+						<div class="copyright">© 2017 Aymedicoán Mauleón Quintana |
+							<a href="https://github.com/yaconeill">GitHub </a> |
+						</div>
+						<div class="copyright">
+							© 2014 Me & Family Multi-purpose theme |
+							<a href="http://bootstraptaste.com">Bootstraptaste</a>
+						</div>
+						<!-- 
                         All links in the footer should remain intact. 
                         Licenseing information is available at: http://bootstraptaste.com/license/
                         You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=MeFamily
                     -->
+					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
-	<!-- Google Maps Api -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrW3zBkqwPWi-PIfTXNj3Dpmq01vu5qbE&callback=myMap"></script>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery-2.1.1.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/jquery.bxslider.min.js"></script>
-	<!-- <script src="js/jquery.isotope.min.js"></script> -->
-	<script src="js/fancybox/jquery.fancybox.pack.js"></script>
-	<script src="js/data.json.js"></script>
-	<script src="js/functionCollection.js"></script>
-	<script src="js/index.js"></script>
-	<script>
-		wow = new WOW({
+		</footer>
+		<!-- Google Maps Api -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrW3zBkqwPWi-PIfTXNj3Dpmq01vu5qbE&callback=myMap"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.bxslider.min.js"></script>
+		<!-- <script src="js/jquery.isotope.min.js"></script> -->
+		<script src="js/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="js/jquery.multiselect.js"></script>
+		<script src="js/data.json.js"></script>
+		<script src="js/functionCollection.js"></script>
+		<script src="js/index.js"></script>
+		<script>
+			wow = new WOW({
 
-			})
-			.init();
-	</script>
+				})
+				.init();
+		</script>
+		<script type="text/javascript">
+			$(function () {
+				$('.multiselect-ui').multiselect({
+					includeSelectAllOption: true
+				});
+			});
+		</script>
 </body>
 
 </html>
