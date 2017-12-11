@@ -12,14 +12,32 @@
 
 #submit {
   display: none;
-  margin-left: 15px; }
+  margin-left: 15px;
+  margin-top: -7px; }
 
-#courseGrp input:checked + .slider {
+#course {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2; }
+
+p {
+  width: 100%; }
+
+.checkCourse {
+  margin-left: 15px !important; }
+
+#courseGrp .slider {
   background-color: #6f6f70; }
 
+#courseGrp input:checked + .slider {
+  background-color: #46b8da; }
+
 #courseGrp input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #6f6f70;
-  box-shadow: 0 0 1px #6f6f70; }
+  -webkit-box-shadow: 0 0 1px #46b8da;
+  box-shadow: 0 0 1px #46b8da; }
+
+#ciclo {
+  margin-top: 20px; }
 
 .checkbox {
   /* Rounded sliders */ }
@@ -39,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #5cb85c;
+    background-color: #46b8da;
     -webkit-transition: .4s;
     -o-transition: .4s;
     transition: .4s; }
@@ -117,7 +135,8 @@ span.multiselect-native-select select {
   font-weight: 400;
   padding: 3px 0 3px 30px; }
 
-.multiselect-container > li > a > label.radio, .multiselect-container > li > a > label.checkbox {
+.multiselect-container > li > a > label.radio,
+.multiselect-container > li > a > label.checkbox {
   margin: 0; }
 
 .multiselect-container > li > a > label > input[type=checkbox] {
@@ -127,9 +146,17 @@ span.multiselect-native-select select {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-.form-inline .multiselect-container label.checkbox, .form-inline .multiselect-container label.radio {
+.form-inline .multiselect-container label.checkbox,
+.form-inline .multiselect-container label.radio {
   padding: 3px 20px 3px 40px; }
 
-.form-inline .multiselect-container li a label.checkbox input[type=checkbox], .form-inline .multiselect-container li a label.radio input[type=radio] {
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox],
+.form-inline .multiselect-container li a label.radio input[type=radio] {
   margin-left: -20px;
   margin-right: 0; }
+
+@media screen and (max-width: 500px) {
+  #course {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1; } }

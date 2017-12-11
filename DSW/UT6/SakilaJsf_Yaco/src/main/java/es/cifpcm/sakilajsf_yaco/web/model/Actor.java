@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Yaco
  */
 public class Actor implements Serializable{
-    private Integer id;
+    private int actorId;
     private String firstName;
     private String lastName;
     private Date lastUpdate;
@@ -21,26 +21,26 @@ public class Actor implements Serializable{
     public Actor() {
     }
 
-    public Actor(Integer id, String firstName, String lastName, Date lastUpdate) {
-        this.id = id;
+    public Actor(int actorId, String firstName, String lastName, Date lastUpdate) {
+        this.actorId = actorId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.lastUpdate = lastUpdate;
     }
 
-    public Integer getId() {
-        return id;
+    public int getActorId() {
+        return actorId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setActorId(int actorId) {
+        this.actorId = actorId;
     }
 
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setfirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 

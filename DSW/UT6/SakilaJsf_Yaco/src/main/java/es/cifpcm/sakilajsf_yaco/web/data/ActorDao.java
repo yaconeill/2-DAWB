@@ -16,7 +16,7 @@ public interface ActorDao {
 
     public List<Actor> selectAll();
 
-    public Actor getActor(int id);
+    public Actor getActor(int actorId);
 
     public void updateActor(Actor actor);
 

@@ -14,22 +14,18 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <p:dataTable var="actor" value="#{actorBean}">
+        <p:panelGrid columns="2">
             <f:facet name="header">
-                LIsta de actores
-            </f:facet>
+                <h3>Nuevo Actor</h3>
+            </f:facet> 
+            <h:outputText value="Id: " />
+            <h:outputText value="#{actorBean.actorId}" />
 
-            <p:column headerText="Id">
-                <h:outputText value="#{actor.getId()}" />
-            </p:column>
+            <h:outputText value="Nombre:" />
+            <h:outputText value="#{actorBean.firstName}" />
 
-            <p:column headerText="Nombre">
-                <h:outputText value="#{actor.getFirstName()}" />
-            </p:column>
-
-            <p:column headerText="Apellidos">
-                <h:outputText value="#{actor.gertLastName()}" />
-            </p:column>
-        </p:dataTable>
+            <h:outputText value="Apellido:" />
+            <h:outputText value="#{actorBean.lastName}" />
+        </p:panelGrid>
     </h:body>
 </html>

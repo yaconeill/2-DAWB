@@ -51,7 +51,7 @@ public class ActorDaoImpl implements Serializable {
 
             // Se recorre el ResultSet, mostrando por pantalla los resultados.
             while (rs.next()) {
-                Actor newActor = new Actor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4));
+                Actor newActor = new Actor(rs.getShort(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4));
                 selectAll.add(newActor);
             }
         } catch (SQLException e) {
@@ -75,16 +75,15 @@ public class ActorDaoImpl implements Serializable {
         return selectAll;
     }
 
-    public Actor getActor(int id) {
-        return selectAll.get(id);
+    public Actor getActor(int actorId) {
+        return selectAll.get(actorId);
     }
 
     public void updateActor(Actor actor) {
-        selectAll.get(actor.getId()).setfirstName(actor.getfirstName());
+        selectAll.get(actor.getActorId()).setFirstName(actor.getFirstName());
     }
 
     public Actor insert(Actor actor) {
-        Actor newActor = new Actor();
         Connection conn = null;
         try {
             ResourceBundle rb = ResourceBundle.getBundle("sakila");
@@ -104,21 +103,19 @@ public class ActorDaoImpl implements Serializable {
                 // Se crea un Statement, para realizar la consulta
                 // Se realiza la consulta. Los resultados se guardan en el ResultSet rs
 
-                pstmt.setString(1, actor.getfirstName());
+                pstmt.setString(1, actor.getFirstName());
                 pstmt.setString(2, actor.getLastName());
 
                 pstmt.executeUpdate();
                 ResultSet rs = pstmt.getGeneratedKeys();
-                try {
-                    newActor.setfirstName(rs.getString(2));
-                    Short id = rs.getShort("actor_id");
-                    newActor.setId(Integer.parseInt(id.toString()));
 
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
+                while (rs.next()) {
+                    Short id = rs.getShort(1);
+                    actor.setActorId((int) id);
                 }
             }
         } catch (SQLException e) {
+            actor.setActorId(-1);
             System.out.println(e.getMessage());
         } finally { // Se cierra la conexión con la base de datos.
             try {
@@ -129,6 +126,6 @@ public class ActorDaoImpl implements Serializable {
                 System.out.println(ex.getMessage());
             }
         }
-        return newActor;
+        return actor;
     }
 }

@@ -9,16 +9,21 @@ import es.cifpcm.sakilajsf_yaco.web.model.Actor;
 import es.cifpcm.sakilajsf_yaco.web.data.ActorDao;
 import es.cifpcm.sakilajsf_yaco.web.data.ActorDaoImpl;
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author Yaco
  */
 @Named(value = "actorBean")
-@RequestScoped
+@ApplicationScoped
 public class ActorBean extends Actor {
 
     /**
@@ -28,20 +33,34 @@ public class ActorBean extends Actor {
 
     }
 
+    @NotNull(message = "Nombre no puede estar vacío")
+    @Size(min = 1, message = "Nombre no puede estar vacío")
+    public String getfirstName() {
+        return super.getFirstName();
+    }
+
+    @NotNull(message = "Apellidos no puede estar vacío")
+    @Size(min = 1, message = "Apellidos no puede estar vacío")
+    @Override
+    public String getLastName() {
+        return super.getLastName();
+    }
+
     public List<Actor> getActorList() {
         ActorDaoImpl actorDao = new ActorDaoImpl();
         return actorDao.selectAll();
     }
 
     public String save() {
-        Actor newActor = new ActorDaoImpl().insert(this);
-        this.setId(newActor.getId());
-        return "actorDetails.xhtml?faces-redirect=true";
+        Actor actor = new ActorDaoImpl().insert(this);
+        if (actor.getActorId() != -1) {
+            return "actorDetails?faces-redirect=true";
+        } else {
+            return "/error?faces-redirect=true";
+        }
     }
 
-    @NotNull(message = "Apellidos no puede estar vacío")
-    @Override
-    public String getLastName() {
-        return super.getLastName();
+    public void error() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Error de inserción"));
     }
 }
