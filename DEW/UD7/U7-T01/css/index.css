@@ -1,0 +1,9 @@
+#slideshow p{
+  
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    background-color: rgba(255, 0, 0, 0.233);
+    color: white;
+    /* transition: margin-left 0.5s; */
+  }
