@@ -1,5 +1,10 @@
-// selections(); goThroughDOM(); manipulation(); suggestion(); tabbedBrowsing();
-// showHiddenText(); dropdown();
+// selections(); 
+// goThroughDOM(); 
+// manipulation(); 
+// suggestion(); 
+// tabbedBrowsing();
+// showHiddenText(); 
+dropDown();
 slideshow();
 // #region - Selecciones
 function selections() {
@@ -315,21 +320,23 @@ function showHiddenText() {
 
 // #endregion
 // #region - Menú desplegable
-function dropdown() {
+function dropDown() {
     /**
      * Al pasar el puntero del ratón por encima de un ítem del menú, se debe
      * mostrar su submenú en caso que exista;
      */
-
-    var menu = $('#nav');
-    $('#nav li:nth-child(3)').hover(function () {
-        $(this)
-            .find('ul')
-            .show();
-    });
     /**
      * Al no estar más encima de un ítem, el submenú se debe ocultar.
      */
+
+    $('#nav > li').hover(function () {
+        $(this).find('ul').show();
+        $(this).addClass('hover');
+    },function () {
+        $(this).find('ul').hide();
+        $(this).removeClass('hover');
+    } );
+    
 
 }
 
@@ -339,84 +346,25 @@ function slideshow() {
     /**
      * Mover el elemento #slideshow a la parte superior de la página;
      */
-
-    $('#slideshow').insertAfter('#header');
+    var slideshow = $('#slideshow');
+    slideshow.prependTo('#main');
 
     /**
      * Escribir un código que permita mostrar los ítems de forma cíclica,
      * mostrando un ítem por unos segundos, luego ocultándolo con un
      * efecto fade out y mostrando el siguiente con un efecto fade in;
      */
+    
+    slideshow.children().hide();
+    setInterval(function() {
+        $('#slideshow > li:first').fadeOut().hide().next('li').
+        fadeIn().end().appendTo(slideshow);
+    },2000);
 
-    // var slideshow = $('#slideshow').find('li');
-    // slideshow.each(function (i, e) {
-    //     $(e).hide();
-    // });
-    // $(slideshow).first().fadeIn('slow');
-
-    // declaramos slider como objeto javascript...
-    var slider = {};
-
-    // Declarando el id para buscar el elemento "ul":
-    slider.initQuery = '#slideshow';
-
-    // declarando variables iniciales...
-    slider.slider = $(slider.initQuery + " ul,ul" + slider.initQuery); // seleccionamos el "ul" con jquery
-    slider.slides = slider.slider.find('li'); // seleccionamos cada uno de sus "li"
-    slider.number = slider.slides.length; // Contamos el numero de "li" y por tanto slides que tenemos
-    slider.actual = 0; // marcado para saber que slide estamos viendo, actualmente la primera, o sea la 0
-    slider.height = 0; // altura del slider... luego la calcularemos
-    slider.width = 0; // anchura del slider... luego la calcularemos
-
-    // buscando ancho y alto de <li> máximos para calcular altura y anchura del slider...
-    for (i = 0; i < slider.number; i++) {
-        var w = $(slider.slides[i]).width();
-        var h = $(slider.slides[i]).height();
-        slider.height = (h > slider.height) ? h : slider.height;
-        slider.width = (w > slider.width) ? w : slider.width;
+    for (let i = 0; i < slideshow.find('img').length; i++) {
+        var input = $(`<input type="radio" name="img" id="${i}"/>`);
+        slideshow.after(input);
     }
-
-    // formateando el css del <ul> contenedor, la caja del slider...
-    slider
-        .slider
-        .css({overflow: "hidden", width: slider.width, height: slider.height, position: 'relative'});
-
-    // colocando en posición absoluta todos los <li> del slider, para poder ir
-    // haciendo las transiciones...
-    for (var i = 0; i < slider.number; i++) {
-        var sl = $(slider.slides[i]);
-        sl.attr('class', sl.attr('class') + " slider-slide-" + i);
-        sl.css({
-            position: 'absolute',
-            left: slider.width * i
-        });
-    }
-
-    // función para moverse a un slide concreto...
-    slider.go = function (where) {
-        if (where == 'next') {
-            slider.actual = (slider.actual < slider.number - 1) ? slider.actual * 1 + 1 : 0;
-        } else if (where == 'prev') {
-            slider.actual = (slider.actual > 0) ? slider.actual - 1 : slider.number - 1;
-        } else {
-            slider.actual = where;
-        }
-
-        for (var i = 0; i < slider.number; i++) {
-            var sl = $(slider.slides[i]);
-            sl.animate({
-                left: slider.width * (i - slider.actual)
-            }, 2000);
-        }
-    };
-
-    var autoSlider = setInterval(function () {
-        slider.go('next');
-    },3000);
-    /**
-     * Una vez llegado al último ítem de la lista, comenzar de nuevo con el primero;
-     */
-
 }
 
 // #endregion
