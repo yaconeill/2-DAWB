@@ -356,15 +356,42 @@ function slideshow() {
      */
     
     slideshow.children().hide();
-    setInterval(function() {
+
+    var images = slideshow.find('img');
+    for (let i = images.length - 1; i >= 0; i--) {
+        var input = $(`<input type="radio" name="img" id="${i}"/>`);
+        slideshow.after(input);
+    }
+    var checkBox = $('[name=img]');
+    checkBox.each(function () {
+        $(this).click(function () {
+            var id = $(this).attr('id');
+            for (let i = 0; i < checkBox.length; i++) {
+                if(i != parseInt(id))
+                    $('#slideshow').find('img').eq(parseInt(i)).parent().fadeOut().hide();
+                else
+                    $('#slideshow').find('img').eq(parseInt(id)).parent().fadeIn().show();
+            }            
+        });
+    });
+    checkBox.first().attr('checked', 'checked');
+
+    // setInterval(function() {
+    //     checkBox.each(function () {
+    //         if($(this).get()[0].checked && $(this).next().is('input')){
+    //             $(this).next().attr('checked','checked');
+    //         }
+    //     });
+    //     // checkBox.eq(idx).attr('checked', 'checked');
+    // },2000);
+
+
+        setInterval(function() {
         $('#slideshow > li:first').fadeOut().hide().next('li').
         fadeIn().end().appendTo(slideshow);
     },2000);
 
-    for (let i = 0; i < slideshow.find('img').length; i++) {
-        var input = $(`<input type="radio" name="img" id="${i}"/>`);
-        slideshow.after(input);
-    }
+
 }
 
 // #endregion
