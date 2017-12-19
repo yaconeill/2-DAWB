@@ -6,10 +6,28 @@
 	<title>jQuery Fundamentals :: Home</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- <link rel="stylesheet" href="css/index.css"> -->
 	<style>
 		#blog p.excerpt {
 			display: none;
+		}
+
+		#slide {
+			display: flex;
+			justify-content: center;
+		}
+
+		#slide input {
+			/* visibility: hidden; */
+			position: absolute;
+		}
+
+		#slide label{
+			margin: 0 20px;
+		}
+
+		.slideGrow{
+			transition: 1s;
+			transform: scale(1.4);
 		}
 	</style>
 	<script src="https://code.jquery.com/jquery-1.12.0.js"></script>

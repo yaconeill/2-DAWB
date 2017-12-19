@@ -357,41 +357,46 @@ function slideshow() {
     
     slideshow.children().hide();
 
-    var images = slideshow.find('img');
-    for (let i = images.length - 1; i >= 0; i--) {
-        var input = $(`<input type="radio" name="img" id="${i}"/>`);
-        slideshow.after(input);
-    }
-    var checkBox = $('[name=img]');
-    checkBox.each(function () {
-        $(this).click(function () {
-            var id = $(this).attr('id');
-            for (let i = 0; i < checkBox.length; i++) {
-                if(i != parseInt(id))
-                    $('#slideshow').find('img').eq(parseInt(i)).parent().fadeOut().hide();
-                else
-                    $('#slideshow').find('img').eq(parseInt(id)).parent().fadeIn().show();
-            }            
+    var images = $('#slideshow').find('img');
+    slideshow.after($('<div id="slide"></div>'));    
+    for (let i = 0; i < images.length; i++) {
+        var labelTag = $(`<label for="${i}"id="lbl${i}"></label>`);
+        var inputTag = $(`<input type="radio" name="img" id="${i}"/>`);
+        $('#slide').append(labelTag);
+        var label = $('#slide').find('label').eq(i);
+        label.click(function() {
+            changeImg(i);
         });
-    });
-    checkBox.first().attr('checked', 'checked');
+        label.append(inputTag);
+        images.eq(i).clone().appendTo(label).width(100);
+    }
 
-    // setInterval(function() {
-    //     checkBox.each(function () {
-    //         if($(this).get()[0].checked && $(this).next().is('input')){
-    //             $(this).next().attr('checked','checked');
-    //         }
-    //     });
-    //     // checkBox.eq(idx).attr('checked', 'checked');
-    // },2000);
-
-
-        setInterval(function() {
-        $('#slideshow > li:first').fadeOut().hide().next('li').
-        fadeIn().end().appendTo(slideshow);
+    var radio = $('[name=img]');
+    var idx = 0;
+    setInterval(function () {
+        radioButton();        
     },2000);
+    
+    function radioButton(){
+        $('[name=img]').eq(idx).prop('checked', true).next();
+        changeImg();
+        idx++;
+        if(idx > 2)
+            idx = 0;
+    }
 
 
+
+    function changeImg(id) {
+        if(id == undefined)
+            id = $('[name=img]').eq(idx).attr('id');
+        for (let i = 0; i < radio.length; i++) {
+            if(i == parseInt(id))
+                $('#slideshow').find('img').eq(parseInt(i)).parent().show('slow');
+            else
+                $('#slideshow').find('img').eq(parseInt(i)).parent().hide('slow');
+        }   
+
+    }
 }
-
 // #endregion
