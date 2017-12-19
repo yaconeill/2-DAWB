@@ -1,7 +1,9 @@
 var canvas = document.getElementById('canvas');
 // if (canvas.getContext) {
 var ctx = canvas.getContext('2d');
+canvas.width = 800;
 var cont = true;
+var speed = 10;
 var c = {
     x: 0
 };
@@ -18,21 +20,20 @@ function reDraw(erase) {
         ctx.arc(90 + c.x, 65, 5, 0, Math.PI * 2, true);
         ctx.stroke();
     } else {
-        ctx.fillStyle = "white";
-        ctx.fillRect(10 + c.x, 10, 120, 120);
+        ctx.clearRect(10 + c.x, 10, 120, 120);
     }
 }
-
-function move() {
+function move(timestamp) {
     reDraw(true);
     if (c.x < canvas.width - (75 + 50) && cont) 
-        c.x += 1;
+        c.x += speed;
     else 
         cont = false;
     if (c.x >= 0 && !cont) 
-        c.x -= 1;
+        c.x -= speed;
     else 
         cont = true;    
     reDraw(false);
+    requestAnimationFrame(move);
 }
-setInterval(move, 10);
+requestAnimationFrame(move);

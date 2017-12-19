@@ -1,0 +1,8 @@
+es\cifpcm\sakilajsf\web\bean\CustomerBean.class
+es\cifpcm\sakilajsf\web\bean\ActorBean.class
+es\cifpcm\sakilajsf\data\CustomerDAO.class
+es\cifpcm\sakilajsf\data\ActorDao.class
+es\cifpcm\sakilajsf\data\ActorDaoImpl.class
+es\cifpcm\sakilajsf\data\CustomerDAOImpl.class
+es\cifpcm\sakilajsf\web\model\Customer.class
+es\cifpcm\sakilajsf\web\model\Actor.class

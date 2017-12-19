@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Customers</title>
+    </h:head>
+    <h:body>
+        <p>
+            <p:button outcome="newCustomer" value="Nuevo cliente" icon="ui-icon-circle-plus" />
+        </p>
+        <p:dataTable var="customer" value="#{customerBean.customers}" 
+                    rows="5"
+                    paginator="true"
+                    paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="5,10,15,20,50" >
+            <f:facet name="header">
+                Lista de Clientes
+            </f:facet>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{customer.customerId}" />
+            </p:column>
+            
+            <p:column headerText="Id de Tienda">
+                <h:outputText value="#{customer.storeId}" />
+            </p:column>
+
+            <p:column headerText="Nombre">
+                <h:outputText value="#{customer.firstName}" />
+            </p:column>
+
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{customer.lastName}" />
+            </p:column>
+            
+            <p:column headerText="Email">
+                <h:outputText value="#{customer.email}" />
+            </p:column>
+            
+            <p:column headerText="Id de Dirección">
+                <h:outputText value="#{customer.addressId}" />
+            </p:column>
+            
+            <p:column headerText="Activo">
+                <h:outputText value="#{customer.active}" />
+            </p:column>
+            
+            <p:column headerText="Ultima Actualizacion">
+                <h:outputText value="#{customer.createDate}" >
+                    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                </h:outputText>
+            </p:column>
+            
+            <p:column headerText="Ultima Actualizacion">
+                <h:outputText value="#{customer.lastUpdate}" >
+                    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                </h:outputText>
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+
