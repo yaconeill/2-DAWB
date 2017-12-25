@@ -327,3 +327,27 @@ margin: 15px 0;
 	z-index: 100;
 	
 }
+
+/* Modificaciones */
+
+#slide {
+	display: flex;
+	justify-content: center;
+}
+
+#slide input {
+	/* visibility: hidden; */
+	position: absolute;
+}
+
+#slide label{
+	margin: 0 20px;
+}
+
+img{
+	transition: all 1s;
+}
+
+.slideGrow{
+	transform: scale(1.4);
+}

@@ -4,7 +4,7 @@
 // suggestion(); 
 // tabbedBrowsing();
 // showHiddenText(); 
-dropDown();
+// dropDown();
 slideshow();
 // #region - Selecciones
 function selections() {
@@ -136,9 +136,9 @@ function manipulation() {
      * even es par, pero el primer elemento empieza en 0
      */
 
-    $('#myList')
-        .find('li:even')
-        .remove();
+    // $('#myList')
+    //     .find('li:even')
+    //     .remove();
 
     /**
      * Añadir otro elemento h2 y otro párrafo al último div.module.
@@ -329,7 +329,7 @@ function dropDown() {
      * Al no estar más encima de un ítem, el submenú se debe ocultar.
      */
 
-    $('#nav > li').hover(function () {
+    $('#nav li').hover(function () {
         $(this).find('ul').show();
         $(this).addClass('hover');
     },function () {
@@ -356,7 +356,7 @@ function slideshow() {
      */
     
     slideshow.children().hide();
-
+    slideshow.children().first().show();
     var images = $('#slideshow').find('img');
     slideshow.after($('<div id="slide"></div>'));    
     for (let i = 0; i < images.length; i++) {
@@ -370,6 +370,7 @@ function slideshow() {
         label.append(inputTag);
         images.eq(i).clone().appendTo(label).width(100);
     }
+    $('#lbl0').children().last().addClass('slideGrow');    
 
     var radio = $('[name=img]');
     var idx = 0;
@@ -378,25 +379,23 @@ function slideshow() {
     },2000);
     
     function radioButton(){
-        $('[name=img]').eq(idx).prop('checked', true).next();
+        $('img').removeClass('slideGrow');
+        $('[name=img]').eq(idx).prop('checked', true).next().addClass('slideGrow');
         changeImg();
         idx++;
         if(idx > 2)
             idx = 0;
     }
 
-
-
     function changeImg(id) {
         if(id == undefined)
             id = $('[name=img]').eq(idx).attr('id');
         for (let i = 0; i < radio.length; i++) {
             if(i == parseInt(id))
-                $('#slideshow').find('img').eq(parseInt(i)).parent().show('slow');
+                $('#slideshow').find('img').eq(parseInt(i)).parent().fadeIn().show();
             else
-                $('#slideshow').find('img').eq(parseInt(i)).parent().hide('slow');
+                $('#slideshow').find('img').eq(parseInt(i)).parent().fadeOut().hide();
         }   
-
     }
 }
 // #endregion

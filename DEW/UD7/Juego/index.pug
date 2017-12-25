@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="css/main.css")
+        script(src="https://code.jquery.com/jquery-1.12.0.js")
+    body
+
+        #container
+            form(action="")
+                div
+                    label(for="userName") Username
+                    input(type="text" id="userName" placeholder="Username" required)
+                div
+                    label(for="name") Name
+                    input(type="text" id="name" placeholder="Name" required)
+                div
+                    label(for="lastName") Last Name
+                    input(type="text" id="lastName" placeholder="Last Name" required)
+                div
+                    label(for="email") Email
+                    input(type="text" id="email" placeholder="Email" required)
+                div
+                    label(for="pwd") Password
+                    input(type="password" id="pwd" placeholder="Password" required)
+                div
+                    label(for="matchPwd") Confirm password
+                    input(type="password" id="matchPwd" placeholder="Confirm password" required)
+                div
+                    button(type="submit") Submit
+        script(src="js/main.js")

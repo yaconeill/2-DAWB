@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-dic-2017, 17:08:33
+    Author     : Yaco
+*/
+*{
+    font-family: cursive;
+    box-sizing: border-box;
+}
+strong{
+    font-size: 2em;
+}
+strong:first-child{
+    color: royalblue;
+    margin-left: 150px;
+}
+
+strong:nth-child(2){
+    color: orange;
+}
+strong:last-child{
+    color: darkred;
+}
+input[type=text]{
+    height: 20px;
+}
+
+form button{
+    background-color: transparent !important;
+    border: none !important;
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+form span{
+    background: url(../resources/images/search.png);
+    background-size: 100%;
+    height: 50px;
+    width: 50px;
+}
+
+graphicImage{
+    width: 200px;
+}
+
+body > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+form{
+    display: flex;
+    align-items: center;
+}
+
+#img{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 500px;
+}

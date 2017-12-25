@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    label {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0px auto;
+        input{
+            margin-left: 20px;
+        }
+    }
+    button{
+        margin-top: 20px;
+    }
+}
