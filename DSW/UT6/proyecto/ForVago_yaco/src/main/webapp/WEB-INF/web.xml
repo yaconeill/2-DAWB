@@ -43,7 +43,7 @@
         <web-resource-collection>
             <web-resource-name>privatecoll</web-resource-name>
             <description>Área privada</description>
-            <url-pattern>/faces/search/*</url-pattern>
+            <url-pattern>/faces/search/prueba/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

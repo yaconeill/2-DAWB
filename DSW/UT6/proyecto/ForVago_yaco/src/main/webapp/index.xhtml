@@ -9,9 +9,9 @@
         <link href="css/style.css" rel="stylesheet" type="text/css" />
     </h:head>
     <h:body>
-        <div>
+        <div id="head">
             <div> </div>
-            <div><strong>for</strong><strong>va</strong><strong>go</strong></div>
+            <div id="logo"><h:graphicImage value="resources/images/logo_small.png" /></div>
             <div id="login">
                 <p:button outcome="newCustomer" value="Registro"></p:button>                
                 <p:button outcome="login" value="Identificarse"></p:button>
@@ -25,8 +25,8 @@
                 <!--<input type="submit" value=""/>-->
             </form>
         </div>
-        <div id="img">
-            <h:link outcome="/search/index"><h:graphicImage value="resources/images/sofa.png" /></h:link>
+        <div id="sofa">
+            <h:link outcome="/search/index"><h:graphicImage value="resources/images/sofa.png"/></h:link>
         </div>        
     </h:body>
 </html>

@@ -1,0 +1,8 @@
+UT7 Informe de implantación de módulos y seguridad en Windows
+Realiza un informe de implementación para Windows Server 2012 de lo siguiente:
+
+Agregación de módulos a Windows Server relacionados con IIS (al menos 2)
+Solución que permita el uso de páginas web con conexión segura.
+Nota: Tendrás que buscar soporte en Internet (agrega a tu informe, en un apartado final, los enlaces en los que te has basado)
+
+Nota 2: Importante, enseña al profesor la solución que has adaptado.

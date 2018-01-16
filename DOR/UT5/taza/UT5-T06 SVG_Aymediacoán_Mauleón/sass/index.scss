@@ -1,0 +1,17 @@
+.taza {
+    width: 150px;
+    height: 150px;
+}
+
+.noSelected{
+    fill: white;
+}
+
+.selected {
+    fill: rgb(28, 168, 28) !important;
+}
+
+ellipse,
+rect {
+    fill: inherit;
+}

@@ -6,42 +6,41 @@ var allUsers = [];
 var url;
 
 /**
- * Bootstrap
- */
-$(function() {
-    $('#toggle-two').bootstrapToggle({
-      on: 'Enabled',
-      off: 'Disabled'
-    });
-});
-
-
-/**
  * 
  */
 $(document).ready(function () {
     var form = $('form');
-    if (form.attr('id') === 'register')
+    if (form.attr('id') === 'register'){
+        /**
+     * Bootstrap
+     */
+        $(function () {
+            $('#toggle-two').bootstrapToggle({
+                on: 'Enabled',
+                off: 'Disabled'
+            });
+        });
         registerForm();
-    if(form.attr('id') === 'login'){
+    }
+    if (form.attr('id') === 'login') {
         var currentUser = getCookie("currentUser");
         if (currentUser == null) {
-            loginForm();            
-        } else{
-            $(location).attr('href','game.html');
-                return false;
+            loginForm();
+        } else {
+            $(location).attr('href', 'game.html');
+            return false;
         }
     }
-    if(window.location.pathname === '/index.html'){
+    if (window.location.pathname === '/index.html') {
         var currentUser = getCookie("currentUser");
         if (currentUser == null) {
             // $(location).attr('href','login.html');
             //     return false;
-        } else{
+        } else {
             $('.navbar-nav').find('.nav-item').children().remove();
         }
     }
-        
+
 });
 
 /**
@@ -73,7 +72,7 @@ function registerForm() {
     $('#generateAvatar').on('click', function () {
         var gender = {};
         var genderSwitch = $('#gender');
-        if(genderSwitch.prop('checked'))
+        if (genderSwitch.prop('checked'))
             gender.gender = 'male';
         else
             gender.gender = 'female';
@@ -102,7 +101,7 @@ function registerForm() {
 
     $('form').on('submit', function () {
         form.find('input').each(function () {
-            if($(this).attr('id') != 'generateAvatar' || 
+            if ($(this).attr('id') != 'generateAvatar' ||
                 $(this).attr('id') != 'gender')
                 user[$(this).attr('id')] = $(this).val();
         });
@@ -112,8 +111,8 @@ function registerForm() {
         localStorage.setItem('users', JSON.stringify(allUsers));
         alert('Registrado correctamente, se auto redirigirá en 5 segundos');
         // setTimeout(function () {
-            $(location).attr('href','login.html');
-            return false;
+        $(location).attr('href', 'login.html');
+        // return false;
         // }, 5000);
     });
 }
@@ -122,14 +121,14 @@ function registerForm() {
  * 
  */
 function loginForm() {
-    loadUserData();    
+    loadUserData();
     var form = $('form');
     form.on('submit', function () {
         var username = form.find('input').first();
-        var password = form.find('input').first().next();    
+        var password = form.find('input').first().next();
         if (allUsers.find(o => o.userName.toLowerCase() === username.val().toLowerCase() && o.password === password.val()) != null) {
             setCookieMaxAge('currentUser', username.val().toLowerCase());
-            $(location).attr('href','game.html');
+            $(location).attr('href', 'game.html');
             return false;
         }
         else {
@@ -140,8 +139,8 @@ function loginForm() {
 }
 
 $('#signOut').on('click', function () {
-   deleteOneCookie('currentUser');
-   location.reload();
+    deleteOneCookie('currentUser');
+    location.reload();
 });
 
 /**

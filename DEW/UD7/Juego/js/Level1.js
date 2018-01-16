@@ -61,8 +61,9 @@ Game.Level1.prototype = {
         var walls = game.physics.p2.convertCollisionObjects(map, "Collisions", true);   
         for(var wall in walls)
         {
-          walls[wall].setCollisionGroup(wallsCG);
-          walls[wall].collides(playerCG);
+            walls[wall].setCollisionGroup(wallsCG);
+            walls[wall].collides(playerCG);
+            walls[wall].collides(sphereCG);
         }
         layer = map.createLayer('field');
 
@@ -85,20 +86,19 @@ Game.Level1.prototype = {
         sphere.body.setCircle(28);
         // sphere.body.clearShapes();
         // sphere.body.loadPolygon('sprite_physics', 'sphere');
-        // sphere.body.setCollisionGroup(sphereCG);
-        // sphere.body.collides(playerCG);
-        // sphere.body.collides(wallsCG);
+        sphere.body.setCollisionGroup(sphereCG);
+        sphere.body.collides(playerCG);
+        sphere.body.collides(wallsCG);
 
         player = this.add.sprite(0, 0, 'player');
-        this.physics.p2.enable(player, true);
+        this.physics.p2.enable(player, false);
         player.frame = 1;  
-        player.body.setRectangle(70,110);
-        // player.body.clearShapes();
-        // player.body.loadPolygon('sprite_physics', 'player');
+        player.body.clearShapes();
+        player.body.loadPolygon('sprite_physics', 'player');
         player.anchor.setTo(0.5, 0.5);
 
         player.body.setCollisionGroup(playerCG);
-        // player.body.collides(sphereCG);
+        player.body.collides(sphereCG);
         // player.body.collides(sphereCG, die, this);
         player.body.collides(wallsCG);
         layer.resizeWorld();
@@ -110,7 +110,7 @@ Game.Level1.prototype = {
         // player.animations.add('shoot', [30,31,32,33,34,35,36,37], 7, true);
         // player.animations.add('run', [38, 39, 40, 41, 42, 43, 44, 45], 10, true);
         // player.animations.add('die', [1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
-        player.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
+        player.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8], 10, true);
         this.physics.p2.enable(player);
         this.camera.follow(player);
         player.body.collideWorldBounds = true;
