@@ -7,6 +7,7 @@ package es.cifpcm.forvago_yaco.web.search;
 
 import es.cifpcm.forvago_yaco.web.data.HotelOfferDao;
 import es.cifpcm.forvago_yaco.web.data.HotelOfferDaoImpl;
+import es.cifpcm.forvago_yaco.web.model.HotelBeanInput;
 import es.cifpcm.forvago_yaco.web.model.HotelOffer;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -20,15 +21,14 @@ import java.util.List;
  */
 @Named(value = "hotelResultsBean")
 @SessionScoped
-public class HotelResultsBean implements Serializable {
+public class HotelResultsBean extends HotelBeanInput implements Serializable {
 
-    private List<HotelOffer> offers = new ArrayList<>();    
+    private List<HotelOffer> offers = new ArrayList<>();
     private List<HotelOffer> selectedOffer = new ArrayList<>();
-
 
     public List<HotelOffer> getOffers() {
         HotelOfferDao hoffer = new HotelOfferDaoImpl();
-        offers = hoffer.selectAll();
+        offers = hoffer.selectAll();  
         return offers;
     }
 
@@ -48,7 +48,7 @@ public class HotelResultsBean implements Serializable {
      * Creates a new instance of HotelResultsBean
      */
     public HotelResultsBean() {
-        
+
     }
 
 }

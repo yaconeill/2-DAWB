@@ -23,17 +23,19 @@
 
                 <p:outputLabel for="cboMunicipios" value="Municipios" />
                 <p:selectOneMenu id="cboMunicipios" value="#{hotelSearchBean.idMunicipio}" effect="fold">
+                    <p:ajax listener="#{hotelSearchBean.onCboProvinciasChange()}"/>
                     <f:selectItem itemLabel="Seleccionar uno" itemValue="" />
-                    <f:selectItems value="#{hotelSearchBean.municipios}" var="municipio" itemLabel="#{municipio.nombre}" itemValue="#{municipio.codMunicipio}" />
+                    <f:selectItems value="#{hotelSearchBean.municipios}" var="municipio" itemLabel="#{municipio.nombre}" itemValue="#{municipio.idMunicipio}" />
                 </p:selectOneMenu>
                 <p:outputLabel for="entrada" value="Fecha de entrada" />
                 <p:calendar id="entrada" pages="2" mindate="#{calendarManageBean.currentDate}" effect="fold" value="#{calendarManageBean.fechaEntrada}" locale="es">
                     <p:ajax event="dateSelect" listener="#{calendarManageBean.onEntradaChange()}" update="salida"/>
-                    </p:calendar>
+                </p:calendar>
                 <p:outputLabel for="salida" value="Fecha de salida" />
                 <p:calendar id="salida" pages="2" mindate="#{calendarManageBean.fechaEntrada}" effect="fold" value="#{calendarManageBean.fechaSalida}" locale="es"/>
             </p:panelGrid>
-            <h:button value="Buscar" outcome="searchResults"/>
+
+            <h:button value="Buscar" outcome="searchResults" />
         </h:form>
     </ui:define>
 

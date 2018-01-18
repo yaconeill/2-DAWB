@@ -43,7 +43,7 @@ var islas = {
             1: 'img/lapalma/img (2)_min.jpg',
             2: 'img/lapalma/img (3)_min.jpg',
             3: 'img/lapalma/img (4)_min.jpg',
-            4: 'img/lapalma/img (5).jpg'
+            4: 'img/lapalma/img (5)_min.jpg'
         },
         'imgFull': {
             0: 'img/lapalma/img (1).jpg',
@@ -61,7 +61,7 @@ var islas = {
             1: 'img/lagomera/img (2)_min.jpg',
             2: 'img/lagomera/img (3)_min.jpg',
             3: 'img/lagomera/img (4)_min.jpg',
-            4: 'img/lagomera/img (5).jpg'
+            4: 'img/lagomera/img (5)_min.jpg'
         },
         'imgFull': {
             0: 'img/lagomera/img (1).jpg',
@@ -79,7 +79,7 @@ var islas = {
             1: 'img/elhierro/img (2)_min.jpg',
             2: 'img/elhierro/img (3)_min.jpg',
             3: 'img/elhierro/img (4)_min.jpg',
-            4: 'img/elhierro/img (5).jpg'
+            4: 'img/elhierro/img (5)_min.jpg'
         },
         'imgFull': {
             0: 'img/elhierro/img (1).jpg',
@@ -97,7 +97,7 @@ var islas = {
             1: 'img/lanzarote/img (2)_min.jpg',
             2: 'img/lanzarote/img (3)_min.jpg',
             3: 'img/lanzarote/img (4)_min.jpg',
-            4: 'img/lanzarote/img (5).jpg'
+            4: 'img/lanzarote/img (5)_min.jpg'
         },
         'imgFull': {
             0: 'img/lanzarote/img (1).jpg',
@@ -115,7 +115,7 @@ var islas = {
             1: 'img/fuerteventura/img (2)_min.jpg',
             2: 'img/fuerteventura/img (3)_min.jpg',
             3: 'img/fuerteventura/img (4)_min.jpg',
-            4: 'img/fuerteventura/img (5).jpg'
+            4: 'img/fuerteventura/img (5)_min.jpg'
         },
         'imgFull': {
             0: 'img/fuerteventura/img (1).jpg',

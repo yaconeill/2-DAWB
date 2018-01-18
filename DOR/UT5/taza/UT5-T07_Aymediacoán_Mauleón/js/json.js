@@ -1,0 +1,127 @@
+var data = [{
+    "id": 1,
+    "x": 0,
+    "y": 0,
+    "selected": "noSelected"
+},
+{
+    "id": 2,
+    "x": 100,
+    "y": 0,
+    "selected": "noSelected"
+}, {
+    "id": 3,
+    "x": 200,
+    "y": 0,
+    "selected": "noSelected"
+}, {
+    "id": 4,
+    "x": 300,
+    "y": 0,
+    "selected": "unavailable"
+}, {
+    "id": 5,
+    "x": 400,
+    "y": 0,
+    "selected": "unavailable"
+}, {
+    "id": 6,
+    "x": 0,
+    "y": 100,
+    "selected": "noSelected"
+}, {
+    "id": 7,
+    "x": 100,
+    "y": 100,
+    "selected": "unavailable"
+}, {
+    "id": 8,
+    "x": 200,
+    "y": 100,
+    "selected": "noSelected"
+}, {
+    "id": 9,
+    "x": 300,
+    "y": 100,
+    "selected": "unavailable"
+}, {
+    "id": 10,
+    "x": 400,
+    "y": 100,
+    "selected": "noSelected"
+}, {
+    "id": 11,
+    "x": 0,
+    "y": 200,
+    "selected": "noSelected"
+}, {
+    "id": 12,
+    "x": 100,
+    "y": 200,
+    "selected": "noSelected"
+}, {
+    "id": 13,
+    "x": 200,
+    "y": 200,
+    "selected": "noSelected"
+}, {
+    "id": 14,
+    "x": 300,
+    "y": 200,
+    "selected": "noSelected"
+}, {
+    "id": 15,
+    "x": 400,
+    "y": 200,
+    "selected": "noSelected"
+}, {
+    "id": 16,
+    "x": 0,
+    "y": 300,
+    "selected": "noSelected"
+}, {
+    "id": 17,
+    "x": 100,
+    "y": 300,
+    "selected": "noSelected"
+}, {
+    "id": 18,
+    "x": 200,
+    "y": 300,
+    "selected": "noSelected"
+}, {
+    "id": 19,
+    "x": 300,
+    "y": 300,
+    "selected": "noSelected"
+}, {
+    "id": 20,
+    "x": 400,
+    "y": 300,
+    "selected": "noSelected"
+}, {
+    "id": 21,
+    "x": 0,
+    "y": 400,
+    "selected": "noSelected"
+}, {
+    "id": 22,
+    "x": 100,
+    "y": 400,
+    "selected": "noSelected"
+}, {
+    "id": 23,
+    "x": 200,
+    "y": 400,
+    "selected": "noSelected"
+}, {
+    "id": 24,
+    "x": 300,
+    "y": 400,
+    "selected": "noSelected"
+}, {
+    "id": 25,
+    "x": 400,
+    "y": 400,
+    "selected": "noSelected"
+}];

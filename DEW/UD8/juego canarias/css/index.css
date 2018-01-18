@@ -3,12 +3,22 @@
   height: 40px;
   padding: 15px; }
 
-#tenerife, #lagomera, #lapalma,
-#elhierro, #grancanaria, #lanzarote,
+.invalid {
+  border: 2px solid red; }
+
+.valid {
+  border: 2px solid green; }
+
+#tenerife,
+#lagomera,
+#lapalma,
+#elhierro,
+#grancanaria,
+#lanzarote,
 #fuerteventura {
   position: absolute;
   background: transparent;
-  border-radius: 50px; }
+  border: transparent; }
 
 #tenerife {
   width: 6em;
@@ -133,7 +143,7 @@ img[width="384"] {
   #tenerife {
     width: 8em;
     height: 7em;
-    top: 45em;
+    top: 48em;
     left: 13em; }
   #lagomera {
     width: 6em;
@@ -153,39 +163,39 @@ img[width="384"] {
   #grancanaria {
     width: 6em;
     height: 6em;
-    top: 49em;
+    top: 50.5em;
     left: 21em; }
   #lanzarote {
     width: 6em;
     height: 5em;
-    top: 39em;
+    top: 41em;
     left: 37em; }
   #fuerteventura {
     width: 8em;
     height: 9em;
-    top: 43.7em;
+    top: 45.7em;
     left: 32.6em; } }
 
 @media (min-width: 992px) {
   #tenerife {
     width: 11em;
     height: 10em;
-    top: 48em;
+    top: 49em;
     left: 17em; }
   #lagomera {
     width: 5em;
     height: 5em;
-    top: 52.5em;
+    top: 53em;
     left: 11.2em; }
   #lapalma {
     width: 5em;
     height: 8em;
-    top: 44em;
+    top: 44.5em;
     left: 4em; }
   #elhierro {
     width: 6em;
     height: 6em;
-    top: 57em;
+    top: 57.5em;
     left: 2em; }
   #grancanaria {
     width: 7em;
@@ -207,21 +217,21 @@ img[width="384"] {
   #tenerife {
     width: 12em;
     height: 11em;
-    top: 49em;
+    top: 51.5em;
     left: 20em;
     background: transparent;
     border-radius: 50px; }
   #lagomera {
     width: 7em;
     height: 7em;
-    top: 54em;
+    top: 56em;
     left: 13em;
     background: transparent;
     border-radius: 50px; }
   #lapalma {
     width: 5em;
     height: 8em;
-    top: 45em;
+    top: 45.5em;
     left: 5em;
     background: transparent;
     border-radius: 50px; }
@@ -235,21 +245,21 @@ img[width="384"] {
   #grancanaria {
     width: 9em;
     height: 10em;
-    top: 55em;
+    top: 56em;
     left: 34em;
     background: transparent;
     border-radius: 50px; }
   #lanzarote {
     width: 10em;
     height: 8em;
-    top: 39em;
+    top: 40em;
     left: 60em;
     background: transparent;
     border-radius: 50px; }
   #fuerteventura {
     width: 12em;
     height: 13em;
-    top: 47em;
+    top: 48em;
     left: 52em;
     background: transparent;
     border-radius: 50px; } }
