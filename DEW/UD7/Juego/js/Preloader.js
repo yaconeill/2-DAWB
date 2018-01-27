@@ -17,8 +17,8 @@ Game.Preloader.prototype = {
         this.load.image('tileset', '../assets/tileset.png');
 
         // this.load.spritesheet('player', 'assets/player.png', 24, 26);
-        this.load.spritesheet('player', '../assets/spritesheet.png', 130, 128, 10);
-        // this.load.spritesheet("player", "assets/player_2.png", 130, 128, 45);
+        // this.load.spritesheet('player', '../assets/spritesheet.png', 130, 128, 10);
+        this.load.spritesheet("player", "../assets/player.png", 130, 128, 45);
         this.load.physics("sprite_physics", "../assets/sprite_physics.json");
 
         // this.load.spritesheet('buttons', 'assets/buttons.png', 193, 71);

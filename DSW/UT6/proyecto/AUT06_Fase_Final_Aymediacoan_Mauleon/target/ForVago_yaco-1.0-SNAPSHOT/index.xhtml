@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <div id="head">
+            <div> </div>
+            <div id="logo"><h:graphicImage value="resources/images/logo_small.png" /></div>
+            <div id="login">
+                <p:button outcome="manager/create" value="Nuevo hotel"></p:button>
+                <p:button outcome="newCustomer" value="Registro"></p:button>                
+                <p:button outcome="login" value="Identificarse"></p:button>
+            </div>
+        </div>
+        <hr/>
+        <div id="search">
+            <form name="searchForm" method="POST" action="/search/index.xhtml">
+                <input type="text" name="busqueda" size="50px"/>
+                <p:button outcome="search/index" value=""></p:button>
+            </form>
+        </div>
+        <div id="sofa">
+            <h:link outcome="/search/index"><h:graphicImage value="resources/images/sofa.png"/></h:link>
+        </div>        
+    </h:body>
+</html>
+

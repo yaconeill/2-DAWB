@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="./WEB-INF/templates/publicTemplate.xhtml">
+
+    <ui:define name="content">
+        <h:form>
+            <p:panel id="pnlNewCustomer" header="Nuevo usuario/a">
+                <p:messages id="msgs"/>
+                <h:panelGrid id="pnlCustomer" columns="3" cellpadding="5">
+                    <p:fieldset legend="Login" style="margin-bottom:20px">
+                        <h:outputLabel for="txtLogin" value="Login "/>
+                        <p:inputText id="txtLogin" value="#{customerBean.userName}" required="true"/>
+                        <p:message for="txtLogin" display="icon" />
+
+                        <h:outputLabel for="txtEmail" value="Email "/>
+                        <p:inputText id="txtEmail" value="#{customerBean.email}" required="true"/>
+                        <p:message for="txtEmail" display="icon" />
+
+                        <h:outputLabel for="pwd1" value="Contraseña: * " />
+                        <p:password id="pwd1" value="#{customerBean.password}" match="pwd2" label="Contraseña 1" required="true" /><br/>
+                        <h:outputLabel for="pwd2" value="Repetir Contraseña: * " />
+                        <p:password id="pwd2" value="#{customerBean.password}" label="Contraseña 2" required="true" /><br/>
+                    </p:fieldset>
+                    <p:fieldset legend="Datos personales" style="margin-bottom:20px">
+                        <h:outputLabel for="txtFirstName" value="Nombre "/>
+                        <p:inputText id="txtFirstName" value="#{customerBean.firstName}" required="true"/>
+                        <p:message for="txtFirstName" display="icon" />
+
+                        <h:outputLabel for="txtLastName" value="Apellidos "/>
+                        <p:inputText id="txtLastName" value="#{customerBean.lastName}" required="true"/>
+                        <p:message for="txtLastName" display="icon" />
+
+                        <p:outputLabel for="date" value="Fecha de nacimiento: " />
+                        <p:calendar id="date" value="#{customerBean.birthDate}" />
+                        <p:message for="date" display="icon" />
+
+                        <p:outputLabel for="phone" value="Nº de teléfono: " />
+                        <p:inputMask id="phone" value="#{customerBean.phone}" mask="999-999-999"/>
+                        <p:message for="phone" display="icon" />
+                    </p:fieldset><br/>
+                    <h:commandButton value="Enviar" action="#{customerBean.sendData()}"/>
+                    <h:commandButton value="Limpiar" >
+                        <p:ajax update="pnlCustomer" resetValues="true" />
+                    </h:commandButton>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

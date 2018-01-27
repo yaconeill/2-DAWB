@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Actores</title>
+    </h:head>
+    <h:body>
+        <p>
+            <p:button outcome="newActor" value="Nuevo actor" icon="ui-icon-circle-plus" />
+        </p>
+        <p:dataTable var="actor" value="#{actorBean.actorList}" rows="10" 
+                                paginator="true" 
+                                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+                                rowsPerPageTemplate="5,10,15">
+            <f:facet name="header">Lista de actores</f:facet>
+            <p:column headerText="Id">
+                <h:outputText value="#{actor.actorId}" />
+            </p:column>
+            
+            <p:column headerText="Nombre">
+                <h:outputText value="#{actor.firstName}" />
+            </p:column>
+            
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{actor.lastName}" />
+            </p:column>
+            
+            <p:column headerText="Actualizado">
+                <h:outputText value="#{actor.lastUpdate}">
+                    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                </h:outputText>
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+

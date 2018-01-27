@@ -5,11 +5,10 @@
  */
 package es.cifpcm.sakilaorm_yaco.data;
 
-import es.cifpcm.sakilaorm_yaco.Actor;
+import es.cifpcm.sakilaorm_yaco.model.Actor;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import org.hibernate.*;
 
 /**
  *

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/publicTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"                
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <div id="newHotel">
+            <h:form enctype="multipart/form-data">
+                <p:panel id="pnlNewHotel" header="Nuevo usuario/a">
+                    <p:messages id="msgs"/>
+                    <h:panelGrid id="pnlHotel" columns="3" cellpadding="5">
+                        <p:fieldset legend="Datos Hotel" style="margin-bottom:20px">
+                            <h:outputLabel for="txtName" value="Nombre "/>
+                            <p:inputText id="txtName" value="#{hotelManageBean.hotel}" required="true"/>
+                            <p:message for="txtName" display="icon" />
+
+                            <p:outputLabel for="rooms" value="Número de habitaciones: " />
+                            <p:inputNumber id="rooms" value="#{hotelManageBean.rooms}"/>
+                            <p:message for="rooms" display="icon" />
+
+                            <h:outputText value="Categoría" />
+                            <p:rating value="#{hotelManageBean.rating}" />
+                            <br/>
+
+                            <p:outputLabel for="cboProvincias" value="Provincias" />
+                            <p:selectOneMenu id="cboProvincias" value="#{hotelSearchBean.idProvincia}" effect="fold" binding="#{provincia}">
+                                <p:ajax listener="#{hotelSearchBean.onCboProvinciasChange()}" update="cboMunicipios"/>
+                                <f:selectItem itemLabel="Seleccionar uno"/>
+                                <f:selectItems value="#{hotelSearchBean.provincias}" var="provincia" itemLabel="#{provincia.nombre}" itemValue="#{provincia.idProvincia}" />
+                            </p:selectOneMenu>
+                            <br/>
+                            <p:outputLabel for="cboMunicipios" value="Municipios" />
+                            <p:selectOneMenu id="cboMunicipios" value="#{hotelManageBean.idMunicipio}" effect="fold">
+                                <p:ajax listener="#{hotelSearchBean.onMunicipiosChange()}"/>
+                                <f:selectItem itemLabel="Seleccionar uno" itemValue="" />
+                                <f:selectItems value="#{hotelSearchBean.municipios}" var="municipio" itemLabel="#{municipio.nombre}" itemValue="#{municipio.idMunicipio}" />
+                            </p:selectOneMenu>
+                            <br/>
+                            <p:outputLabel for="postCode" value="Código postal: " />
+                            <p:inputMask id="postCode" value="#{hotelManageBean.postalCode}" mask="99999"/>
+                            <p:message for="postCode" display="icon" />
+
+                            <h:outputLabel for="txtAddress" value="Dirección "/>
+                            <p:inputText id="txtAddress" value="#{hotelManageBean.address}" required="true"/>
+                            <p:message for="txtAddress" display="icon" />
+
+                            <p:outputLabel for="phone" value="Nº de teléfono: " />
+                            <p:inputMask id="phone" value="#{hotelManageBean.phone}" mask="999-999-999"/>
+                            <p:message for="phone" display="icon" />
+
+                            <p:outputLabel for="fax" value="Nº de fax " />
+                            <p:inputMask id="fax" value="#{hotelManageBean.fax}" mask="999-999-999"/>
+                            <p:message for="fax" display="icon" />
+
+                            <h3>Servicios</h3>
+                            <p:selectManyCheckbox id="services" value="#{hotelManageBean.selectedServices}" layout="grid" columns="3">
+                                <f:selectItems value="#{hotelManageBean.servicesList}" var="services" itemLabel="#{services}" itemValue="#{services}" />
+                            </p:selectManyCheckbox>
+
+                            <h3>Subir imagen</h3>
+                            <p:fileUpload fileUploadListener="#{hotelManageBean.handleFileUpload}" mode="advanced" dragDropSupport="false"
+                                          multiple="true" update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                            <p:growl id="messages" showDetail="true" />
+                            <br/>
+                            <h:commandButton value="Registrar" action="#{hotelManageBean.sendData()}"/>
+                        </p:fieldset>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

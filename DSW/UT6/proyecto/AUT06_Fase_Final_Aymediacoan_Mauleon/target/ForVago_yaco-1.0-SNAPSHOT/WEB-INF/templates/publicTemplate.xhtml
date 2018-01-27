@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--        <h:outputStylesheet name="./css/default.css"/>
+                <h:outputStylesheet name="./css/cssLayout.css"/>-->
+        <title>Facelets Template</title>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+        <script src="../../es.js" type="text/javascript"></script>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />        
+        <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <div id="head">
+                    <div style="float: left;">
+                        <h:link outcome="/customer/cart">
+                            <h:graphicImage library="images" style="width: 25%;" name="empty-cart-dark_small.png"/>
+                        </h:link>                                                   
+                        <h:outputText id="lblTotal" value="#{shoppingCartBean.totalAsString}"/>
+                    </div>
+                    <div id="logo">
+                        <p:link outcome="/index">
+                            <h:graphicImage value="/resources/images/logo_small.png" />
+                        </p:link>
+                    </div>
+                    <div id="login">
+                        <p:button outcome="/newCustomer" value="Registro"></p:button>                
+                        <p:button outcome="/login" value="Identificarse"></p:button>
+                    </div>
+                </div>
+                <hr/>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                (c) Aymediacoán Mauleón Quintana - CIFP César Manrique
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

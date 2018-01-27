@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/templates/publicTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+     <ui:define name="content" >
+        <h:form id="form">
+            <p:repeat value="#{hotelResultsBean.getOffers(hotelSearchBean.values)}" var="offer" offset="0" size="#{hotelResultsBean.getOffers(hotelSearchBean.idMunicipio).size()}" step="1" varStatus="status">
+                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                    <p:commandLink update=":form:offerDetail" oncomplete="PF('offerDialog').show()">
+                        <f:setPropertyActionListener value="#{offer}" target="#{hotelResultsBean.selectedOffer}" />
+                        <p:graphicImage library="images" name="#{offer.hotelPicture}" />
+                    </p:commandLink>
+
+                    <p:outputPanel>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputText value="Hotel:" />
+                            <h:outputText value="#{offer.hotel}" style="font-weight: bold"/>
+                            <h:outputText value="Precio:" />
+                            <h:outputText value="#{offer.price}" style="font-weight: bold"/>
+                            <p:commandButton value="Añadir">
+                                <p:ajax listener="#{shoppingCartBean.addOffer(offer)}" 
+                            update="lblTotal"/>
+                            </p:commandButton>
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+                <hr />
+            </p:repeat>
+
+            <p:dialog header="Información de la oferta" widgetVar="offerDialog" modal="true" showEffect="blind" hideEffect="explode" resizable="false">
+                <p:outputPanel id="offerDetail" style="text-align:center;">
+                    <p:panelGrid  columns="2" rendered="#{not empty hotelResultsBean.selectedOffer}" columnClasses="label,value">
+                        <f:facet name="header">
+                            <p:graphicImage library="images" name="#{offer.hotelPicture}" />
+                        </f:facet>
+                        <h:outputText value="Hotel:" />
+                        <h:outputText value="#{offer.hotel}" style="font-weight: bold"/>
+                        <h:outputText value="Precio:" />
+                        <h:outputText value="#{offer.price}" style="font-weight: bold"/>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+</ui:composition>

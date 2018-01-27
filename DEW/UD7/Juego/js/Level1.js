@@ -9,19 +9,21 @@ EnemyBird = function (index, game, x, y) {
     this.bird.body.allowGravity = false;
 
     this.birdTween = game.add.tween(this.bird).to({
-        y: this.bird.y + 200}, 2000, 'Linear', true, 0, 100, true);
+        y: this.bird.y + 200
+    }, 2000, 'Linear', true, 0, 100, true);
 };
 
 var enemy1;
 var sphere;
 
-Game.Level1 = function (game) {};
+Game.Level1 = function (game) { };
 var map;
 var layer;
 
 var player;
 var controls = {};
-var playerSpeed = 150;
+var playerSpeed = 15;
+// var playerSpeed = 150;
 var jumpTimer = 0;
 var button;
 
@@ -40,9 +42,10 @@ Game.Level1.prototype = {
         this.world.setBounds(0, 0, 736, 472);
         this.physics.startSystem(Phaser.Physics.P2JS);
         this.physics.p2.setImpactEvents(true);
-        this.physics.p2.defaultRestitution = 0.8;
+        // this.physics.p2.defaultRestitution = 0.1;
         // Set the gravity
-        this.physics.p2.gravity.y = 1000;
+        this.physics.p2.gravity.y = 1200;
+        // this.physics.p2.applyDamping = false;
 
         this.stage.backgroundColor = '#3A5963';
 
@@ -55,12 +58,11 @@ Game.Level1.prototype = {
         map.addTilesetImage('tileset', 'tileset');
 
         var playerCG = this.physics.p2.createCollisionGroup();
-        var wallsCG =  this.physics.p2.createCollisionGroup();
+        var wallsCG = this.physics.p2.createCollisionGroup();
         var sphereCG = this.physics.p2.createCollisionGroup();
-        
-        var walls = game.physics.p2.convertCollisionObjects(map, "Collisions", true);   
-        for(var wall in walls)
-        {
+
+        var walls = game.physics.p2.convertCollisionObjects(map, "Collisions", true);
+        for (var wall in walls) {
             walls[wall].setCollisionGroup(wallsCG);
             walls[wall].collides(playerCG);
             walls[wall].collides(sphereCG);
@@ -89,10 +91,12 @@ Game.Level1.prototype = {
         sphere.body.setCollisionGroup(sphereCG);
         sphere.body.collides(playerCG);
         sphere.body.collides(wallsCG);
+        // sphere.physics.p2.applyDamping = false;
+
 
         player = this.add.sprite(0, 0, 'player');
         this.physics.p2.enable(player, false);
-        player.frame = 1;  
+        player.frame = 1;
         player.body.clearShapes();
         player.body.loadPolygon('sprite_physics', 'player');
         player.anchor.setTo(0.5, 0.5);
@@ -105,12 +109,12 @@ Game.Level1.prototype = {
 
         this.spawn();
 
-        // player.animations.add('idle', [10,11,12,13,14,15,16,17,18], 7, true);
-        // player.animations.add('jump', [20,21,22,23,24,25,26,27,28, 29], 7, true);
-        // player.animations.add('shoot', [30,31,32,33,34,35,36,37], 7, true);
-        // player.animations.add('run', [38, 39, 40, 41, 42, 43, 44, 45], 10, true);
-        // player.animations.add('die', [1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
-        player.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8], 10, true);
+        player.animations.add('idle', [10, 11, 12, 13, 14, 15, 16, 17, 18], 7, true);
+        player.animations.add('jump', [20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 7, true);
+        player.animations.add('shoot', [30, 31, 32, 33, 34, 35, 36, 37], 7, true);
+        player.animations.add('run', [38, 39, 40, 41, 42, 43, 44, 45], 10, true);
+        player.animations.add('die', [1, 2, 3, 4, 5, 6, 7, 8, 9], 10, true);
+        // player.animations.add('idle', [1, 2, 3, 4, 5, 6, 7, 8], 10, true);
         this.physics.p2.enable(player);
         this.camera.follow(player);
         player.body.collideWorldBounds = true;
@@ -173,18 +177,18 @@ Game.Level1.prototype = {
 
         // this.physics.arcade.collide(sphere, layer);
         // this.physics.arcade.collide(sphere,player);
-        
-        // if(controls.right.isDown){
-        //     player.animations.play('run');
-        //     player.scale.setTo(1, 1);
-        //     player.body.velocity.x += playerSpeed;
-        // }
 
-        // if(controls.left.isDown){
-        //     player.animations.play('run');
-        //     player.scale.setTo(-1,1);
-        //     player.body.velocity.x -= playerSpeed;
-        // }
+        if (controls.right.isDown) {
+            player.animations.play('run');
+            player.scale.setTo(1, 1);
+            player.body.velocity.x += playerSpeed;
+        }
+
+        if (controls.left.isDown) {
+            player.animations.play('run');
+            player.scale.setTo(-1, 1);
+            player.body.velocity.x -= playerSpeed;
+        }
 
         // if(controls.up.isDown && (player.body.onFloor() || 
         // player.body.touching.down) && this.time.now > jumpTimer){
@@ -193,36 +197,42 @@ Game.Level1.prototype = {
         //     player.animations.play('jump');
         // }
 
-        if(player.body.velocity.x == 0 && player.body.velocity.y == 0)
+        if (controls.up.isDown && this.time.now > jumpTimer && checkIfCanJump(this)) {
+            player.body.moveUp(500);
+            player.animations.play('jump');
+            jumpTimer = this.time.now + 750;
+        }
+
+        if (Math.round(player.body.velocity.x) == 0 && Math.round(player.body.velocity.y) == 0)
             player.animations.play('idle');
-        
+
         // if(controls.shoot.isDown)
         //     this.shootNut();
-        
+
         // if (checkOverlap(nuts, enemy1.bird))
         //     enemy1.bird.kill();
     },
 
-    createObjects: function(objectName) {
+    createObjects: function (objectName) {
         var me = this;
-    
+
         // Create a group to hold the collision shapes
         var objects = this.add.group();
         objects.enableBody = true;
         objects.physicsBodyType = Phaser.Physics.P2JS;
         objects.createMultiple(40, objectName);
-    
-        objects.forEach(function(child){
+
+        objects.forEach(function (child) {
             child.body.clearShapes();
             child.body.loadPolygon('sphere_physics', objectName);
         }, me);
-    
+
         return objects;
     },
 
     // spawnObject: function() {
     //     var me = this;
-    
+
     //     // Spawn a new banana on the left and give it a random velocity
     //     var object = me.bananas.getFirstDead();
     //     object.lifespan = 6000;
@@ -236,40 +246,40 @@ Game.Level1.prototype = {
 
     // spawnObjectLeft: function() {
     //     var me = this;
-    
+
     //     // Spawn new object
     //     var object = me.spawnObject();
-    
+
     //     // Set object's position and velocity
     //     object.reset(1, 600);
     //     object.body.velocity.x = me.random.integerInRange(100, 800);
     //     object.body.velocity.y = -me.random.integerInRange(1000, 1500);
     // },
-    
+
     // spawnObjectRight: function() {
     //     var me = this;
-    
+
     //     // Spawn new object
     //     var object = me.spawnObject();
-    
+
     //     // Set object's position and velocity
     //     object.reset(me.game.world.width, 600);
     //     object.body.velocity.x = -me.random.integerInRange(100, 800);
     //     object.body.velocity.y = -me.random.integerInRange(1000, 1500);
     // },
 
-    resetPlayer:function () {
-        player.animations.play('die');        
+    resetPlayer: function () {
+        player.animations.play('die');
         player.reset(100, 500);
     },
 
-    getCoin:function () {
-        map.putTile(-1, layer.getTileX(player.x),layer.getTileY(player.y));
+    getCoin: function () {
+        map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
 
         playerXP += 15;
     },
-    speedPowerUp:function () {
-        map.putTile(-1, layer.getTileX(player.x),layer.getTileY(player.y));
+    speedPowerUp: function () {
+        map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
         playerSpeed += 50;
         this.time.events.add(Phaser.Timer.SECOND * 2, function () {
             playerSpeed -= 50;
@@ -285,21 +295,59 @@ Game.Level1.prototype = {
     shootNut: function () {
         if (this.time.now > shootTime) {
             nut = nuts.getFirstExists(false);
-            if(nut){
+            if (nut) {
                 nut.reset(player.x, player.y);
 
                 nut.body.velocity.y = -600;
                 shootTime = this.time.now + 900;
 
                 playerXP += 15;
-                
+
             }
         }
     }
 };
+
+function checkIfCanJump(game) {
+
+    var yAxis = p2.vec2.fromValues(0, 1);
+    var result = false;
+
+    for (var i = 0; i < game.physics.p2.world.narrowphase.contactEquations.length; i++) {
+        var c = game.physics.p2.world.narrowphase.contactEquations[i];
+
+        if (c.bodyA === player.body.data || c.bodyB === player.body.data) {
+            var d = p2.vec2.dot(c.normalA, yAxis); // Normal dot Y-axis
+            if (c.bodyA === player.body.data) d *= -1;
+            if (d > 0.5) result = true;
+        }
+    }
+
+    return result;
+
+}
 
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds();
     var boundsB = spriteB.getBounds();
     return Phaser.Rectangle.intersects(boundsA, boundsB);
 }
+
+
+// function create() {
+//     game.physics.startSystem(Phaser.Physics.P2JS);
+//     game.physics.p2.gravity.y = 1000;
+//     game.physics.p2.applyDamping = false;
+//     material1 = game.physics.p2.createMaterial();
+//     material2 = game.physics.p2.createMaterial();
+//     game.physics.p2.createContactMaterial(material1, material2, { friction: 0, restitution: 1.0 });
+//     var sprite1 = game.add.sprite(300, 100, '');
+//     game.physics.p2.enable(sprite1, true);
+//     sprite1.body.setCircle(30);
+//     // sprite1.body.damping=0;    
+//     sprite1.body.setMaterial(material1);
+//     var sprite2 = game.add.sprite(190, 400, '');
+//     game.physics.p2.enable(sprite2, true);
+//     sprite2.body.setRectangle(600, 20);
+//     sprite2.body.static = true; sprite2.body.setMaterial(material2);
+// }
