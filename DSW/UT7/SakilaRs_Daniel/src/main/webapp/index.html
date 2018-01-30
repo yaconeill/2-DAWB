@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Hola mi gente</h1>
+        
+        <ul id="actorList" style="float: left"></ul>
+
+        <script type="text/javascript">
+            function refreshActorList() {
+                var custList = $('#actorList');
+                custList.empty();
+                $.ajax({
+                    "url": "webresources/actors/",
+                    "type": "get",
+                    "dataType": "json",
+                    "success": function (actors) {
+                        //console.log(actors);
+                        $.each(actors, function (i, actor) {
+                            var li = $('<li/>')
+                                    .addClass('ui-menu-item')
+                                    .attr('role', 'menuitem')
+                                    .appendTo(custList);
+                            var a = $('<a/>')
+                                    .addClass('ui-all')
+                                    .text(actor.firstName + ' ' + actor.lastName)
+                                    .appendTo(li);
+                        });
+                    }
+                });
+            }
+            $(function () {
+                refreshActorList();
+            });
+        </script>
+    </body>
+</html>

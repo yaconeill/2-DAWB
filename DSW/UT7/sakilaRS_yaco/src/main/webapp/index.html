@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Actores</h1>
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Búsqueda por ID Actor</legend>
+                    <label for="actorId">
+                        <span>ActorId</span>
+                        <input type="text" id="actorId">
+                    </label><br/>                    
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+            <br/>
+            <form>
+                <fieldset>
+                    <legend>Inserta Actor</legend>
+                    <label for="txtNombre">
+                        <span>Nombre</span>
+                        <input type="text" id="txtNombre">
+                    </label><br/>
+                    <label for="txtApellidos">
+                        <span>Apellido</span>
+                        <input type="text" id="txtApellidos">
+                    </label><br/>
+                    <input type="button" id="cmdSubmit" value="Ajax">
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <h2>Lista de Actores</h2>
+            <div id="actorList">TODO write content</div>
+        </div>
+        <script type="text/javascript">
+            function refreshActorList() {
+                var custList = $('#actorList');
+                custList.empty();
+                $.ajax({
+                    "url": "webresources/actors/",
+                    "type": "get",
+                    "dataType": "json",
+                    "success": function (actors) {
+                        console.log(actors);
+                        $.each(actors, function (i, actor) {
+                            var li = $('<li/>')
+                                    .addClass('ui-menu-item')
+                                    .attr('role', 'menuitem')
+                                    .appendTo(custList);
+                            var a = $('<a/>')
+                                    .addClass('ui-all')
+                                    .text(actor.firstName + ' ' + actor.lastName)
+                                    .appendTo(li);
+                        });
+                    }
+                });
+            }
+            $("#cmdSubmit").click(function (event) {
+                var actor = {
+                    firstName: $("#txtNombre").val(),
+                    lastName: $("#txtApellidos").val()
+                };
+                var request = $.ajax({
+                    url: "webresources/actors/actor/",
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify(actor),
+                    dataType: "json",
+                    success: function (data, textStatus, jqXHR) {
+                        refreshActorList();
+                    }
+                });
+            });
+            $(function () {
+                refreshActorList();
+            });
+        </script>
+    </body>
+</html>

@@ -1,34 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.cifpcm.sakilars_yaco.services.rest;
 
 import es.cifpcm.sakilars_yaco.Actor;
 import es.cifpcm.sakilars_yaco.data.ActorDao;
 import es.cifpcm.sakilars_yaco.data.ActorDaoImpl;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import org.primefaces.json.JSONArray;
 
 /**
  *
  * @author Yaco
  */
-@Path ("actors")
+@Path("actors")
 public class ActorRest {
 
     private List<Actor> selectActors;
+
     public ActorRest() {
+
     }
-    
+
     @GET
-    @Produces("text/html")
-    public String readActors(){
+    @Produces("application/json")
+    public String readActors() {
         ActorDao ad = new ActorDaoImpl();
         selectActors = ad.selectAll();
-        return "<html lang=\"en\"><body><h1>"+selectActors.get(0).getFirstName()+"</h1></body></html>";
+        JSONArray selectActorsJson = new JSONArray(selectActors);
+        return selectActorsJson.toString();
+    }
+
+    @POST
+    @Path("{actor}")
+    @Consumes("application/json")
+    public String readOneActor(@PathParam("{actor}") JSONArray actor) throws Exception {
+        ActorDao ad = new ActorDaoImpl();
+        Actor newActor = new Actor();
+//        newActor.setFirstName(actor);
+//        newActor.setLastName(actor);
+        ad.insert(newActor);
+        JSONArray selectActorsJson = new JSONArray(selectActors.get(0));
+        return selectActorsJson.toString();
     }
 }
