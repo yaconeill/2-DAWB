@@ -9,10 +9,10 @@ var url;
  */
 $(document).ready(function () {
     var form = $('form');
-    if (form.attr('id') === 'register'){
+    if (form.attr('id') === 'register') {
         /**
-     * Bootstrap
-     */
+         * Bootstrap
+         */
         $(function () {
             $('#toggle-two').bootstrapToggle({
                 on: 'Enabled',
@@ -58,8 +58,7 @@ function registerForm() {
             }
             username.next().text('El nombre de usuario ya existe');
             username.addClass('invalid').next().removeClass('validMsg').addClass('invalidMsg');
-        }
-        else {
+        } else {
             valid = true;
             if (username.next('span').length != 0) {
                 username.removeClass('invalid').next().addClass('validMsg');
@@ -88,8 +87,7 @@ function registerForm() {
             }
             email.next().text('Ya hay un usuario registrado con ese email');
             email.addClass('invalid').next().removeClass('validMsg').addClass('invalidMsg');
-        }
-        else {
+        } else {
             valid = true;
             if (email.next('span').length != 0) {
                 email.removeClass('invalid').next().addClass('validMsg');
@@ -129,8 +127,7 @@ function loginForm() {
             setCookieMaxAge('currentUser', username.val().toLowerCase());
             $(location).attr('href', 'game.html');
             return false;
-        }
-        else {
+        } else {
             alert('Usuario no encontrado');
         }
     });
